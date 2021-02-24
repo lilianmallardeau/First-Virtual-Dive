@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class menuManager : MonoBehaviour
 {
-    [SerializeField] private Collider settingsButton;
-    [SerializeField] private Collider helpButton;
-    [SerializeField] private Collider backSettings;
-    [SerializeField] private Collider backHelp;
-
+    [Header("Canvas")]
     [SerializeField] private Canvas settings;
     [SerializeField] private Canvas help;
     [SerializeField] private Canvas menu;
+
+    [Header("Sliders")]
+    [SerializeField] private Slider generalVolume;
+    [SerializeField] private Slider FXVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -35,15 +36,25 @@ public class menuManager : MonoBehaviour
             help.gameObject.SetActive(true);
             menu.gameObject.SetActive(false);
         }
-        if (collider.gameObject.CompareTag("backHelp"))
+        if (collider.gameObject.CompareTag("QuitButton"))
         {
-            help.gameObject.SetActive(false);
-            menu.gameObject.SetActive(true);
+            Application.Quit();
         }
-        if (collider.gameObject.CompareTag("backSettings"))
+        if (collider.gameObject.CompareTag("volumeMoinsGeneral"))
         {
-            settings.gameObject.SetActive(false);
-            menu.gameObject.SetActive(true);
+            generalVolume.value -= 0.2f;
+        }
+        if (collider.gameObject.CompareTag("volumePlusGeneral"))
+        {
+            generalVolume.value += 0.2f;
+        }
+        if (collider.gameObject.CompareTag("volumeMoinsFX"))
+        {
+            FXVolume.value -= 0.2f;
+        }
+        if (collider.gameObject.CompareTag("volumePlusFX"))
+        {
+            FXVolume.value += 0.2f;
         }
     }
 }
