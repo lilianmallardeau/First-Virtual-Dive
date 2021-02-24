@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7754630570126923852}
   - component: {fileID: 2359850505829600833}
   m_Layer: 0
-  m_Name: LeftHandGestureRecognizer
+  m_Name: GestureRecognizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

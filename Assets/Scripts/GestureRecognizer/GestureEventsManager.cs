@@ -24,10 +24,10 @@ public class GestureEventsManager : MonoBehaviour
     public enum HandGesture
     {
         None,
-        Thumbs,
+        Thumb,
         Ok,
         Flat,
-        Point
+        Fist
     }
     
     // The current and previous gestures
@@ -62,9 +62,9 @@ public class GestureEventsManager : MonoBehaviour
     {
         HandGesture handGesture = HandGesture.None;
         switch (gesture) {
-            case "thumbs":
-            case "Thumbs":
-                handGesture = HandGesture.Thumbs;
+            case "thumb":
+            case "Thumb":
+                handGesture = HandGesture.Thumb;
                 break;
             case "ok":
             case "Ok":
@@ -74,9 +74,9 @@ public class GestureEventsManager : MonoBehaviour
             case "Flat":
                 handGesture = HandGesture.Flat;
                 break;
-            case "point":
-            case "Point":
-                handGesture = HandGesture.Point;
+            case "fist":
+            case "Fist":
+                handGesture = HandGesture.Fist;
                 break;
         }
 
@@ -99,8 +99,13 @@ public class GestureEventsManager : MonoBehaviour
 
     private void ComputeFinalGesture()
     {
-        // TODO: compute the final gesture and update currentGesture
-        currentGesture = Gesture.None;
+        if (_leftHandGesture == HandGesture.Ok || _rightHandGesture == HandGesture.Ok)
+            currentGesture = Gesture.Ok;
+        else 
+        {
+            // TODO: compute the final gesture and update currentGesture
+            currentGesture = Gesture.None;
+        }
         InvokeGestureEvent(currentGesture);
     }
 
