@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -553,6 +553,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3035925448575045600, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: GoForward.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3035925448575045600, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: GoForward.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3035925448575045600, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: GoForward.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5601838149412208054, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: m_Name
@@ -615,3 +630,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+--- !u!1 &9192192050003408362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1626372178494156763, guid: 92c7f072e494ba3478cb92584ae003b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 9192192050003408361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9192192050003408363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1626372178494156765, guid: 92c7f072e494ba3478cb92584ae003b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 9192192050003408361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9192192050003408364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9192192050003408362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4396ec2d46f8cda48bc1f363e8b3fe81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _xrNode: 5
+  bodyToMove: {fileID: 9192192050003408363}
+  _fadingScreen: {fileID: 573014405}
+  mvtSpeed: 10
+  layerChangeTime: 4

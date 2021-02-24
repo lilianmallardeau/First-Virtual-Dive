@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using Object = System.Object;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void MoveForward()
+    public void MoveForward()
     {
         if (_canMove)
         {
