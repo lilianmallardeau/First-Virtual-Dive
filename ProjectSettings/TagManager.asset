@@ -8,6 +8,12 @@ TagManager:
   - helpButton
   - backSettings
   - backHelp
+  - Zone
+  - volumeMoinsGeneral
+  - volumePlusGeneral
+  - volumeMoinsFX
+  - volumePlusFX
+  - QuitButton
   layers:
   - Default
   - TransparentFX

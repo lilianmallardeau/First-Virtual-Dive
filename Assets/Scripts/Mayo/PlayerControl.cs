@@ -82,6 +82,7 @@ public class PlayerControl : MonoBehaviour
             yield return null;
         }
 
+        _fadingScreen.color = new Color(0, 0, 0, 0);
         _canMove = true;
         _changingLayer = false;
     }
