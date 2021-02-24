@@ -15,6 +15,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Image _fadingScreen;
     public float mvtSpeed = 10f;
     [SerializeField] private float layerChangeTime = 4f;
+    [SerializeField] private GestureEventsManager _gestureManager;
 
     private List<InputDevice> _devices = new List<InputDevice>();
     private InputDevice _device;
@@ -53,10 +54,7 @@ public class PlayerControl : MonoBehaviour
 
     public void MoveForward()
     {
-        if (_canMove)
-        {
-            bodyToMove.transform.Translate(transform.forward * (mvtSpeed * Time.deltaTime));
-        }
+        StartCoroutine(MoveForwardCoroutine());
     }
 
     public void ChangeLayerProcedure(bool up)
@@ -93,5 +91,18 @@ public class PlayerControl : MonoBehaviour
 
         _canMove = true;
         _changingLayer = false;
+    }
+
+    private IEnumerator MoveForwardCoroutine()
+    {
+        while (_gestureManager.currentGesture == GestureEventsManager.Gesture.GoForward)
+        {
+            if (_canMove)
+            {
+                bodyToMove.transform.Translate(transform.forward * (mvtSpeed * Time.deltaTime));
+            }
+
+            yield return null;
+        }
     }
 }
