@@ -84,7 +84,7 @@ public class GestureEventsManager : MonoBehaviour
             _leftHandGesture = handGesture;
         else if (hand == OVRHand.Hand.HandRight)
             _rightHandGesture = handGesture;
-        ComputeFinalGesture();
+        //ComputeFinalGesture();
     }
     
     public void SetLeftHandGesture(string gesture)
@@ -105,11 +105,15 @@ public class GestureEventsManager : MonoBehaviour
             currentGesture = Vector3.Dot(Vector3.up, _rightHand.transform.forward) < 0 ? Gesture.Up : Gesture.Down;
         else if (_leftHandGesture == HandGesture.Thumb)
             currentGesture = Vector3.Dot(Vector3.up, _leftHand.transform.forward) > 0 ? Gesture.Up : Gesture.Down;
+        else if (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Fist &&
+                 Vector3.Distance(_rightHand.transform.position, _leftHand.transform.position) < .4)
+            currentGesture = Gesture.GoForward;
+        else if (_leftHandGesture == HandGesture.Flat && _rightHandGesture == HandGesture.Flat &&
+                 Vector3.Distance(_rightHand.transform.position, _leftHand.transform.position) < .3 && Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right) < .1)
+            currentGesture = Gesture.HalfPressure;
+        // TODO: compute the final gesture and update currentGesture
         else
-        {
-            // TODO: compute the final gesture and update currentGesture
             currentGesture = Gesture.None;
-        }
         InvokeGestureEvent(currentGesture);
     }
 
@@ -150,6 +154,7 @@ public class GestureEventsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ComputeFinalGesture();
+        //GameObject.Find("text").GetComponent<TextMesh>().text = Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right).ToString();
     }
 }
