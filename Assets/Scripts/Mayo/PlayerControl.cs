@@ -99,7 +99,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (_canMove)
             {
-                bodyToMove.transform.Translate(transform.forward * (mvtSpeed * Time.deltaTime));
+                bodyToMove.transform.Translate(transform.forward * (mvtSpeed * Time.fixedDeltaTime));
             }
 
             yield return null;

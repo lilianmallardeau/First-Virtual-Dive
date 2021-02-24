@@ -111,10 +111,15 @@ public class GestureEventsManager : MonoBehaviour
         else if (_leftHandGesture == HandGesture.Flat && _rightHandGesture == HandGesture.Flat &&
                  Vector3.Distance(_rightHand.transform.position, _leftHand.transform.position) < .3 && Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right) < .1)
             currentGesture = Gesture.HalfPressure;
+        else if (false)
+            currentGesture = Gesture.Menu;
         // TODO: compute the final gesture and update currentGesture
         else
             currentGesture = Gesture.None;
-        InvokeGestureEvent(currentGesture);
+        if (currentGesture != _previousGesture) {
+            _previousGesture = currentGesture;
+            InvokeGestureEvent(currentGesture);
+        }
     }
 
     private void InvokeGestureEvent(Gesture gesture)
