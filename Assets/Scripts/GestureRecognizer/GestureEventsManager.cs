@@ -40,8 +40,8 @@ public class GestureEventsManager : MonoBehaviour
     
     // The two hands to get orientation, position and stuff
     [Header("Hands")]
-    [SerializeField] private GameObject leftHand;
-    [SerializeField] private GameObject rightHand;
+    [SerializeField] private GameObject _leftHand;
+    [SerializeField] private GameObject _rightHand;
 
     // Events for each gesture
     [Header("Gestures events")]
@@ -101,7 +101,11 @@ public class GestureEventsManager : MonoBehaviour
     {
         if (_leftHandGesture == HandGesture.Ok || _rightHandGesture == HandGesture.Ok)
             currentGesture = Gesture.Ok;
-        else 
+        else if (_rightHandGesture == HandGesture.Thumb)
+            currentGesture = Vector3.Dot(Vector3.up, _rightHand.transform.forward) < 0 ? Gesture.Up : Gesture.Down;
+        else if (_leftHandGesture == HandGesture.Thumb)
+            currentGesture = Vector3.Dot(Vector3.up, _leftHand.transform.forward) > 0 ? Gesture.Up : Gesture.Down;
+        else
         {
             // TODO: compute the final gesture and update currentGesture
             currentGesture = Gesture.None;
