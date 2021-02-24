@@ -16,6 +16,7 @@ public class PlayerControl : MonoBehaviour
     public float mvtSpeed = 10f;
     [SerializeField] private float layerChangeTime = 4f;
     [SerializeField] private GestureEventsManager _gestureManager;
+    [SerializeField] private float layerTransitionSpeed = .5f;
 
     private List<InputDevice> _devices = new List<InputDevice>();
     private InputDevice _device;
@@ -40,16 +41,6 @@ public class PlayerControl : MonoBehaviour
         {
             GetDevices();
         }
-        
-        if (_device.TryGetFeatureValue(CommonUsages.primaryButton, out var primaryButtonAction) && primaryButtonAction && !_changingLayer)
-        {
-            ChangeLayerProcedure(true);
-        }
-        
-        if (_device.TryGetFeatureValue(CommonUsages.triggerButton, out var triggerButtonAction) && triggerButtonAction)
-        {
-            MoveForward();
-        }
     }
 
     public void MoveForward()
@@ -59,9 +50,12 @@ public class PlayerControl : MonoBehaviour
 
     public void ChangeLayerProcedure(bool up)
     {
-        if (true) // TODO Check here that looking at instructor / instructor is looking
+        if (!_changingLayer)
         {
-            StartCoroutine(ChangeLayerProcedureCoroutine(up));
+            if (true) // TODO Check here that looking at instructor / instructor is looking
+            {
+                StartCoroutine(ChangeLayerProcedureCoroutine(up));
+            }
         }
     }
 
@@ -69,20 +63,19 @@ public class PlayerControl : MonoBehaviour
     {
         _canMove = false;
         _changingLayer = true;
-        Vector3 direction = up ? Vector3.up : Vector3.down;
-        
+
         // TODO make instructor start the procedure
         // Instructor asks if everything is ok
         yield return new WaitForSeconds(.01f);
         do
         {
             yield return null;
-        } while (!(_device.TryGetFeatureValue(CommonUsages.secondaryButton, out var secundaryButtonAction) && secundaryButtonAction)); // TODO Get current gesture from gesture manager
+        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Ok); // TODO Get current gesture from gesture manager
 
         float timer = layerChangeTime;
         while (timer > 0)
         {
-            bodyToMove.transform.Translate(direction * (mvtSpeed * Time.deltaTime));
+            bodyToMove.transform.Translate((up ? Vector3.up : Vector3.down) * (layerTransitionSpeed * Time.deltaTime));
             timer -= Time.deltaTime;
             // TODO fade screen to black
             _fadingScreen.color = new Color(0, 0, 0, 1 - timer / layerChangeTime);

@@ -223,6 +223,7 @@ MonoBehaviour:
   _fadingScreen: {fileID: 0}
   mvtSpeed: 10
   layerChangeTime: 4
+  _gestureManager: {fileID: 0}
 --- !u!1 &4928054705104616347
 GameObject:
   m_ObjectHideFlags: 0
