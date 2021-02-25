@@ -1,16 +1,26 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class menuManager : MonoBehaviour
 {
+    
     [Header("Canvas")]
     [SerializeField] private Canvas settings;
     [SerializeField] private Canvas help;
     [SerializeField] private Canvas menu;
+    [SerializeField] private Canvas rightMenu;
+    [SerializeField] private Canvas leftMenu;
+    [SerializeField] private Canvas popDebut;
 
     [Header("Sliders")]
+    [SerializeField] private Slider thisGeneralVolume;
     [SerializeField] private Slider generalVolume;
+    [SerializeField] private Slider thisFXVolume;
     [SerializeField] private Slider FXVolume;
+
+    [Header("Sounds")]
+    [SerializeField] private AudioSource menuSound;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +31,14 @@ public class menuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GestureEventsManager.hand == "right")
+        {
+            menu = rightMenu;
+        }
+        if (GestureEventsManager.hand == "left")
+        {
+            menu = leftMenu;
+        }
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -30,10 +47,12 @@ public class menuManager : MonoBehaviour
         {
             settings.gameObject.SetActive(true);
             menu.gameObject.SetActive(false);
+            menuSound.Play();
         }
         if (collider.gameObject.CompareTag("helpButton"))
         {
             help.gameObject.SetActive(true);
+            menuSound.Play();
             menu.gameObject.SetActive(false);
         }
         if (collider.gameObject.CompareTag("QuitButton"))
@@ -42,19 +61,32 @@ public class menuManager : MonoBehaviour
         }
         if (collider.gameObject.CompareTag("volumeMoinsGeneral"))
         {
+            menuSound.Play();
+            thisGeneralVolume.value -= 0.2f;
             generalVolume.value -= 0.2f;
         }
         if (collider.gameObject.CompareTag("volumePlusGeneral"))
         {
+            menuSound.Play();
+            thisGeneralVolume.value += 0.2f;
             generalVolume.value += 0.2f;
         }
         if (collider.gameObject.CompareTag("volumeMoinsFX"))
         {
+            menuSound.Play();
+            thisFXVolume.value -= 0.2f;
             FXVolume.value -= 0.2f;
         }
         if (collider.gameObject.CompareTag("volumePlusFX"))
         {
+            menuSound.Play();
+            thisFXVolume.value += 0.2f;
             FXVolume.value += 0.2f;
+        }
+        if (collider.gameObject.CompareTag("OKPop"))
+        {
+            menuSound.Play();
+            popDebut.gameObject.SetActive(false);
         }
     }
 }

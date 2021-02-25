@@ -38,7 +38,15 @@ public class GestureEventsManager : MonoBehaviour
     // Current gestures from hands
     private HandGesture _leftHandGesture;
     private HandGesture _rightHandGesture;
-    
+
+    // Wich hand trigger the menu
+    public static string hand;
+
+    // Menu for each hand
+    [Header("Menus")]
+    [SerializeField] private Canvas leftMenu;
+    [SerializeField] private Canvas rightMenu;
+
     // The two hands to get orientation, position and stuff
     [Header("Hands")]
     [SerializeField] private GameObject _leftHand;
@@ -124,9 +132,15 @@ public class GestureEventsManager : MonoBehaviour
         
         // Menu
         else if (_rightHandGesture == HandGesture.Flat && Vector3.Dot(Vector3.up, _rightHand.transform.up) < 0 && Math.Abs(Vector3.Dot(Vector3.up, _rightHand.transform.up)) > .8)
+        {
             currentGesture = Gesture.Menu;
+            hand = "right";
+        }
         else if (_leftHandGesture == HandGesture.Flat && Vector3.Dot(Vector3.up, _leftHand.transform.up) > 0 && Math.Abs(Vector3.Dot(Vector3.up, _leftHand.transform.up)) > .8)
+        {
             currentGesture = Gesture.Menu;
+            hand = "left";
+        }
         
         // TODO: tests for gestures NotOk, Cold, Reserve, NoMoreOxygen
 
