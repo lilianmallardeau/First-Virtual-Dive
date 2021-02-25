@@ -13,6 +13,7 @@ public class menuManager : MonoBehaviour
     [SerializeField] private Canvas leftMenu;
     [SerializeField] private Canvas popDebut;
     [SerializeField] private Canvas popFin;
+    [SerializeField] private Canvas popAlerte;
 
     [Header("Sliders")]
     [SerializeField] private Slider thisGeneralVolume;
@@ -100,6 +101,11 @@ public class menuManager : MonoBehaviour
         {
             menuSound.Play();
             popDebut.gameObject.SetActive(false);
+        }
+        if (collider.gameObject.CompareTag("AlertUnderstood"))
+        {
+            menuSound.Play();
+            popAlerte.gameObject.SetActive(false);
         }
     }
 }

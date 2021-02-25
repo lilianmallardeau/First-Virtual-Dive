@@ -18,6 +18,8 @@ TagManager:
   - PassTuto
   - Rester
   - Quitter
+  - Entertainor
+  - AlertUnderstood
   layers:
   - Default
   - TransparentFX
