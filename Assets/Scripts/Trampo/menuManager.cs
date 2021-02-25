@@ -74,14 +74,14 @@ public class menuManager : MonoBehaviour
         if (collider.gameObject.CompareTag("volumeMoinsFX"))
         {
             menuSound.Play();
-            thisFXVolume.value -= 0.2f;
-            FXVolume.value -= 0.2f;
+            thisFXVolume.value -= 10f;
+            FXVolume.value -= 10f;
         }
         if (collider.gameObject.CompareTag("volumePlusFX"))
         {
             menuSound.Play();
-            thisFXVolume.value += 0.2f;
-            FXVolume.value += 0.2f;
+            thisFXVolume.value += 10f;
+            FXVolume.value += 10f;
         }
         if (collider.gameObject.CompareTag("OKPop"))
         {
