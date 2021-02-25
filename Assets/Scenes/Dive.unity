@@ -686,7 +686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &517430610
 Transform:
   m_ObjectHideFlags: 0
@@ -1164,10 +1164,26 @@ PrefabInstance:
       propertyPath: popDebut
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 697763668, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: popAlerte
+      value: 
+      objectReference: {fileID: 1663553918}
+    - target: {fileID: 697763668, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: popDebutMain
+      value: 
+      objectReference: {fileID: 2079387118}
     - target: {fileID: 922424627, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
       propertyPath: popDebut
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 922424627, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: popAlerte
+      value: 
+      objectReference: {fileID: 1663553918}
+    - target: {fileID: 922424627, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: popDebutMain
+      value: 
+      objectReference: {fileID: 2079387118}
     - target: {fileID: 3035925448575045600, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: Menu.m_PersistentCalls.m_Calls.Array.size
@@ -2967,7 +2983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2079387117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3018,8 +3034,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079387116}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 2.14}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.7}
   m_LocalScale: {x: 0.002, y: 0.002, z: 1}
   m_Children:
   - {fileID: 1892319334}
@@ -3028,9 +3044,9 @@ RectTransform:
   - {fileID: 1115827447}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.093}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1073.75, y: 502.5}
   m_Pivot: {x: 0.5, y: 0.5}
