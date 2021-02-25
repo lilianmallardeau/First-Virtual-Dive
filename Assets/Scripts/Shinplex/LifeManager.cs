@@ -10,6 +10,8 @@ public class LifeManager : MonoBehaviour
     
     [SerializeField] private HealthBar oxygenBar;
     [SerializeField] private HealthBar coldBar;
+    [SerializeField] private HealthBar oxygenBar2;
+    [SerializeField] private HealthBar coldBar2;
 
     public float oxygenLevel = 100f;
     public float pressureLevel = 100f;
@@ -98,6 +100,8 @@ public class LifeManager : MonoBehaviour
 
             oxygenBar.HealthChange(oxygenLevel);
             coldBar.HealthChange(coldLevel);
+            oxygenBar2.HealthChange(oxygenLevel);
+            coldBar2.HealthChange(coldLevel);
             yield return null;
         }
         oxygenLevel = 0f;
