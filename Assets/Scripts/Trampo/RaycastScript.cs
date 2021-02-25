@@ -35,7 +35,7 @@ public class RaycastScript : MonoBehaviour
         coldHit = false;
         menuHit = false;
 
-    RaycastHit hit;
+        RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
 
         int layer_mask = LayerMask.GetMask("UI");
@@ -77,6 +77,15 @@ public class RaycastScript : MonoBehaviour
             if (hit.transform.name == "Regarder le menu")
             {
                 menuHit = true;
+            }
+        }
+
+        Entertainor.lookAtMe = false;
+        if (Physics.Raycast(ray, out hit, 30f))
+        {
+            if (hit.collider.CompareTag("Entertainor"))
+            {
+                Entertainor.lookAtMe = true;
             }
         }
     }

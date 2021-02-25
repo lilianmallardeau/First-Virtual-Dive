@@ -1,13 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class CheckPanneau : MonoBehaviour
 {
 
     [SerializeField] private Image background;
+    [SerializeField] private AudioSource checksound;
     private Color checkColor = Color.green;
+
+    private bool notCheck1 = true;
+    private bool notCheck2 = true;
+    private bool notCheck3 = true;
+    private bool notCheck4 = true;
+    private bool notCheck5 = true;
+    private bool notCheck6 = true;
+    private bool notCheck7 = true;
+    private bool notCheck8 = true;
+    private bool notCheck9 = true;
 
 
     // Start is called before the first frame update
@@ -26,14 +38,25 @@ public class CheckPanneau : MonoBehaviour
     {
         if (RaycastScript.okHit == true)
         {
-            background.color = checkColor;
+            if (notCheck1 == true)
+            {
+                background.color = checkColor;
+                checksound.Play();
+                notCheck1 = false;
+            }
         }
     }
     public void checkMonter()
     {
         if (RaycastScript.monterHit == true)
         {
-            background.color = checkColor;
+            if (notCheck2 == true)
+            {
+                background.color = checkColor;
+                checksound.Play();
+                notCheck2 = false;
+            }
+
         }
 
     }
@@ -41,35 +64,60 @@ public class CheckPanneau : MonoBehaviour
     {
         if (RaycastScript.descendreHit == true)
         {
-            background.color = checkColor;
+            if (notCheck3 == true)
+            {
+                background.color = checkColor;
+                checksound.Play();
+                notCheck3 = false;
+            }
         }
     }
     public void checkNotOK()
     {
         if (RaycastScript.notOkHit == true)
         {
-            background.color = checkColor;
+            if (notCheck4 == true)
+            {
+                background.color = checkColor;
+                checksound.Play();
+                notCheck4 = false;
+            }
         }
     }
     public void checkCold()
     {
         if (RaycastScript.coldHit == true)
         {
-            background.color = checkColor;
+            if (notCheck5 == true)
+            {
+                background.color = checkColor;
+                checksound.Play();
+                notCheck5 = false;
+            }
         }
     }
     public void checkMiPression()
     {
         if (RaycastScript.mipressionHit == true)
         {
-            background.color = checkColor;
+            if (notCheck6 == true)
+            {
+                background.color = checkColor;
+                checksound.Play();
+                notCheck6 = false;
+            }
         }
     }
     public void checkReserve()
     {
         if (RaycastScript.reserveHit == true)
         {
-            background.color = checkColor;
+            if (notCheck7 == true)
+            {
+                background.color = checkColor;
+                checksound.Play();
+                notCheck7 = false;
+            }
         }
     }
 
@@ -77,14 +125,24 @@ public class CheckPanneau : MonoBehaviour
     {
         if (RaycastScript.plusAirHit == true)
         {
-            background.color = checkColor;
+            if (notCheck8 == true)
+            {
+                background.color = checkColor;
+                checksound.Play();
+                notCheck8 = false;
+            }
         }
     }
     public void checkMenu()
     {
         if (RaycastScript.menuHit == true)
         {
-            background.color = checkColor;
+            if (notCheck9 == true)
+            {
+                background.color = checkColor;
+                checksound.Play();
+                notCheck9 = false;
+            }
         }
     }
 }
