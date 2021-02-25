@@ -12,6 +12,7 @@ public class menuManager : MonoBehaviour
     [SerializeField] private Canvas rightMenu;
     [SerializeField] private Canvas leftMenu;
     [SerializeField] private Canvas popDebut;
+    [SerializeField] private Canvas popFin;
 
     [Header("Sliders")]
     [SerializeField] private Slider thisGeneralVolume;
@@ -57,7 +58,19 @@ public class menuManager : MonoBehaviour
         }
         if (collider.gameObject.CompareTag("QuitButton"))
         {
+            popFin.gameObject.SetActive(true);
+            menu.gameObject.SetActive(false);
+            menuSound.Play();
+        }
+        if (collider.gameObject.CompareTag("Quitter"))
+        {
             Application.Quit();
+        }
+        if (collider.gameObject.CompareTag("Rester"))
+        {
+            popFin.gameObject.SetActive(false);
+            menu.gameObject.SetActive(true);
+            menuSound.Play();
         }
         if (collider.gameObject.CompareTag("volumeMoinsGeneral"))
         {
