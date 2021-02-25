@@ -60,7 +60,6 @@ public class Entertainor : MonoBehaviour
             entertainorAudioSource.PlayOneShot(heySound,0.5f);
         }
 
-        canvasPivot.transform.LookAt(player.position);
     }
 
     public void FixedUpdate()
@@ -77,6 +76,7 @@ public class Entertainor : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, objective, moveSpeed * Time.deltaTime);
 
         transform.LookAt(new Vector3(player.position.x, player.position.y + 3, player.position.z));
+        canvasPivot.transform.LookAt(player.position);
     }
 
     public void AskOK()
