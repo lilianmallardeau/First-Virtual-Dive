@@ -62,7 +62,7 @@ public class RaycastScript : MonoBehaviour
             {
                 coldHit = true;
             }
-            if (hit.transform.name == "mi-pession")
+            if (hit.transform.name == "mi-pression")
             {
                 mipressionHit = true;
             }
