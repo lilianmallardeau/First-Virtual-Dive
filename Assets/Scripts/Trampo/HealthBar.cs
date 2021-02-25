@@ -17,7 +17,7 @@ public class HealthBar : MonoBehaviour
         HealthChange(healthValue);   
     }
 
-    void HealthChange(float healthValue)
+    public void HealthChange(float healthValue)
     {
         float amount = healthValue / 100f;
         value.text = healthValue.ToString() + "%";

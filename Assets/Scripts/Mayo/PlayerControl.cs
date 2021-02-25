@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float layerChangeTime = 4f;
     [SerializeField] private GestureEventsManager _gestureManager;
     [SerializeField] private float layerTransitionSpeed = .5f;
+    [SerializeField] private Entertainor entertainor;
 
     private List<InputDevice> _devices = new List<InputDevice>();
     private InputDevice _device;
@@ -52,7 +53,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (!_changingLayer)
         {
-            if (true) // TODO Check here that looking at instructor / instructor is looking
+            if (Entertainor.lookAtMe)
             {
                 StartCoroutine(ChangeLayerProcedureCoroutine(up));
             }
@@ -64,13 +65,14 @@ public class PlayerControl : MonoBehaviour
         _canMove = false;
         _changingLayer = true;
 
-        // TODO make instructor start the procedure
         // Instructor asks if everything is ok
+        entertainor.AskOK();
+
         yield return new WaitForSeconds(.01f);
         do
         {
             yield return null;
-        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Ok); // TODO Get current gesture from gesture manager
+        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Ok || !Entertainor.lookAtMe);
 
         float timer = layerChangeTime;
         while (timer > 0)
