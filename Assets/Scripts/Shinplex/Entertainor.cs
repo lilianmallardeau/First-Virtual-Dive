@@ -38,7 +38,7 @@ public class Entertainor : MonoBehaviour
         alertTimer -= Time.deltaTime;
         if (alertTimer <= 0 && !alerting) {
             alerting = true;
-            int choice = Random.Range(0,4);
+            int choice = Random.Range(0,3);
             switch (choice)
             {
                 case 0:
