@@ -14,6 +14,7 @@ public class menuManager : MonoBehaviour
     [SerializeField] private Canvas popDebut;
     [SerializeField] private Canvas popFin;
     [SerializeField] private Canvas popAlerte;
+    [SerializeField] private Canvas popDebutMain;
 
     [Header("Sliders")]
     [SerializeField] private Slider thisGeneralVolume;
@@ -106,6 +107,11 @@ public class menuManager : MonoBehaviour
         {
             menuSound.Play();
             popAlerte.gameObject.SetActive(false);
+        }
+        if (collider.gameObject.CompareTag("OkMainScene"))
+        {
+            menuSound.Play();
+            popDebutMain.gameObject.SetActive(false);
         }
     }
 }
