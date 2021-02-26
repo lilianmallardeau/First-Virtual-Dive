@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -402,7 +402,8 @@ AudioSource:
   m_GameObject: {fileID: 368343278}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bb22e2cfd29d8c7479c7932576ac0391,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1184,6 +1185,10 @@ PrefabInstance:
       propertyPath: popDebutMain
       value: 
       objectReference: {fileID: 2079387118}
+    - target: {fileID: 1873122029, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_Name
+      value: Help
+      objectReference: {fileID: 0}
     - target: {fileID: 3035925448575045600, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: Menu.m_PersistentCalls.m_Calls.Array.size
@@ -1379,6 +1384,102 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8949878836037586989, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1a86cc52130c37c46be382d31f44d8da,
+        type: 3}
+    - target: {fileID: 8949878836498929281, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 146e0cf64be74314780e662b8b4f6372,
+        type: 3}
+    - target: {fileID: 8949878836529262818, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 19e84eaa783e8ec41bb06dbe9a5d5bb7,
+        type: 3}
+    - target: {fileID: 8949878836571512827, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 941836a52be255641aa359ea04445834,
+        type: 3}
+    - target: {fileID: 8949878836806053662, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95543737592b814408ddf5cd2637abdb,
+        type: 3}
+    - target: {fileID: 8949878836936837180, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 36d989baf17d377439473891be022f62,
+        type: 3}
+    - target: {fileID: 8949878837119097650, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95543737592b814408ddf5cd2637abdb,
+        type: 3}
+    - target: {fileID: 8949878837225903976, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 146e0cf64be74314780e662b8b4f6372,
+        type: 3}
+    - target: {fileID: 8949878837277636361, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1a86cc52130c37c46be382d31f44d8da,
+        type: 3}
+    - target: {fileID: 8949878837311544403, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 941836a52be255641aa359ea04445834,
+        type: 3}
+    - target: {fileID: 8949878837405736400, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 36d989baf17d377439473891be022f62,
+        type: 3}
+    - target: {fileID: 8949878837521233076, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 19e84eaa783e8ec41bb06dbe9a5d5bb7,
+        type: 3}
+    - target: {fileID: 8949878837809842209, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3230f38837b7356489c4fa1f1ec811f5,
+        type: 3}
+    - target: {fileID: 8949878837824740520, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3230f38837b7356489c4fa1f1ec811f5,
+        type: 3}
+    - target: {fileID: 8949878837886660795, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f1edf61ecb0162c4aad0879fb678970c,
+        type: 3}
+    - target: {fileID: 8949878838068917110, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f1edf61ecb0162c4aad0879fb678970c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
 --- !u!1 &928146699
@@ -1450,10 +1551,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Bienvenue, Tu es maintenant pr\xEAt pour passer ton b\xE2pt\xE8me de plong\xE9e
-    virtuelle, navigue \xE0 travers l'univers en mettant tes deux poings vers l'avan,
-    fais attention \xE0 tes signes vitaux (oxyg\xE8ne, froid) et n'oublie de communiquer
-    avec ton accompagnateur."
+  m_Text: "Bienvenue, tu es maintenant pr\xEAt pour passer ton b\xE2pt\xE8me de plong\xE9e
+    virtuelle, navigue \xE0 travers l'univers en mettant tes deux poings vers l'avant,
+    fais attention \xE0 tes signes vitaux (oxyg\xE8ne, froid) et n'oublie pas de
+    regarder ton accompagnateur."
 --- !u!222 &928146702
 CanvasRenderer:
   m_ObjectHideFlags: 0
