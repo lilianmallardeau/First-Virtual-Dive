@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1091f867bc083dc4cbb8a161f5017187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftMenu: {fileID: 0}
+  rightMenu: {fileID: 0}
   _leftHand: {fileID: 0}
   _rightHand: {fileID: 0}
   None:
@@ -286,7 +288,12 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.size
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[2].time
+      value: 1.0765306
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
@@ -307,6 +314,11 @@ PrefabInstance:
         type: 3}
       propertyPath: savedGestures.Array.data[3].gestureName
       value: Fist
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].gestureName
+      value: Menu
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
@@ -331,6 +343,11 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.data[3].positionsPerFinger.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
@@ -635,6 +652,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[0].x
+      value: -0.10554539
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[0].y
+      value: -0.01831127
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[0].z
+      value: -0.08583045
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[1].x
+      value: -0.17803973
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[1].y
+      value: -0.02372102
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[1].z
+      value: -0.011617646
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[2].x
+      value: -0.18693092
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[2].y
+      value: -0.027155943
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[2].z
+      value: 0.00885424
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[3].x
+      value: -0.17479298
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[3].y
+      value: -0.030775256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[3].z
+      value: 0.026773304
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[4].x
+      value: -0.1486661
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[4].y
+      value: -0.030062273
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[4].z
+      value: 0.04048851
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: onNothingDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -675,6 +767,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: onNothingDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: none
       objectReference: {fileID: 0}
@@ -700,6 +797,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: savedGestures.Array.data[0].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4390127025054545023}
@@ -716,6 +818,11 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.data[3].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4390127025054545023}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4390127025054545023}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
@@ -740,6 +847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: savedGestures.Array.data[0].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetRightHandGesture
       objectReference: {fileID: 0}
@@ -756,6 +868,11 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.data[3].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRightHandGesture
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetRightHandGesture
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
@@ -785,6 +902,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: savedGestures.Array.data[0].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -801,6 +923,11 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.data[3].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6102520875694591897, guid: ba5914a50f34bc641a68c9beed4382d4,
@@ -911,12 +1038,17 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.data[1].time
-      value: 3.2922332
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[2].time
+      value: 0.078677505
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
@@ -937,6 +1069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: savedGestures.Array.data[3].gestureName
       value: Fist
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].gestureName
+      value: Menu
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
@@ -961,6 +1098,11 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.data[3].positionsPerFinger.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
@@ -1265,6 +1407,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[0].x
+      value: 0.10418041
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[0].y
+      value: 0.010584218
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[0].z
+      value: 0.086644396
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[1].x
+      value: 0.17880791
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[1].y
+      value: 0.021453604
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[1].z
+      value: 0.017425597
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[2].x
+      value: 0.18682721
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[2].y
+      value: 0.027359016
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[2].z
+      value: -0.00935857
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[3].x
+      value: 0.1744814
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[3].y
+      value: 0.030168394
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[3].z
+      value: -0.029724233
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[4].x
+      value: 0.14798449
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[4].y
+      value: 0.029460924
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].positionsPerFinger.Array.data[4].z
+      value: -0.046143938
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: onNothingDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -1305,6 +1522,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: onNothingDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: none
       objectReference: {fileID: 0}
@@ -1330,6 +1552,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: savedGestures.Array.data[0].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4390127025054545023}
@@ -1346,6 +1573,11 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.data[3].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4390127025054545023}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4390127025054545023}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
@@ -1370,6 +1602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: savedGestures.Array.data[0].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetLeftHandGesture
       objectReference: {fileID: 0}
@@ -1386,6 +1623,11 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.data[3].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetLeftHandGesture
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetLeftHandGesture
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
@@ -1415,6 +1657,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
       propertyPath: savedGestures.Array.data[0].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -1431,6 +1678,11 @@ PrefabInstance:
     - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
         type: 3}
       propertyPath: savedGestures.Array.data[3].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359850505829600833, guid: ba5914a50f34bc641a68c9beed4382d4,
+        type: 3}
+      propertyPath: savedGestures.Array.data[4].onRecognized.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6102520875694591897, guid: ba5914a50f34bc641a68c9beed4382d4,
