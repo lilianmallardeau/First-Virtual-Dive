@@ -87,11 +87,11 @@ public class LifeManager : MonoBehaviour
             }
             if (time2 < 1800)
             {
-                pressureLevel = Mathf.Lerp(startValue, 0f, time1 / 1800);
+                pressureLevel = Mathf.Lerp(startValue, 0f, time2 / 1800);
             }
             if (time3 < 1800)
             {
-                coldLevel = Mathf.Lerp(startValue, 0f, time1 / 1800);
+                coldLevel = Mathf.Lerp(startValue, 0f, time3 / 1800);
             }
             
             time1 += Time.deltaTime * modifier1;
