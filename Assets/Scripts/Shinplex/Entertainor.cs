@@ -93,6 +93,7 @@ public class Entertainor : MonoBehaviour
             canvasPivot.SetActive(false);
             entertainorAudioSource.PlayOneShot(alrightSound,0.8f);
             alerting = false;
+            alertTimer = Random.Range(alertMinTimer,alertMaxTimer);
         }
     }
 }
