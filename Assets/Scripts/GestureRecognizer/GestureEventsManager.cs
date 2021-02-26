@@ -28,7 +28,8 @@ public class GestureEventsManager : MonoBehaviour
         Thumb,
         Ok,
         Flat,
-        Fist
+        Fist,
+        Menu
     }
     
     // The current and previous gestures
@@ -39,7 +40,7 @@ public class GestureEventsManager : MonoBehaviour
     private HandGesture _leftHandGesture;
     private HandGesture _rightHandGesture;
 
-    // Wich hand trigger the menu
+    // Which hand trigger the menu
     public static string hand;
 
     // Menu for each hand
@@ -87,6 +88,10 @@ public class GestureEventsManager : MonoBehaviour
             case "Fist":
                 handGesture = HandGesture.Fist;
                 break;
+            case "menu":
+            case "Menu":
+                handGesture = HandGesture.Menu;
+                break;
         }
 
         if (hand == OVRHand.Hand.HandLeft)
@@ -131,12 +136,12 @@ public class GestureEventsManager : MonoBehaviour
             currentGesture = Gesture.HalfPressure;
         
         // Menu
-        else if (_rightHandGesture == HandGesture.Flat && Vector3.Dot(Vector3.up, _rightHand.transform.up) < 0 && Math.Abs(Vector3.Dot(Vector3.up, _rightHand.transform.up)) > .8)
+        else if ((_rightHandGesture == HandGesture.Menu || _rightHandGesture == HandGesture.Flat) && Vector3.Dot(Vector3.up, _rightHand.transform.up) < 0 && Math.Abs(Vector3.Dot(Vector3.up, _rightHand.transform.up)) > .8)
         {
             currentGesture = Gesture.Menu;
             hand = "right";
         }
-        else if (_leftHandGesture == HandGesture.Flat && Vector3.Dot(Vector3.up, _leftHand.transform.up) > 0 && Math.Abs(Vector3.Dot(Vector3.up, _leftHand.transform.up)) > .8)
+        else if ((_leftHandGesture == HandGesture.Menu || _leftHandGesture == HandGesture.Flat) && Vector3.Dot(Vector3.up, _leftHand.transform.up) > 0 && Math.Abs(Vector3.Dot(Vector3.up, _leftHand.transform.up)) > .8)
         {
             currentGesture = Gesture.Menu;
             hand = "left";
