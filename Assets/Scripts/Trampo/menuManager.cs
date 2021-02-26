@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
@@ -112,6 +113,11 @@ public class menuManager : MonoBehaviour
         {
             menuSound.Play();
             popDebutMain.gameObject.SetActive(false);
+        }
+        if (collider.gameObject.CompareTag("PassTuto"))
+        {
+            menuSound.Play();
+            SceneManager.LoadScene("Dive");
         }
     }
 }
