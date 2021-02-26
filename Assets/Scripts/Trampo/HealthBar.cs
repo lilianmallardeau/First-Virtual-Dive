@@ -20,7 +20,7 @@ public class HealthBar : MonoBehaviour
     public void HealthChange(float healthValue)
     {
         float amount = healthValue / 100f;
-        value.text = healthValue.ToString("2f") + "%";
+        value.text = healthValue.ToString("f2") + "%";
         bar.fillAmount = amount;
         bar.color = gradient.Evaluate(amount);
     }
