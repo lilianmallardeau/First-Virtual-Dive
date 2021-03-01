@@ -66,9 +66,9 @@ public class IntructorTuto : MonoBehaviour
         yield return new WaitForSeconds(3f);
         instructions.sprite = oxygenPic;
         yield return new WaitForSeconds(3f);
+        canvasPivot.SetActive(false);
         entertainorAudioSource.PlayOneShot(alrightSound, 0.5f);
         yield return new WaitForSeconds(3f);
-        canvasPivot.SetActive(false);
         PlayerControl._canMove = false;
         do
         {
@@ -96,7 +96,6 @@ public class IntructorTuto : MonoBehaviour
 
         _fadingScreen.color = new Color(0, 0, 0, 0);
         PlayerControl._canMove = true;
-        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Dive");
 
     }
