@@ -36,7 +36,7 @@ public class IntructorTuto : MonoBehaviour
         transform.LookAt(new Vector3(player.position.x, player.position.y, player.position.z));
         canvasPivot.transform.LookAt(player.position);
 
-        if (distanceFromObjective < 5f && startInstru)
+        if (distanceFromObjective < 10f && startInstru)
         {
             Debug.Log("startInstru");
             StartCoroutine(StartInstructions());
@@ -69,20 +69,20 @@ public class IntructorTuto : MonoBehaviour
         entertainorAudioSource.PlayOneShot(alrightSound, 0.5f);
         yield return new WaitForSeconds(3f);
         canvasPivot.SetActive(false);
+        PlayerControl._canMove = false;
         do
         {
             yield return null;
-        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Down || !Entertainor.lookAtMe);
-        PlayerControl._canMove = false;
+        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Down);
 
         // Instructor asks if everything is ok
-        canvasPivot.SetActive(true);
         instructions.sprite = okPic;
+        canvasPivot.SetActive(true);
         yield return new WaitForSeconds(.01f);
         do
         {
             yield return null;
-        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Ok || !Entertainor.lookAtMe);
+        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Ok);
         canvasPivot.SetActive(false);
         float timer = 4f;
         while (timer > 0)
