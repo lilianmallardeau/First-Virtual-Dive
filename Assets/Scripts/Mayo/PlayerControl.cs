@@ -21,7 +21,7 @@ public class PlayerControl : MonoBehaviour
 
     private List<InputDevice> _devices = new List<InputDevice>();
     private InputDevice _device;
-    private bool _canMove = true;
+    public static bool _canMove = true;
     private bool _changingLayer = false;
 
     private void GetDevices()
@@ -42,6 +42,9 @@ public class PlayerControl : MonoBehaviour
         {
             GetDevices();
         }
+        // Décommenter quand on build
+        if (CheckPanneau.allCheck != 5) _canMove = false;
+        else _canMove = true;
     }
 
     public void MoveForward()

@@ -73,7 +73,7 @@ public class Entertainor : MonoBehaviour
         }
         else moveSpeed = moveSpeedMax;
 
-        transform.position = Vector3.MoveTowards(transform.position, objective, moveSpeed * Time.deltaTime);
+        
 
         transform.LookAt(new Vector3(player.position.x, player.position.y + 3, player.position.z));
         canvasPivot.transform.LookAt(player.position);
