@@ -1173,6 +1173,10 @@ PrefabInstance:
       propertyPath: popDebutMain
       value: 
       objectReference: {fileID: 2079387118}
+    - target: {fileID: 702191995, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVolumeFX
+      objectReference: {fileID: 0}
     - target: {fileID: 900578625, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
       propertyPath: m_Value
       value: 0
