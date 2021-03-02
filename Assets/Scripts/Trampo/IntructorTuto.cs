@@ -57,7 +57,9 @@ public class IntructorTuto : MonoBehaviour
     
     IEnumerator StartInstructions()
     {
+        //Manque juste à adapter les wait en fonction de la voix qui explique
         startInstru = false;
+        yield return new WaitForSeconds(3f);
         canvasPivot.SetActive(true);
         yield return new WaitForSeconds(3f);
         instructions.sprite = okPic;

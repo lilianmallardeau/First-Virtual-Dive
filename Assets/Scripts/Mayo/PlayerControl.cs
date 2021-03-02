@@ -24,6 +24,9 @@ public class PlayerControl : MonoBehaviour
     public static bool _canMove = true;
     private bool _changingLayer = false;
 
+    [SerializeField] private ParticleSystem bubles;
+    private bool expire = true;
+
     private void GetDevices()
     {
         InputDevices.GetDevicesAtXRNode(_xrNode, _devices);
@@ -45,6 +48,11 @@ public class PlayerControl : MonoBehaviour
         // Décommenter quand on build
         if (CheckPanneau.allCheck != 5) _canMove = false;
         else _canMove = true;
+
+        if (expire == true)
+        {
+            StartCoroutine(RespirationCouroutine());
+        }
     }
 
     public void MoveForward()
@@ -103,5 +111,13 @@ public class PlayerControl : MonoBehaviour
 
             yield return null;
         }
+    }
+
+     private IEnumerator RespirationCouroutine()
+    {
+        expire = false;
+        yield return new WaitForSeconds(4.39f);
+        bubles.Play();
+        expire = true;
     }
 }

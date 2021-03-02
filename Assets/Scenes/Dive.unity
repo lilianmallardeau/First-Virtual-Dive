@@ -1173,6 +1173,18 @@ PrefabInstance:
       propertyPath: popDebutMain
       value: 
       objectReference: {fileID: 2079387118}
+    - target: {fileID: 900578625, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900578625, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_MaxValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 900578625, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
     - target: {fileID: 922424627, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
       propertyPath: popDebut
       value: 
@@ -1185,6 +1197,52 @@ PrefabInstance:
       propertyPath: popDebutMain
       value: 
       objectReference: {fileID: 2079387118}
+    - target: {fileID: 1513499384, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513499384, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_MaxValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513499384, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_MinValue
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513499384, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513499384, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513499384, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 922424623}
+    - target: {fileID: 1513499384, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513499384, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVolumeMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513499384, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780013918, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: audioMixerFX
+      value: 
+      objectReference: {fileID: 24100000, guid: bb22e2cfd29d8c7479c7932576ac0391,
+        type: 2}
+    - target: {fileID: 1780013918, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+      propertyPath: audioMixerMusic
+      value: 
+      objectReference: {fileID: 24100000, guid: c5e19b3bfe2cca64fbde94e67526088f,
+        type: 2}
     - target: {fileID: 1873122029, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
       propertyPath: m_Name
       value: Help
@@ -1487,6 +1545,18 @@ PrefabInstance:
       objectReference: {fileID: 368343281}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c7f072e494ba3478cb92584ae003b0, type: 3}
+--- !u!114 &922424623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1780013918, guid: 92c7f072e494ba3478cb92584ae003b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 922424622}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbd06018292a8a4a895657bb39b0d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &928146699
 GameObject:
   m_ObjectHideFlags: 0

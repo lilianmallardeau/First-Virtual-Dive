@@ -78,14 +78,14 @@ public class menuManager : MonoBehaviour
         if (collider.gameObject.CompareTag("volumeMoinsGeneral"))
         {
             menuSound.Play();
-            thisGeneralVolume.value -= 0.2f;
-            generalVolume.value -= 0.2f;
+            thisGeneralVolume.value -= 10f;
+            generalVolume.value -= 10f;
         }
         if (collider.gameObject.CompareTag("volumePlusGeneral"))
         {
             menuSound.Play();
-            thisGeneralVolume.value += 0.2f;
-            generalVolume.value += 0.2f;
+            thisGeneralVolume.value += 10f;
+            generalVolume.value += 10f;
         }
         if (collider.gameObject.CompareTag("volumeMoinsFX"))
         {

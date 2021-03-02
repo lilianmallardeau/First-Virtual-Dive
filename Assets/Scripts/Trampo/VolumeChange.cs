@@ -5,10 +5,16 @@ using UnityEngine.Audio;
 
 public class VolumeChange : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    public AudioMixer audioMixerFX;
+    public AudioMixer audioMixerMusic;
 
-    public void SetVolume (float volume)
+    public void SetVolumeFX (float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        audioMixerFX.SetFloat("volume", volume);
+    }
+
+    public void SetVolumeMusic(float volume)
+    {
+        audioMixerMusic.SetFloat("volume", volume);
     }
 }
