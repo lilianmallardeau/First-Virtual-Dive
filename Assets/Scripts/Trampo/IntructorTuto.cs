@@ -22,11 +22,18 @@ public class IntructorTuto : MonoBehaviour
     [SerializeField] private AudioSource entertainorAudioSource;
     [SerializeField] private AudioClip heySound;
     [SerializeField] private AudioClip alrightSound;
+    [SerializeField] private AudioClip instructorSound;
+
+
+
+
 
 
     private float distanceFromObjective = 0f;
     private bool hey = true;
     private bool startInstru = true;
+
+
 
     public void FixedUpdate()
     {
@@ -57,20 +64,19 @@ public class IntructorTuto : MonoBehaviour
     
     IEnumerator StartInstructions()
     {
-        //Manque juste à adapter les wait en fonction de la voix qui explique
         startInstru = false;
-        yield return new WaitForSeconds(3f);
-        canvasPivot.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        entertainorAudioSource.PlayOneShot(instructorSound, 0.5f);
+        yield return new WaitForSeconds(6f);
         instructions.sprite = okPic;
-        yield return new WaitForSeconds(3f);
+        canvasPivot.SetActive(true);
+        yield return new WaitForSeconds(1f);
         instructions.sprite = coldPic;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         instructions.sprite = oxygenPic;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(8.5f);
         canvasPivot.SetActive(false);
         entertainorAudioSource.PlayOneShot(alrightSound, 0.5f);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         PlayerControl._canMove = false;
         do
         {
