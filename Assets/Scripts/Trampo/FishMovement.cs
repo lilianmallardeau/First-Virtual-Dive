@@ -5,28 +5,35 @@ using UnityEngine;
 public class FishMovement : MonoBehaviour
 {
 
-    [SerializeField] Vector3[] positions = new Vector3[4];
+    private Vector3[] positions = new Vector3[4];
     [SerializeField] float time;
+    [SerializeField] float diametre;
     private float totalTime;
     private int target;
+
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
+        positions[0] = new Vector3(transform.position.x - (diametre / 2), transform.position.y, transform.position.z + (diametre / 2));
+        positions[1] = new Vector3(transform.position.x, transform.position.y, transform.position.z + diametre);
+        positions[2] = new Vector3(transform.position.x + (diametre/2), transform.position.y, transform.position.z + (diametre/2));
+        positions[3] = transform.position;
         Movement();
     }
 
     // Update is called once per frame
     void Update()
     {
-        totalTime += Time.deltaTime;
-        target = Mathf.CeilToInt(totalTime % time * positions.Length / time) - 1;
-        Debug.Log(target);
-        iTween.LookTo(this.gameObject, positions[target], 0.1f);
+        //totalTime += Time.deltaTime;
+        //target = Mathf.CeilToInt(totalTime % time * positions.Length / time) - 1;
+        //Debug.Log(target);
+        //iTween.LookTo(this.gameObject, positions[target], 0.1f);
         
 
-        //transform.Rotate(0, Time.deltaTime * 360 / time, 0);
+        transform.Rotate(0, Time.deltaTime * 360 / time, 0);
 
     }
 
