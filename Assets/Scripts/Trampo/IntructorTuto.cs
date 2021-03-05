@@ -65,6 +65,7 @@ public class IntructorTuto : MonoBehaviour
     IEnumerator StartInstructions()
     {
         startInstru = false;
+        PlayerControl._canMove = false;
         entertainorAudioSource.PlayOneShot(instructorSound, 0.5f);
         yield return new WaitForSeconds(6f);
         instructions.sprite = okPic;
