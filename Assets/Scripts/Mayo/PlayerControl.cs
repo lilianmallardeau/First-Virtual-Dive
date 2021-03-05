@@ -18,6 +18,10 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private GestureEventsManager _gestureManager;
     [SerializeField] private float layerTransitionSpeed = .5f;
     [SerializeField] private Entertainor entertainor;
+    [SerializeField] private GameObject _leftHand;
+    [SerializeField] private GameObject _rightHand;
+    [SerializeField] private float _headTorsoDistance = .1f;
+    [SerializeField] private float _speedUpMultiplier = 2;
 
     private List<InputDevice> _devices = new List<InputDevice>();
     private InputDevice _device;
@@ -36,17 +40,17 @@ public class PlayerControl : MonoBehaviour
     
     void Start()
     {
-        GetDevices();
+        //GetDevices();
     }
 
     void Update()
     {
         if (!_device.isValid)
         {
-            GetDevices();
+            //GetDevices();
         }
         // Décommenter quand on build
-        if (CheckPanneau.allCheck != 5) _canMove = false;
+        // if (CheckPanneau.allCheck != 5) _canMove = false;
         else _canMove = true;
 
         if (expire == true)
@@ -106,7 +110,9 @@ public class PlayerControl : MonoBehaviour
         {
             if (_canMove)
             {
-                bodyToMove.transform.Translate(transform.forward * (mvtSpeed * Time.fixedDeltaTime));
+                Vector3 direction = (_leftHand.transform.position + _rightHand.transform.position) / 2 - (bodyToMove.transform.position - Vector3.up*_headTorsoDistance);
+                float intensity = direction.magnitude * _speedUpMultiplier;
+                bodyToMove.transform.Translate(/*transform.forward*/ direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime));
             }
 
             yield return null;
