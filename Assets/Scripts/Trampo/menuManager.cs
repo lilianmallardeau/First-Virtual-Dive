@@ -26,6 +26,7 @@ public class menuManager : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioSource menuSound;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -118,6 +119,7 @@ public class menuManager : MonoBehaviour
         {
             menuSound.Play();
             SceneManager.LoadScene("Dive");
+            TutoFinish.tutoFinish = false;
         }
     }
 }
