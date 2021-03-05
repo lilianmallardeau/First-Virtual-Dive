@@ -4078,39 +4078,6 @@ Transform:
   m_Father: {fileID: 3362915843234715421}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1976981142714547754
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2593571799939098867}
-  m_Layer: 0
-  m_Name: GestureManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2593571799939098867
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976981142714547754}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7971802, y: -0.24776697, z: -1.3611584}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7381060791078614816}
-  - {fileID: 3922188902898366037}
-  - {fileID: 757789690147163971}
-  m_Father: {fileID: 9195918872223894876}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982562707318426050
 GameObject:
   m_ObjectHideFlags: 0
@@ -19463,287 +19430,6 @@ Transform:
   m_Father: {fileID: 6288378716015005760}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4621645703595502280
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 757789690147163971}
-  - component: {fileID: 1461046080510887553}
-  m_Layer: 0
-  m_Name: GestureEventsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &757789690147163971
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4621645703595502280}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2593571799939098867}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1461046080510887553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4621645703595502280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1091f867bc083dc4cbb8a161f5017187, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftMenu: {fileID: 6077187995195925420}
-  rightMenu: {fileID: 6170603459078957113}
-  _leftHand: {fileID: 3686337760174874831}
-  _rightHand: {fileID: 8930324531600253319}
-  None:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3212125147935560810}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3200283843551857516}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1715790171795783341}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2061330446655719602}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7924480382972039266}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7285555841109150659}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2662900666323509974}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4834883316982096030}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  GoForward:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8722034131360510570}
-        m_MethodName: MoveForward
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Up:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8722034131360510570}
-        m_MethodName: ChangeLayerProcedure
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  Down:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8722034131360510570}
-        m_MethodName: ChangeLayerProcedure
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Ok:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AnswerOK
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  NotOk:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AnswerOK
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  CheckMano:
-    m_PersistentCalls:
-      m_Calls: []
-  Cold:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AnswerOK
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  HalfPressure:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AnswerOK
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Reserve:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AnswerOK
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  NoMoreOxygen:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AnswerOK
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  Menu:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8722034130655218846}
-        m_MethodName: OpenMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1 &4638935236388023614
 GameObject:
   m_ObjectHideFlags: 0
@@ -26838,168 +26524,6 @@ Transform:
   m_Father: {fileID: 5865797669202952606}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7813786223129711265
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7381060791078614816}
-  - component: {fileID: 4069505630992530875}
-  m_Layer: 0
-  m_Name: LeftHandGestureRecognizer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7381060791078614816
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7813786223129711265}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2593571799939098867}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4069505630992530875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7813786223129711265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 237febfb94d86c1449e06f0f10728c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  savedGestures:
-  - gestureName: Thumb
-    positionsPerFinger:
-    - {x: 0.086006135, y: 0.0010280758, z: 0.10294752}
-    - {x: 0.07418598, y: 0.025440041, z: 0.022598289}
-    - {x: 0.067919105, y: 0.022147208, z: 0.008182492}
-    - {x: 0.0631751, y: 0.020029128, z: -0.006448061}
-    - {x: 0.05461662, y: 0.024521898, z: -0.018154588}
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1461046080510887553}
-          m_MethodName: SetLeftHandGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: thumb
-            m_BoolArgument: 0
-          m_CallState: 2
-    time: 0
-  - gestureName: Ok
-    positionsPerFinger:
-    - {x: 0.10406919, y: 0.075751506, z: 0.024586631}
-    - {x: 0.10645671, y: 0.075171016, z: 0.018184738}
-    - {x: 0.158303, y: 0.063249215, z: -0.00619781}
-    - {x: 0.15739225, y: 0.04448794, z: -0.025902197}
-    - {x: 0.1409808, y: 0.035435542, z: -0.053292572}
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1461046080510887553}
-          m_MethodName: SetLeftHandGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: ok
-            m_BoolArgument: 0
-          m_CallState: 2
-    time: 3.2922332
-  - gestureName: Flat
-    positionsPerFinger:
-    - {x: 0.11725996, y: 0.019211583, z: 0.040174678}
-    - {x: 0.17586088, y: 0.02889584, z: 0.0071245953}
-    - {x: 0.18381965, y: 0.034470722, z: -0.013202734}
-    - {x: 0.17362264, y: 0.033851743, z: -0.027912013}
-    - {x: 0.14840026, y: 0.03048104, z: -0.0418914}
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1461046080510887553}
-          m_MethodName: SetLeftHandGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: flat
-            m_BoolArgument: 0
-          m_CallState: 2
-    time: 0
-  - gestureName: Fist
-    positionsPerFinger:
-    - {x: 0.10749687, y: 0.061948225, z: 0.009414017}
-    - {x: 0.08095138, y: 0.027000144, z: 0.023175985}
-    - {x: 0.06955983, y: 0.02554154, z: 0.009509638}
-    - {x: 0.060770765, y: 0.02269569, z: -0.004777152}
-    - {x: 0.05331396, y: 0.02603937, z: -0.015984349}
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1461046080510887553}
-          m_MethodName: SetLeftHandGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: fist
-            m_BoolArgument: 0
-          m_CallState: 2
-    time: 0
-  threshold: 0.05
-  delay: 0.5
-  onNothingDetected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1461046080510887553}
-        m_MethodName: SetLeftHandGesture
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: none
-          m_BoolArgument: 0
-        m_CallState: 2
-  hand: {fileID: 3686337760174874831}
-  fingers:
-  - {fileID: 8138360023624828391}
-  - {fileID: 5679562503331667520}
-  - {fileID: 8629523499894546372}
-  - {fileID: 418955205696465339}
-  - {fileID: 8087306950154020750}
-  gestureDetected:
-    gestureName: 
-    positionsPerFinger: []
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls: []
-    time: 0
 --- !u!1 &7844247321987598188
 GameObject:
   m_ObjectHideFlags: 0
@@ -29803,168 +29327,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.08462602, y: 0.018837288, z: -0.013709355}
     m_Extent: {x: 0.1069836, y: 0.05242701, z: 0.07775007}
   m_DirtyAABB: 0
---- !u!1 &8818462544410698861
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3922188902898366037}
-  - component: {fileID: 4209459427857139360}
-  m_Layer: 0
-  m_Name: RightHandGestureRecognizer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3922188902898366037
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8818462544410698861}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2593571799939098867}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4209459427857139360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8818462544410698861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 237febfb94d86c1449e06f0f10728c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  savedGestures:
-  - gestureName: Thumb
-    positionsPerFinger:
-    - {x: -0.08660209, y: -0.014060482, z: -0.10340318}
-    - {x: -0.07214369, y: -0.022699457, z: -0.023167275}
-    - {x: -0.06912888, y: -0.021298159, z: -0.008642778}
-    - {x: -0.06613482, y: -0.020683356, z: 0.0065234527}
-    - {x: -0.059539035, y: -0.023856036, z: 0.017571345}
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1461046080510887553}
-          m_MethodName: SetRightHandGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: thumb
-            m_BoolArgument: 0
-          m_CallState: 2
-    time: 0
-  - gestureName: Ok
-    positionsPerFinger:
-    - {x: -0.10474385, y: -0.07226966, z: -0.026361885}
-    - {x: -0.102393955, y: -0.07310647, z: -0.018050991}
-    - {x: -0.1588673, y: -0.068279825, z: 0.0122916475}
-    - {x: -0.15997495, y: -0.050570548, z: 0.03223722}
-    - {x: -0.14291511, y: -0.03677299, z: 0.053474437}
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1461046080510887553}
-          m_MethodName: SetRightHandGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: ok
-            m_BoolArgument: 0
-          m_CallState: 2
-    time: 0
-  - gestureName: Flat
-    positionsPerFinger:
-    - {x: -0.12000217, y: -0.017339824, z: -0.055558145}
-    - {x: -0.17934817, y: -0.015288532, z: -0.01392155}
-    - {x: -0.18970436, y: -0.015774958, z: -0.001576554}
-    - {x: -0.17811327, y: -0.014005669, z: 0.012856374}
-    - {x: -0.15028247, y: -0.01579139, z: 0.027152045}
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1461046080510887553}
-          m_MethodName: SetRightHandGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: flat
-            m_BoolArgument: 0
-          m_CallState: 2
-    time: 0
-  - gestureName: Fist
-    positionsPerFinger:
-    - {x: -0.107394055, y: -0.06022761, z: -0.008649457}
-    - {x: -0.079754375, y: -0.026427273, z: -0.023250138}
-    - {x: -0.07052657, y: -0.023265041, z: -0.009762043}
-    - {x: -0.05875767, y: -0.022958461, z: 0.0032735951}
-    - {x: -0.051480867, y: -0.027222056, z: 0.01613517}
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1461046080510887553}
-          m_MethodName: SetRightHandGesture
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: fist
-            m_BoolArgument: 0
-          m_CallState: 2
-    time: 0
-  threshold: 0.05
-  delay: 0.5
-  onNothingDetected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1461046080510887553}
-        m_MethodName: SetRightHandGesture
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: none
-          m_BoolArgument: 0
-        m_CallState: 2
-  hand: {fileID: 8930324531600253319}
-  fingers:
-  - {fileID: 2063986526790003521}
-  - {fileID: 3249788512820485104}
-  - {fileID: 6607683948429771041}
-  - {fileID: 6515381909828702238}
-  - {fileID: 2050841582585153559}
-  gestureDetected:
-    gestureName: 
-    positionsPerFinger: []
-    onRecognized:
-      m_PersistentCalls:
-        m_Calls: []
-    time: 0
 --- !u!1 &8842858811095305550
 GameObject:
   m_ObjectHideFlags: 0
@@ -30791,3 +30153,230 @@ Transform:
   m_Father: {fileID: 8851296197374323821}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4698223501716850206
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9195918872223894876}
+    m_Modifications:
+    - target: {fileID: 4844659448370688200, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 3686337760174874831}
+    - target: {fileID: 4844659448370688200, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[0]
+      value: 
+      objectReference: {fileID: 8138360023624828391}
+    - target: {fileID: 4844659448370688200, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[1]
+      value: 
+      objectReference: {fileID: 5679562503331667520}
+    - target: {fileID: 4844659448370688200, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[2]
+      value: 
+      objectReference: {fileID: 8629523499894546372}
+    - target: {fileID: 4844659448370688200, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[3]
+      value: 
+      objectReference: {fileID: 418955205696465339}
+    - target: {fileID: 4844659448370688200, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[4]
+      value: 
+      objectReference: {fileID: 8087306950154020750}
+    - target: {fileID: 5865003193267276967, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 8930324531600253319}
+    - target: {fileID: 5865003193267276967, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[0]
+      value: 
+      objectReference: {fileID: 2063986526790003521}
+    - target: {fileID: 5865003193267276967, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[1]
+      value: 
+      objectReference: {fileID: 3249788512820485104}
+    - target: {fileID: 5865003193267276967, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[2]
+      value: 
+      objectReference: {fileID: 6607683948429771041}
+    - target: {fileID: 5865003193267276967, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[3]
+      value: 
+      objectReference: {fileID: 6515381909828702238}
+    - target: {fileID: 5865003193267276967, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: fingers.Array.data[4]
+      value: 
+      objectReference: {fileID: 2050841582585153559}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: leftMenu
+      value: 
+      objectReference: {fileID: 6077187995195925420}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: _leftHand
+      value: 
+      objectReference: {fileID: 3686337760174874831}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: rightMenu
+      value: 
+      objectReference: {fileID: 6170603459078957113}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: _rightHand
+      value: 
+      objectReference: {fileID: 8930324531600253319}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: Up.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8722034131360510570}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: Down.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8722034131360510570}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: Menu.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8722034130655218846}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: None.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3212125147935560810}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: None.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3200283843551857516}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: None.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1715790171795783341}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: None.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 2061330446655719602}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: None.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 7924480382972039266}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: None.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 7285555841109150659}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: None.m_PersistentCalls.m_Calls.Array.data[6].m_Target
+      value: 
+      objectReference: {fileID: 2662900666323509974}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: None.m_PersistentCalls.m_Calls.Array.data[7].m_Target
+      value: 
+      objectReference: {fileID: 4834883316982096030}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: GoForward.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8722034131360510570}
+    - target: {fileID: 6511313074251429940, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_Name
+      value: GestureManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7971802
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.24776697
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.3611584
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e51f2831453d714fab8c25e8774316e, type: 3}
+--- !u!4 &2593571799939098867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7119424300791017197, guid: 3e51f2831453d714fab8c25e8774316e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4698223501716850206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1461046080510887553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4698223501716850206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1091f867bc083dc4cbb8a161f5017187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
