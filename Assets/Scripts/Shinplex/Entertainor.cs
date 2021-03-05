@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Entertainor : MonoBehaviour
 {
     [SerializeField] private Transform player;
+    [SerializeField] private LifeManager lifeManager;
     
     [SerializeField] private float alertMinTimer = 15f;
     [SerializeField] private float alertMaxTimer = 25f;
@@ -18,7 +19,6 @@ public class Entertainor : MonoBehaviour
     [SerializeField] private Sprite okPic;
     [SerializeField] private Sprite coldPic;
     [SerializeField] private Sprite oxygenPic;
-    [SerializeField] private Sprite pressurePic;
     [SerializeField] private AudioSource entertainorAudioSource;
     [SerializeField] private AudioClip heySound;
     [SerializeField] private AudioClip alrightSound;
@@ -28,6 +28,24 @@ public class Entertainor : MonoBehaviour
     private float distanceFromObjective = 0f;
     private float alertTimer;
     private bool alerting = false;
+    private enum Question {
+        Ok,
+        Cold,
+        Oxygen,   
+    }
+    private Question question;
+    [HideInInspector] public int okGood = 0;
+    [HideInInspector] public int okMistakes = 0;
+    [HideInInspector] public int notOkGood = 0;
+    [HideInInspector] public int notOkMistakes = 0;
+    [HideInInspector] public int coldGood = 0;
+    [HideInInspector] public int coldMistakes = 0;
+    [HideInInspector] public int midPressureGood = 0;
+    [HideInInspector] public int midPressureMistakes = 0;
+    [HideInInspector] public int reserveGood = 0;
+    [HideInInspector] public int reserveMistakes = 0;
+    [HideInInspector] public int noAirGood = 0;
+    [HideInInspector] public int noAirMistakes = 0;
 
     public void Start()
     {
@@ -39,20 +57,20 @@ public class Entertainor : MonoBehaviour
         alertTimer -= Time.deltaTime;
         if (alertTimer <= 0 && !alerting) {
             alerting = true;
-            int choice = Random.Range(0,3);
+            int choice = Random.Range(0,2);
             switch (choice)
             {
                 case 0:
                     currentPic.sprite = okPic;
+                    question = Question.Ok;
                     break;
                 case 1:
                     currentPic.sprite = coldPic;
+                    question = Question.Cold;
                     break;
                 case 2:
                     currentPic.sprite = oxygenPic;
-                    break;
-                case 3:
-                    currentPic.sprite = pressurePic;
+                    question = Question.Oxygen;
                     break;
                 default:
                     break;
@@ -91,12 +109,106 @@ public class Entertainor : MonoBehaviour
 
     public void AnswerOK()
     {
-        if (alerting && lookAtMe) 
-        {
-            canvasPivot.SetActive(false);
-            entertainorAudioSource.PlayOneShot(alrightSound,0.8f);
-            alerting = false;
-            alertTimer = Random.Range(alertMinTimer,alertMaxTimer);
+        if (lookAtMe) {
+            if (alerting) {
+                canvasPivot.SetActive(false);
+                entertainorAudioSource.PlayOneShot(alrightSound,0.8f);
+                alerting = false;
+                alertTimer = Random.Range(alertMinTimer,alertMaxTimer);
+                if (question == Question.Ok) {
+                    if (lifeManager.oxygenLevel <= 50 && !lifeManager.oxygenMid) okMistakes += 1;
+                    else if (lifeManager.oxygenLevel <= 25 && !lifeManager.oxygenLow) okMistakes += 1;
+                    else if (lifeManager.oxygenLevel <= 5 && !lifeManager.oxygenVeryLow) okMistakes += 1;
+                    else if (lifeManager.coldLevel <= 10 && !lifeManager.isVeryCold) okMistakes += 1;
+                    else okGood +=1;
+                }
+                if (question == Question.Cold) {
+                    if (lifeManager.coldLevel <= 10 && !lifeManager.isVeryCold) okMistakes += 1;
+                    else okGood +=1;
+                }
+                if (question == Question.Oxygen) {
+                    if (lifeManager.oxygenLevel <= 50 && !lifeManager.oxygenMid) okMistakes += 1;
+                    else if (lifeManager.oxygenLevel <= 25 && !lifeManager.oxygenLow) okMistakes += 1;
+                    else if (lifeManager.oxygenLevel <= 5 && !lifeManager.oxygenVeryLow) okMistakes += 1;
+                    else okGood +=1;
+                }
+            }
+        }
+    }
+
+    public void AnswerCold()
+    {
+        if (lookAtMe) {
+            if (alerting) {
+                canvasPivot.SetActive(false);
+                entertainorAudioSource.PlayOneShot(alrightSound,0.8f);
+                alerting = false;
+                alertTimer = Random.Range(alertMinTimer,alertMaxTimer);
+                if (question == Question.Ok && lifeManager.coldLevel >= 10) coldMistakes +=1;
+                else if (question == Question.Cold && lifeManager.coldLevel >= 10) coldMistakes +=1;
+                else if (question == Question.Oxygen) coldMistakes +=1;
+                else coldGood +=1;
+            }
+            else {
+                if (lifeManager.coldLevel >= 10) coldMistakes +=1;
+                else coldGood +=1;
+            }
+        }
+    }
+
+    public void AnswerMidPressure()
+    {
+        if (lookAtMe) {
+            if (alerting) {
+                canvasPivot.SetActive(false);
+                entertainorAudioSource.PlayOneShot(alrightSound,0.8f);
+                alerting = false;
+                alertTimer = Random.Range(alertMinTimer,alertMaxTimer);
+                if (question == Question.Cold) midPressureMistakes +=1;
+                else {
+                    if (lifeManager.oxygenLevel >= 50 || lifeManager.oxygenLevel <= 25) midPressureMistakes +=1;
+                    else midPressureGood +=1;
+                }
+            }
+            else {
+                if (lifeManager.oxygenLevel >= 50 || lifeManager.oxygenLevel <= 25) midPressureMistakes +=1;
+                else midPressureGood +=1;
+            }
+        }
+    }
+
+    public void AnswerReserve()
+    {
+        if (lookAtMe) {
+            if (alerting) {
+                canvasPivot.SetActive(false);
+                entertainorAudioSource.PlayOneShot(alrightSound,0.8f);
+                alerting = false;
+                alertTimer = Random.Range(alertMinTimer,alertMaxTimer);
+            }
+        }
+    }
+
+    public void AnswerNoAir()
+    {
+        if (lookAtMe) {
+            if (alerting) {
+                canvasPivot.SetActive(false);
+                entertainorAudioSource.PlayOneShot(alrightSound,0.8f);
+                alerting = false;
+                alertTimer = Random.Range(alertMinTimer,alertMaxTimer);
+            }
+        }
+    }
+    public void AnswerNotOK()
+    {
+        if (lookAtMe) {
+            if (alerting) {
+                canvasPivot.SetActive(false);
+                entertainorAudioSource.PlayOneShot(alrightSound,0.8f);
+                alerting = false;
+                alertTimer = Random.Range(alertMinTimer,alertMaxTimer);
+            }
         }
     }
 }
