@@ -112,7 +112,7 @@ public class PlayerControl : MonoBehaviour
             {
                 Vector3 direction = (_leftHand.transform.position + _rightHand.transform.position) / 2 - (bodyToMove.transform.position - Vector3.up*_headTorsoDistance);
                 float intensity = direction.magnitude * _speedUpMultiplier;
-                bodyToMove.transform.Translate(/*transform.forward*/ direction.normalized * (mvtSpeed * Time.fixedDeltaTime));
+                bodyToMove.transform.Translate(/*transform.forward*/ direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime));
             }
 
             yield return null;
