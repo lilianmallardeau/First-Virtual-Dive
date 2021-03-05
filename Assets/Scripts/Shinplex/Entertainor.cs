@@ -10,7 +10,8 @@ public class Entertainor : MonoBehaviour
     [SerializeField] private float alertMinTimer = 15f;
     [SerializeField] private float alertMaxTimer = 25f;
     [SerializeField] private float moveSpeedMax = 8f;
-    [SerializeField] private float distFromPlayer = 5f;
+    [SerializeField] private float distRemote = 5f;
+    [SerializeField] private float firstCircle = 8f;
     [SerializeField] private GameObject canvasPivot;
 
     [SerializeField] private Image currentPic;
@@ -64,17 +65,19 @@ public class Entertainor : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Vector3 objective = new Vector3(player.position.x + 6, player.position.y + 3, player.position.z + 5);
+        Vector3 objective = player.position + (transform.position - player.position).normalized * firstCircle;
 
         distanceFromObjective = (transform.position - objective).magnitude;
 
-        if (distanceFromObjective <= distFromPlayer) {
-            moveSpeed = moveSpeedMax / distFromPlayer * distanceFromObjective;
+        if (distanceFromObjective <= distRemote) {
+            moveSpeed = moveSpeedMax / distRemote * distanceFromObjective;
         }
         else moveSpeed = moveSpeedMax;
 
+        if ( (transform.position - player.position).magnitude >= firstCircle ) {
+            transform.position = Vector3.MoveTowards(transform.position, objective, moveSpeed * Time.deltaTime);
+        }
         
-
         transform.LookAt(new Vector3(player.position.x, player.position.y + 3, player.position.z));
         canvasPivot.transform.LookAt(player.position);
     }
