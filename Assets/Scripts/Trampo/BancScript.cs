@@ -14,7 +14,7 @@ public class BancScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenerateFishs();
+        StartCoroutine(GenerateFishs());
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class BancScript : MonoBehaviour
 
     }
 
-    private void GenerateFishs()
+    IEnumerator GenerateFishs()
     {
         allFish = new FishMovement[size];
         for (int i = 0; i < size; i++)
@@ -33,6 +33,7 @@ public class BancScript : MonoBehaviour
             var spawnPosition = transform.position + randomVector;
             var rotation = Quaternion.Euler(0, -90, 0);
             allFish[i] = Instantiate(fishPrefab, spawnPosition, rotation);
+            yield return new WaitForSeconds(0.07f);
         }
 
 
