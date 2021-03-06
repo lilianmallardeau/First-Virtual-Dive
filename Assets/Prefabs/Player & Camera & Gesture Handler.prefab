@@ -25358,7 +25358,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -25569,6 +25569,10 @@ MonoBehaviour:
   _gestureManager: {fileID: 1461046080510887553}
   layerTransitionSpeed: 0.5
   entertainor: {fileID: 0}
+  _leftHand: {fileID: 0}
+  _rightHand: {fileID: 0}
+  _headTorsoDistance: 0.1
+  _speedUpMultiplier: 2
   bubles: {fileID: 5876269361435684049}
 --- !u!1 &7272016435541953115
 GameObject:
