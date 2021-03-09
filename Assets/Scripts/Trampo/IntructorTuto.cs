@@ -105,7 +105,7 @@ public class IntructorTuto : MonoBehaviour
 
         _fadingScreen.color = new Color(0, 0, 0, 0);
         PlayerControl._canMove = true;
-        SceneManager.LoadScene("Dive");
+        SceneManager.LoadScene(1);
 
     }
 }

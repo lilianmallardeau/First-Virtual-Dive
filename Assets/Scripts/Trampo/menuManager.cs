@@ -54,24 +54,13 @@ public class menuManager : MonoBehaviour
             menu.gameObject.SetActive(false);
             menuSound.Play();
         }
-        if (collider.gameObject.CompareTag("backSettings"))
-        {
-            settings.gameObject.SetActive(false);
-            menu.gameObject.SetActive(true);
-            menuSound.Play();
-        }
         if (collider.gameObject.CompareTag("helpButton"))
         {
             help.gameObject.SetActive(true);
             menuSound.Play();
             menu.gameObject.SetActive(false);
         }
-        if (collider.gameObject.CompareTag("backHelp"))
-        {
-            help.gameObject.SetActive(false);
-            menuSound.Play();
-            menu.gameObject.SetActive(true);
-        }
+
         if (collider.gameObject.CompareTag("QuitButton"))
         {
             popFin.gameObject.SetActive(true);
