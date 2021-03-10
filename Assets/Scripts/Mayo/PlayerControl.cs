@@ -58,10 +58,11 @@ public class PlayerControl : MonoBehaviour
         {
             StartCoroutine(RespirationCouroutine());
         }
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Environnement"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            mvtSpeed = 15f;
+            mvtSpeed = 11f;
         }
+
     }
 
     public void MoveForward()

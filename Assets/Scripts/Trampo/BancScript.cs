@@ -31,7 +31,7 @@ public class BancScript : MonoBehaviour
             var randomVector = UnityEngine.Random.insideUnitSphere;
             randomVector = new Vector3(randomVector.x * spawnBounds.x, randomVector.y * spawnBounds.y, randomVector.z * spawnBounds.z);
             var spawnPosition = transform.position + randomVector;
-            var rotation = Quaternion.Euler(0, -90, 0);
+            var rotation = Quaternion.Euler(0, 90f, 0);
             allFish[i] = Instantiate(fishPrefab, spawnPosition, rotation);
             yield return new WaitForSeconds(0.07f);
         }
