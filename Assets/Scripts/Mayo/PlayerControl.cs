@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 using Object = System.Object;
 
 public class PlayerControl : MonoBehaviour
@@ -50,13 +51,18 @@ public class PlayerControl : MonoBehaviour
             //GetDevices();
         }
         // Décommenter quand on build
-        // if (CheckPanneau.allCheck != 5) _canMove = false;
+        if (CheckPanneau.allCheck != 5) _canMove = false;
         else _canMove = true;
 
         if (expire == true)
         {
             StartCoroutine(RespirationCouroutine());
         }
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+        {
+            mvtSpeed = 11f;
+        }
+
     }
 
     public void MoveForward()

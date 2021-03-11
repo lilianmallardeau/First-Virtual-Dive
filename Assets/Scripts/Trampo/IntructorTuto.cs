@@ -43,7 +43,7 @@ public class IntructorTuto : MonoBehaviour
         transform.LookAt(new Vector3(player.position.x, player.position.y, player.position.z));
         canvasPivot.transform.LookAt(player.position);
 
-        if (distanceFromObjective < 10f && startInstru)
+        if (distanceFromObjective < 8f && startInstru)
         {
             Debug.Log("startInstru");
             StartCoroutine(StartInstructions());
@@ -105,7 +105,7 @@ public class IntructorTuto : MonoBehaviour
 
         _fadingScreen.color = new Color(0, 0, 0, 0);
         PlayerControl._canMove = true;
-        SceneManager.LoadScene("Dive");
+        SceneManager.LoadScene(1);
 
     }
 }

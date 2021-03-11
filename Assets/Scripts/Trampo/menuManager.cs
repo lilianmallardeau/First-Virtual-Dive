@@ -60,6 +60,7 @@ public class menuManager : MonoBehaviour
             menuSound.Play();
             menu.gameObject.SetActive(false);
         }
+
         if (collider.gameObject.CompareTag("QuitButton"))
         {
             popFin.gameObject.SetActive(true);

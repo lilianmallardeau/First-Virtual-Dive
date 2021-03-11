@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 446392638}
+  lifeManager: {fileID: 0}
   alertMinTimer: 15
   alertMaxTimer: 25
   moveSpeedMax: 8
@@ -361,11 +362,22 @@ MonoBehaviour:
   okPic: {fileID: 21300000, guid: 6bd0bf0bacb8db940aacb647c2a3ac76, type: 3}
   coldPic: {fileID: 21300000, guid: a131b79b0f243e94787740c26d9ded0e, type: 3}
   oxygenPic: {fileID: 21300000, guid: d7073df76bee58a47becca630ce15470, type: 3}
-  pressurePic: {fileID: 0}
   entertainorAudioSource: {fileID: 368343279}
   heySound: {fileID: 8300000, guid: bcfc95a27bf7c4b49817d890fde0882e, type: 3}
   alrightSound: {fileID: 8300000, guid: b3010746ebf187647a7d9b6c20a0acf9, type: 3}
   moveSpeed: 2
+  okGood: 0
+  okMistakes: 0
+  notOkGood: 0
+  notOkMistakes: 0
+  coldGood: 0
+  coldMistakes: 0
+  midPressureGood: 0
+  midPressureMistakes: 0
+  reserveGood: 0
+  reserveMistakes: 0
+  noAirGood: 0
+  noAirMistakes: 0
 --- !u!23 &368343282
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1924,6 +1936,10 @@ MonoBehaviour:
   oxygenLevel: 100
   pressureLevel: 100
   coldLevel: 100
+  oxygenMid: 0
+  oxygenLow: 0
+  oxygenVeryLow: 0
+  isVeryCold: 0
 --- !u!4 &1581014870
 Transform:
   m_ObjectHideFlags: 0
@@ -2361,6 +2377,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 306833683646874233, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306833683646874233, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 862974664115762860, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: m_Name
@@ -2396,6 +2422,56 @@ PrefabInstance:
       propertyPath: NoMoreOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 368343281}
+    - target: {fileID: 1715790171795783341, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3200283843551857516, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741698967276820067, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741698967276820067, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3741698967276820067, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004116149171419633, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004116149171419633, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055075495822190286, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055075495822190286, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055075495822190286, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7278002846466109987, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: popDebutMain
