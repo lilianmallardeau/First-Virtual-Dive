@@ -156,6 +156,13 @@ public class GestureEventsManager : MonoBehaviour
             currentGesture = Gesture.Reserve;
         }
         
+        // Cold
+        else if ((_leftHandGesture == HandGesture.Flat && _rightHandGesture == HandGesture.Flat) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .1f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
+        {
+            StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.Cold));
+            currentGesture = Gesture.Cold;
+        }
+        
         // TODO: tests for gestures NotOk, Cold, NoMoreOxygen
 
         else
@@ -169,6 +176,10 @@ public class GestureEventsManager : MonoBehaviour
     private IEnumerator ComputeAnimatedGestureCoroutine(Gesture gesture)
     {
         float timer = .0f;
+        float distance = .0f;
+        float prevDistance = .0f;
+        bool gestureStarted = false;
+        int backAndForth = 0;
         
         switch (gesture)
         {
@@ -180,7 +191,27 @@ public class GestureEventsManager : MonoBehaviour
                 break;
             
             case Gesture.Cold:
-                
+                distance = Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position);
+                while ((_leftHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Flat) && distance < .3f)
+                {
+                    if (!gestureStarted && timer >= 1.5f)
+                    {
+                        InvokeGestureEvent(Gesture.Cold);
+                        timer = .0f;
+                        gestureStarted = true;
+                    }
+                    else if (timer >= 1.5f)
+                    {
+                        //InvokeTriggeredGestureEvent(Gesture.Cold);
+                        break;
+                    }
+
+                    if (Mathf.Abs(distance - prevDistance) < .05f)
+                    {
+                        break;
+                    }
+                    timer += Time.deltaTime;
+                }
                 break;
             
             default:
