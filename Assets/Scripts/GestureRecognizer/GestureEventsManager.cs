@@ -15,7 +15,6 @@ public class GestureEventsManager : MonoBehaviour
         Down,
         Ok,
         NotOk,
-        CheckMano,
         Cold,
         HalfPressure,
         Reserve,
@@ -87,7 +86,6 @@ public class GestureEventsManager : MonoBehaviour
     [SerializeField] private UnityEvent Down;
     [SerializeField] private UnityEvent Ok;
     [SerializeField] private UnityEvent NotOk;
-    [SerializeField] private UnityEvent CheckMano;
     [SerializeField] private UnityEvent Cold;
     [SerializeField] private UnityEvent HalfPressure;
     [SerializeField] private UnityEvent Reserve;
@@ -109,7 +107,6 @@ public class GestureEventsManager : MonoBehaviour
     [SerializeField] private UnityEvent DownTriggered;
     [SerializeField] private UnityEvent OkTriggered;
     [SerializeField] private UnityEvent NotOkTriggered;
-    [SerializeField] private UnityEvent CheckManoTriggered;
     [SerializeField] private UnityEvent ColdTriggered;
     [SerializeField] private UnityEvent HalfPressureTriggered;
     [SerializeField] private UnityEvent ReserveTriggered;
@@ -350,8 +347,6 @@ public class GestureEventsManager : MonoBehaviour
             Ok.Invoke();
         else if (gesture == Gesture.NotOk)
             NotOk.Invoke();
-        else if (gesture == Gesture.CheckMano)
-            CheckMano.Invoke();
         else if (gesture == Gesture.Cold)
             Cold.Invoke();
         else if (gesture == Gesture.HalfPressure)
@@ -378,8 +373,6 @@ public class GestureEventsManager : MonoBehaviour
             OkTriggered.Invoke();
         else if (gesture == Gesture.NotOk)
             NotOkTriggered.Invoke();
-        else if (gesture == Gesture.CheckMano)
-            CheckManoTriggered.Invoke();
         else if (gesture == Gesture.Cold)
             ColdTriggered.Invoke();
         else if (gesture == Gesture.HalfPressure)
