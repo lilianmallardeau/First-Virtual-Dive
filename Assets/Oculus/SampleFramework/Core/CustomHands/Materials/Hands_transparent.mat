@@ -106,13 +106,13 @@ Material:
     - _linearToSrgb: 0
     - _premultiply: 0
     m_Colors:
-    - _Color: {r: 0.6544118, g: 0.8140972, b: 1, a: 0.478}
+    - _Color: {r: 0, g: 250, b: 0, a: 1}
     - _EmisColor: {r: 0.2, g: 0.2, b: 0.2, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _InnerColor: {r: 0, g: 0.4399309, b: 0.6320754, a: 1}
     - _MyColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 1, g: 0, b: 0, a: 0.5019608}
-    - _RimColor: {r: 0.4538982, g: 0.87240106, b: 0.9433962, a: 0.7647059}
+    - _RimColor: {r: 0.454902, g: 0.94509804, b: 0.6313462, a: 0.7647059}
     - _SpecColor: {r: 0.50735295, g: 0.50735295, b: 0.50735295, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
