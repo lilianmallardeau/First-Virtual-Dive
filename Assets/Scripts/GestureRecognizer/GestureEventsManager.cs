@@ -52,7 +52,10 @@ public class GestureEventsManager : MonoBehaviour
     [Header("Hands")]
     [SerializeField] private GameObject _leftHand;
     [SerializeField] private GameObject _rightHand;
-
+    
+    // The two side cameras of the headset, to compute distance between hands and sides of the head
+    [SerializeField] private GameObject _leftHeadCamera;
+    [SerializeField] private GameObject _rightHeadCamera;
     // Events for each gesture
     [Header("Gestures events")]
     [SerializeField] private UnityEvent None;
@@ -148,6 +151,12 @@ public class GestureEventsManager : MonoBehaviour
         }
         
         // TODO: tests for gestures NotOk, Cold, Reserve, NoMoreOxygen
+        
+        // Reserve
+        else if ((_leftHandGesture == HandGesture.Fist || _rightHandGesture == HandGesture.Fist) && (Vector3.Distance(_leftHand.transform.position, _leftHeadCamera.transform.position) < .3f || Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position) < .3f))
+        {
+            currentGesture = Gesture.Reserve;
+        }
 
         else
             currentGesture = Gesture.None;
