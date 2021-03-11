@@ -189,7 +189,7 @@ public class GestureEventsManager : MonoBehaviour
         else if ((_leftHandGesture == HandGesture.Flat && _rightHandGesture == HandGesture.Flat) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .1f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
         {
             StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.Cold));
-            currentGesture = Gesture.Cold;
+            CurrentGesture = Gesture.Cold;
         }
         
         // TODO: tests for gestures NotOk, Cold, NoMoreOxygen
@@ -210,8 +210,7 @@ public class GestureEventsManager : MonoBehaviour
         float distance = .0f;
         float prevDistance = .0f;
         bool gestureStarted = false;
-        int backAndForth = 0;
-        
+
         switch (gesture)
         {
             case Gesture.NotOk:
