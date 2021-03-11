@@ -8928,6 +8928,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 30
   diametre: 60
+--- !u!114 &601546087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601546085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c237cc718ac4ca478475ae125e65da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 601546088}
+  time: 45
 --- !u!82 &601546088
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8939,7 +8953,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9c5b302d9b956464b8caea8e2c5a4dd1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
