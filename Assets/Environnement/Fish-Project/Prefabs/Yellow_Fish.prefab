@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037204f1cc0c3aa4985a71a922d55d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
-  diametre: 0
+  time: 8
+  diametre: 10
 --- !u!1 &100012
 GameObject:
   m_ObjectHideFlags: 0

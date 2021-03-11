@@ -11,6 +11,7 @@ public class FishMovement : MonoBehaviour
     private float totalTime;
     private int target;
 
+
     
 
 
@@ -25,7 +26,7 @@ public class FishMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //totalTime += Time.deltaTime;
         //target = Mathf.CeilToInt(totalTime % time * positions.Length / time) - 1;
@@ -34,6 +35,7 @@ public class FishMovement : MonoBehaviour
         
 
         transform.Rotate(0, Time.deltaTime * 360 / time, 0);
+
 
     }
 
