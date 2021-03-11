@@ -274,10 +274,14 @@ public class GestureEventsManager : MonoBehaviour
                 break;
             
             case Gesture.NoMoreOxygen:
-                while (((_leftHandGesture == HandGesture.Flat && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.9f) || (_rightHandGesture == HandGesture.Flat && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .9f)) && distance < .5f)
+                do
                 {
                     prevDistance = distance;
-                    distance = Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f));
+                    distance = Mathf.Min(
+                        Vector3.Distance(_leftHand.transform.position,
+                            _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f),
+                        Vector3.Distance(_rightHand.transform.position,
+                            _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f));
                     if (!gestureStarted && timer >= delayAnimatedFirst)
                     {
                         InvokeGestureEvent(Gesture.NoMoreOxygen);
@@ -294,13 +298,14 @@ public class GestureEventsManager : MonoBehaviour
                     {
                         break;
                     }
+
                     timer += Time.deltaTime;
                     yield return null;
-                }
+                } while (((_leftHandGesture == HandGesture.Flat && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.9f) || (_rightHandGesture == HandGesture.Flat && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .9f)) && distance < .5f);
                 break;
             
             case Gesture.Cold:
-                while (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && distance < .3f)
+                do
                 {
                     prevDistance = distance;
                     distance = Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position);
@@ -320,9 +325,10 @@ public class GestureEventsManager : MonoBehaviour
                     {
                         break;
                     }
+
                     timer += Time.deltaTime;
                     yield return null;
-                }
+                } while (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && distance < .3f);
                 break;
             
             default:
