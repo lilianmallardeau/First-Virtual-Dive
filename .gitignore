@@ -60,3 +60,6 @@ crashlytics-build.properties
 
 # JetBrains Rider folder
 .idea/
+
+# Visual Studio Code folder
+.vscode/
