@@ -33,9 +33,15 @@ public class GestureEventsManager : MonoBehaviour
     }
     
     // The current and previous gestures
-    public Gesture currentGesture { get; private set; }
+    public Gesture CurrentGesture { get; private set; }
     private Gesture _previousGesture;
     
+    // Timestamp of last gesture initialized 
+    private float _timer;
+    
+    // The last gesture validated after delay
+    public Gesture CurrentValidatedGesture { get; private set; }
+
     // Current gestures from hands
     private HandGesture _leftHandGesture;
     private HandGesture _rightHandGesture;
@@ -56,7 +62,9 @@ public class GestureEventsManager : MonoBehaviour
     // The two side cameras of the headset, to compute distance between hands and sides of the head
     [SerializeField] private GameObject _leftHeadCamera;
     [SerializeField] private GameObject _rightHeadCamera;
-    // Events for each gesture
+    
+    
+    // Events for each gesture initialized
     [Header("Gestures events")]
     [SerializeField] private UnityEvent None;
     [SerializeField] private UnityEvent GoForward;
@@ -71,6 +79,27 @@ public class GestureEventsManager : MonoBehaviour
     [SerializeField] private UnityEvent NoMoreOxygen;
     [SerializeField] private UnityEvent Menu;
 
+    
+    [Header("Gestures events triggered (after delay)")]
+    
+    // Delay to wait before triggering gesture
+    [SerializeField][Tooltip("Delay to wait between gesture initialization and event trigger (in seconds)")] private float delay;
+
+    // Events for each gesture initialized
+    [SerializeField] private UnityEvent NoneTriggered;
+    [SerializeField] private UnityEvent GoForwardTriggered;
+    [SerializeField] private UnityEvent UpTriggered;
+    [SerializeField] private UnityEvent DownTriggered;
+    [SerializeField] private UnityEvent OkTriggered;
+    [SerializeField] private UnityEvent NotOkTriggered;
+    [SerializeField] private UnityEvent CheckManoTriggered;
+    [SerializeField] private UnityEvent ColdTriggered;
+    [SerializeField] private UnityEvent HalfPressureTriggered;
+    [SerializeField] private UnityEvent ReserveTriggered;
+    [SerializeField] private UnityEvent NoMoreOxygenTriggered;
+    [SerializeField] private UnityEvent MenuTriggered;
+    
+    
     private void SetHandGesture(OVRHand.Hand hand, string gesture)
     {
         HandGesture handGesture = HandGesture.None;
@@ -119,41 +148,41 @@ public class GestureEventsManager : MonoBehaviour
         //return;
         // Ok
         if (_leftHandGesture == HandGesture.Ok || _rightHandGesture == HandGesture.Ok)
-            currentGesture = Gesture.Ok;
+            CurrentGesture = Gesture.Ok;
         
         // Up and Down
         else if (_rightHandGesture == HandGesture.Thumb)
-            currentGesture = Vector3.Dot(Vector3.up, _rightHand.transform.forward) < 0 ? Gesture.Up : Gesture.Down;
+            CurrentGesture = Vector3.Dot(Vector3.up, _rightHand.transform.forward) < 0 ? Gesture.Up : Gesture.Down;
         else if (_leftHandGesture == HandGesture.Thumb)
-            currentGesture = Vector3.Dot(Vector3.up, _leftHand.transform.forward) > 0 ? Gesture.Up : Gesture.Down;
+            CurrentGesture = Vector3.Dot(Vector3.up, _leftHand.transform.forward) > 0 ? Gesture.Up : Gesture.Down;
         
         // Go forward
         else if (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Fist &&
                  Vector3.Distance(_rightHand.transform.position, _leftHand.transform.position) < .4)
-            currentGesture = Gesture.GoForward;
+            CurrentGesture = Gesture.GoForward;
         
         // Half pressure ("T" with the two hands)
         else if (_leftHandGesture == HandGesture.Flat && _rightHandGesture == HandGesture.Flat &&
                  Vector3.Distance(_rightHand.transform.position, _leftHand.transform.position) < .3 &&
                  Math.Abs(Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right)) < .1)
-            currentGesture = Gesture.HalfPressure;
+            CurrentGesture = Gesture.HalfPressure;
         
         // Menu
         else if ((_rightHandGesture == HandGesture.Menu || _rightHandGesture == HandGesture.Flat) && Vector3.Dot(Vector3.up, _rightHand.transform.up) < 0 && Math.Abs(Vector3.Dot(Vector3.up, _rightHand.transform.up)) > .8)
         {
-            currentGesture = Gesture.Menu;
+            CurrentGesture = Gesture.Menu;
             hand = "right";
         }
         else if ((_leftHandGesture == HandGesture.Menu || _leftHandGesture == HandGesture.Flat) && Vector3.Dot(Vector3.up, _leftHand.transform.up) > 0 && Math.Abs(Vector3.Dot(Vector3.up, _leftHand.transform.up)) > .8)
         {
-            currentGesture = Gesture.Menu;
+            CurrentGesture = Gesture.Menu;
             hand = "left";
         }
         
         // Reserve
         else if ((_leftHandGesture == HandGesture.Fist || _rightHandGesture == HandGesture.Fist) && (Vector3.Distance(_leftHand.transform.position, _leftHeadCamera.transform.position) < .3f || Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position) < .3f))
         {
-            currentGesture = Gesture.Reserve;
+            CurrentGesture = Gesture.Reserve;
         }
         
         // Cold
@@ -166,10 +195,12 @@ public class GestureEventsManager : MonoBehaviour
         // TODO: tests for gestures NotOk, Cold, NoMoreOxygen
 
         else
-            currentGesture = Gesture.None;
-        if (currentGesture != _previousGesture) {
-            _previousGesture = currentGesture;
-            InvokeGestureEvent(currentGesture);
+            CurrentGesture = Gesture.None;
+        
+        if (CurrentGesture != _previousGesture) {
+            _previousGesture = CurrentGesture;
+            _timer = Time.time;
+            InvokeGestureEvent(CurrentGesture);
         }
     }
 
@@ -249,6 +280,34 @@ public class GestureEventsManager : MonoBehaviour
             Menu.Invoke();
     }
     
+    private void InvokeTriggeredGestureEvent(Gesture gesture)
+    {
+        if (gesture == Gesture.None)
+            NoneTriggered.Invoke();
+        else if (gesture == Gesture.GoForward)
+            GoForwardTriggered.Invoke();
+        else if (gesture == Gesture.Up)
+            UpTriggered.Invoke();
+        else if (gesture == Gesture.Down)
+            DownTriggered.Invoke();
+        else if (gesture == Gesture.Ok)
+            OkTriggered.Invoke();
+        else if (gesture == Gesture.NotOk)
+            NotOkTriggered.Invoke();
+        else if (gesture == Gesture.CheckMano)
+            CheckManoTriggered.Invoke();
+        else if (gesture == Gesture.Cold)
+            ColdTriggered.Invoke();
+        else if (gesture == Gesture.HalfPressure)
+            HalfPressureTriggered.Invoke();
+        else if (gesture == Gesture.Reserve)
+            ReserveTriggered.Invoke();
+        else if (gesture == Gesture.NoMoreOxygen)
+            NoMoreOxygenTriggered.Invoke();
+        else if (gesture == Gesture.Menu)
+            MenuTriggered.Invoke();
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -260,5 +319,10 @@ public class GestureEventsManager : MonoBehaviour
     {
         ComputeFinalGesture();
         //GameObject.Find("text").GetComponent<TextMesh>().text = Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right).ToString();
+
+        if (Time.time - _timer >= delay && CurrentValidatedGesture != CurrentGesture)
+        {
+            InvokeTriggeredGestureEvent(CurrentValidatedGesture = CurrentGesture);
+        }
     }
 }

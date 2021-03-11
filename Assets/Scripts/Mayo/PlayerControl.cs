@@ -93,7 +93,7 @@ public class PlayerControl : MonoBehaviour
         do
         {
             yield return null;
-        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Ok || !Entertainor.lookAtMe);
+        } while (_gestureManager.CurrentGesture != GestureEventsManager.Gesture.Ok || !Entertainor.lookAtMe);
 
         float timer = layerChangeTime;
         while (timer > 0)
@@ -112,7 +112,7 @@ public class PlayerControl : MonoBehaviour
 
     private IEnumerator MoveForwardCoroutine()
     {
-        while (_gestureManager.currentGesture == GestureEventsManager.Gesture.GoForward)
+        while (_gestureManager.CurrentGesture == GestureEventsManager.Gesture.GoForward)
         {
             if (_canMove)
             {
