@@ -82,7 +82,7 @@ public class IntructorTuto : MonoBehaviour
         do
         {
             yield return null;
-        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Down);
+        } while (_gestureManager.CurrentGesture != GestureEventsManager.Gesture.Down);
 
         // Instructor asks if everything is ok
         instructions.sprite = okPic;
@@ -91,7 +91,7 @@ public class IntructorTuto : MonoBehaviour
         do
         {
             yield return null;
-        } while (_gestureManager.currentGesture != GestureEventsManager.Gesture.Ok);
+        } while (_gestureManager.CurrentGesture != GestureEventsManager.Gesture.Ok);
         canvasPivot.SetActive(false);
         float timer = 4f;
         while (timer > 0)
