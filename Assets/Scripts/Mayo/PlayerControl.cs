@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 //using TreeEditor;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float layerChangeTime = 4f;
     [SerializeField] private GestureEventsManager _gestureManager;
     [SerializeField] private float layerTransitionSpeed = .5f;
+    [SerializeField] private float layerHeight = 5f;
     [SerializeField] private Entertainor entertainor;
     [SerializeField] private GameObject _leftHand;
     [SerializeField] private GameObject _rightHand;
@@ -28,6 +30,8 @@ public class PlayerControl : MonoBehaviour
     private InputDevice _device;
     public static bool _canMove = true;
     private bool _changingLayer = false;
+    private int layer = 0;
+    private float startingHeight;
 
     [SerializeField] private ParticleSystem bubles;
     private bool expire = true;
@@ -41,7 +45,7 @@ public class PlayerControl : MonoBehaviour
     
     void Start()
     {
-        //GetDevices();
+        startingHeight = bodyToMove.transform.position.y;
     }
 
     void Update()
@@ -72,11 +76,14 @@ public class PlayerControl : MonoBehaviour
 
     public void ChangeLayerProcedure(bool up)
     {
-        if (!_changingLayer)
+        if (!(up && layer == 0))
         {
-            if (Entertainor.lookAtMe)
+            if (!_changingLayer)
             {
-                StartCoroutine(ChangeLayerProcedureCoroutine(up));
+                if (Entertainor.lookAtMe)
+                {
+                    StartCoroutine(ChangeLayerProcedureCoroutine(up));
+                }
             }
         }
     }
@@ -105,6 +112,7 @@ public class PlayerControl : MonoBehaviour
             yield return null;
         }
 
+        layer += up ? -1 : 1;
         _fadingScreen.color = new Color(0, 0, 0, 0);
         _canMove = true;
         _changingLayer = false;
@@ -118,7 +126,9 @@ public class PlayerControl : MonoBehaviour
             {
                 Vector3 direction = (_leftHand.transform.position + _rightHand.transform.position) / 2 - (bodyToMove.transform.position - Vector3.up*_headTorsoDistance);
                 float intensity = direction.magnitude * _speedUpMultiplier;
-                bodyToMove.transform.Translate(/*transform.forward*/ direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime));
+                bodyToMove.transform.Translate(direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime));
+                float finalHeight = Mathf.Clamp(bodyToMove.transform.position.y, (-.5f - layer) * layerHeight + startingHeight, (.5f - layer) * layerHeight + startingHeight);
+                bodyToMove.transform.position = new Vector3(bodyToMove.transform.position.x, finalHeight, bodyToMove.transform.position.z);
             }
 
             yield return null;
