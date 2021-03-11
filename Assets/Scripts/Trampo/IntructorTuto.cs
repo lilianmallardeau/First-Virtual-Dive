@@ -84,15 +84,6 @@ public class IntructorTuto : MonoBehaviour
             yield return null;
         } while (_gestureManager.CurrentGesture != GestureEventsManager.Gesture.Down);
 
-        // Instructor asks if everything is ok
-        instructions.sprite = okPic;
-        canvasPivot.SetActive(true);
-        yield return new WaitForSeconds(.01f);
-        do
-        {
-            yield return null;
-        } while (_gestureManager.CurrentGesture != GestureEventsManager.Gesture.Ok);
-        canvasPivot.SetActive(false);
         float timer = 4f;
         while (timer > 0)
         {
@@ -103,9 +94,9 @@ public class IntructorTuto : MonoBehaviour
             yield return null;
         }
 
+        SceneManager.LoadScene(1);
         _fadingScreen.color = new Color(0, 0, 0, 0);
         PlayerControl._canMove = true;
-        SceneManager.LoadScene(1);
 
     }
 }
