@@ -87,13 +87,13 @@ public class PlayerControl : MonoBehaviour
         _changingLayer = true;
 
         // Instructor asks if everything is ok
-        entertainor.AskOK();
-
-        yield return new WaitForSeconds(.01f);
-        do
-        {
-            yield return null;
-        } while (_gestureManager.CurrentGesture != GestureEventsManager.Gesture.Ok || !Entertainor.lookAtMe);
+        // entertainor.AskOK();
+        //
+        // yield return new WaitForSeconds(.01f);
+        // do
+        // {
+        //     yield return null;
+        // } while (_gestureManager.CurrentGesture != GestureEventsManager.Gesture.Ok || !Entertainor.lookAtMe);
 
         float timer = layerChangeTime;
         while (timer > 0)
