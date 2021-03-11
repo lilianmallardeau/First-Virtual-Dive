@@ -98,9 +98,9 @@ public class GestureEventsManager : MonoBehaviour
     [Header("Gestures events triggered (after delay)")]
     
     // Delay to wait before triggering gesture
-    [Tooltip("Delay between gesture initialization and event trigger (in seconds)")] public static float delay = 1.5f;
-    [Tooltip("Delay between first hand position recognition and animated gesture initialization (in seconds)")] public static float delayAnimatedFirst = .5f;
-    [Tooltip("Delay between animated gesture initialization and event trigger (in seconds).\ndelayAnimatedFirst plus delayAnimatedSecond should add up to delay")] public static float delayAnimatedSecond = 1f;
+    [Tooltip("Delay between gesture initialization and event trigger (in seconds)")] public float delay = 1.5f;
+    [Tooltip("Delay between first hand position recognition and animated gesture initialization (in seconds)")] public float delayAnimatedFirst = .5f;
+    [Tooltip("Delay between animated gesture initialization and event trigger (in seconds).\ndelayAnimatedFirst plus delayAnimatedSecond should add up to delay")] public float delayAnimatedSecond = 1f;
     
     // Events for each gesture initialized
     [SerializeField] private UnityEvent NoneTriggered;
