@@ -180,8 +180,8 @@ public class GestureEventsManager : MonoBehaviour
         
         // Half pressure ("T" with the two hands)
         else if (_leftHandGesture == HandGesture.Flat && _rightHandGesture == HandGesture.Flat &&
-                 Vector3.Distance(_rightHand.transform.position, _leftHand.transform.position) < .3 &&
-                 Math.Abs(Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right)) < .1)
+                 Vector3.Distance(_rightHand.transform.position, _leftHand.transform.position) < .4 &&
+                 Math.Abs(Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right)) < .2)
             CurrentGesture = Gesture.HalfPressure;
         
         // Menu
@@ -294,7 +294,7 @@ public class GestureEventsManager : MonoBehaviour
                         break;
                     }
 
-                    if (Mathf.Abs(distance - prevDistance) < .05f)
+                    if (Mathf.Abs(distance - prevDistance) < .00005f)
                     {
                         break;
                     }
@@ -321,7 +321,7 @@ public class GestureEventsManager : MonoBehaviour
                         break;
                     }
 
-                    if (Mathf.Abs(distance - prevDistance) < .05f)
+                    if (Mathf.Abs(distance - prevDistance) < .00005f)
                     {
                         break;
                     }

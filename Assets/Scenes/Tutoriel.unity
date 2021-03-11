@@ -2097,6 +2097,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
+      propertyPath: ColdTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1356940794}
+    - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
       propertyPath: DownTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1903325920}
@@ -2180,6 +2185,11 @@ PrefabInstance:
       propertyPath: ReserveTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 54916959}
+    - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: ColdTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: checkCold
+      objectReference: {fileID: 0}
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: DownTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2358,6 +2368,11 @@ PrefabInstance:
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: NoMoreOxygen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: ColdTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,

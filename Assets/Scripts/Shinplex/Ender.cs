@@ -22,7 +22,7 @@ public class Ender : MonoBehaviour
     public void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 90f) {
+        if (timer >= 900f) {
             timer = -1000000f;
             StartCoroutine(endCoroutine());
         }
