@@ -234,7 +234,7 @@ public class GestureEventsManager : MonoBehaviour
                     }
                     else if (timer >= delayAnimatedSecond)
                     {
-                        InvokeTriggeredGestureEvent(Gesture.NoMoreOxygen);
+                        InvokeTriggeredGestureEvent(CurrentValidatedGesture = Gesture.NoMoreOxygen);
                         break;
                     }
                     if (Mathf.Abs(distance - prevDistance) < .05f)
@@ -259,7 +259,7 @@ public class GestureEventsManager : MonoBehaviour
                     }
                     else if (timer >= delayAnimatedSecond)
                     {
-                        InvokeTriggeredGestureEvent(Gesture.Cold);
+                        InvokeTriggeredGestureEvent(CurrentValidatedGesture = Gesture.Cold);
                         break;
                     }
                     if (Mathf.Abs(distance - prevDistance) < .05f)
