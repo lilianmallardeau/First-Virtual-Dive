@@ -150,13 +150,13 @@ public class GestureEventsManager : MonoBehaviour
             hand = "left";
         }
         
-        // TODO: tests for gestures NotOk, Cold, Reserve, NoMoreOxygen
-        
         // Reserve
         else if ((_leftHandGesture == HandGesture.Fist || _rightHandGesture == HandGesture.Fist) && (Vector3.Distance(_leftHand.transform.position, _leftHeadCamera.transform.position) < .3f || Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position) < .3f))
         {
             currentGesture = Gesture.Reserve;
         }
+        
+        // TODO: tests for gestures NotOk, Cold, NoMoreOxygen
 
         else
             currentGesture = Gesture.None;
@@ -164,6 +164,30 @@ public class GestureEventsManager : MonoBehaviour
             _previousGesture = currentGesture;
             InvokeGestureEvent(currentGesture);
         }
+    }
+
+    private IEnumerator ComputeAnimatedGestureCoroutine(Gesture gesture)
+    {
+        float timer = .0f;
+        
+        switch (gesture)
+        {
+            case Gesture.NotOk:
+                break;
+            
+            case Gesture.NoMoreOxygen:
+                
+                break;
+            
+            case Gesture.Cold:
+                
+                break;
+            
+            default:
+                break;
+        }
+
+        yield return null;
     }
 
     private void InvokeGestureEvent(Gesture gesture)
