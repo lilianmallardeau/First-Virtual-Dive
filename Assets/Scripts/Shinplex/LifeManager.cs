@@ -14,7 +14,6 @@ public class LifeManager : MonoBehaviour
     [SerializeField] private HealthBar coldBar2;
 
     public float oxygenLevel = 100f;
-    public float pressureLevel = 100f;
     public float coldLevel = 100f;
     public bool oxygenMid = false;
     public bool oxygenLow = false;
@@ -40,7 +39,7 @@ public class LifeManager : MonoBehaviour
             alertText.text = "Votre niveau d'Oxygène commence à être bas.\n N'oubliez pas de prévenir votre accompagnateur.";
             popAlerte.gameObject.SetActive(true);
         } 
-        if (pressureLevel <= 5 && !oxygenVeryLow)
+        if (oxygenLevel <= 5 && !oxygenVeryLow)
         {
             oxygenVeryLow = true;
             alertText.text = "Votre niveau d'Oxygène est très bas !\n Prévenez votre accompagnateur au plus vite !";
@@ -70,10 +69,6 @@ public class LifeManager : MonoBehaviour
             {
                 oxygenLevel = Mathf.Lerp(startValue, 0f, time1 / 1800);
             }
-            if (time2 < 1800)
-            {
-                pressureLevel = Mathf.Lerp(startValue, 0f, time2 / 1800);
-            }
             if (time3 < 1800)
             {
                 coldLevel = Mathf.Lerp(startValue, 0f, time3 / 1800);
@@ -90,7 +85,6 @@ public class LifeManager : MonoBehaviour
             yield return null;
         }
         oxygenLevel = 0f;
-        pressureLevel = 0f;
         coldLevel = 0f;
     }
 

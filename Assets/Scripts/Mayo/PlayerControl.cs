@@ -87,7 +87,7 @@ public class PlayerControl : MonoBehaviour
         _changingLayer = true;
 
         // Instructor asks if everything is ok
-        entertainor.AskOK();
+        // entertainor.AskOK();
 
         yield return new WaitForSeconds(.01f);
         do
