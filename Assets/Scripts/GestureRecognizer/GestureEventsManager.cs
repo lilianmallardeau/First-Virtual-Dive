@@ -62,6 +62,7 @@ public class GestureEventsManager : MonoBehaviour
     // The two side cameras of the headset, to compute distance between hands and sides of the head
     [SerializeField] private GameObject _leftHeadCamera;
     [SerializeField] private GameObject _rightHeadCamera;
+    [SerializeField] private GameObject _centerHeadCamera;
     
     
     // Events for each gesture initialized
@@ -186,7 +187,7 @@ public class GestureEventsManager : MonoBehaviour
         }
         
         // Cold
-        else if (((_leftHandGesture == HandGesture.Flat && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Flat)) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .1f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
+        else if (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .1f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
         {
             StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.Cold));
             CurrentGesture = Gesture.Cold;
@@ -217,12 +218,33 @@ public class GestureEventsManager : MonoBehaviour
                 break;
             
             case Gesture.NoMoreOxygen:
-                
+                distance = Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f));
+                while (((_leftHandGesture == HandGesture.Flat && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.9f) || (_rightHandGesture == HandGesture.Flat && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .9f)) && distance < .5f)
+                {
+                    if (!gestureStarted && timer >= 1.5f)
+                    {
+                        InvokeGestureEvent(Gesture.NoMoreOxygen);
+                        timer = .0f;
+                        gestureStarted = true;
+                    }
+                    else if (timer >= 1.5f)
+                    {
+                        InvokeTriggeredGestureEvent(Gesture.NoMoreOxygen);
+                        break;
+                    }
+
+                    if (Mathf.Abs(distance - prevDistance) < .05f)
+                    {
+                        break;
+                    }
+                    timer += Time.deltaTime;
+                    yield return null;
+                }
                 break;
             
             case Gesture.Cold:
                 distance = Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position);
-                while (((_leftHandGesture == HandGesture.Flat && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Flat)) && distance < .3f)
+                while (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && distance < .3f)
                 {
                     if (!gestureStarted && timer >= 1.5f)
                     {
