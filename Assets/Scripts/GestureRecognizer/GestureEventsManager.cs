@@ -232,7 +232,7 @@ public class GestureEventsManager : MonoBehaviour
                     }
                     else if (timer >= 1.5f)
                     {
-                        //InvokeTriggeredGestureEvent(Gesture.Cold);
+                        InvokeTriggeredGestureEvent(Gesture.Cold);
                         break;
                     }
 
