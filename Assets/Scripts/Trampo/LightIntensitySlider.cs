@@ -5,17 +5,21 @@ using UnityEngine;
 public class LightIntensitySlider : MonoBehaviour
 {
 
-    [SerializeField] private Light light1;
-    [SerializeField] private Light light2;
-    [SerializeField] private Light light3;
-    [SerializeField] private Light light4;
+    [SerializeField] private GameObject rightHands;
+    [SerializeField] private GameObject leftHands;
+    [SerializeField] private GestureEventsManager _gestureManager;
+
+
+    private Color startColor;
+
 
     private bool sliderIsRunning = false;
+    private bool none = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LightSlider());
+        startColor = rightHands.GetComponent<Renderer>().material.color;
     }
 
     // Update is called once per frame
@@ -29,23 +33,24 @@ public class LightIntensitySlider : MonoBehaviour
         StartCoroutine(LightSlider());
     }
 
+
+
     IEnumerator LightSlider()
     {
         sliderIsRunning = true;
         float timer = 2f;
         while (timer > 0)
         {
+            if (_gestureManager.CurrentGesture == GestureEventsManager.Gesture.None) break;
             timer -= Time.deltaTime;
-            light1.intensity = 3 * (2 - timer);
-            light2.intensity = 3 * (2 - timer);
-            light3.intensity = 3 * (2 - timer);
-            light4.intensity = 3 * (2 - timer);
+            rightHands.GetComponent<Renderer>().material.color = new Color(startColor.r, startColor.g + 0.2f * (2 - timer), startColor.b);
+            leftHands.GetComponent<Renderer>().material.color = new Color(startColor.r, startColor.g + 0.2f * (2 - timer), startColor.b);
+            Debug.Log("green");
+
             yield return null;
         }
-        light1.intensity = 0;
-        light2.intensity = 0;
-        light3.intensity = 0;
-        light4.intensity = 0;
+        rightHands.GetComponent<Renderer>().material.color = startColor;
+        leftHands.GetComponent<Renderer>().material.color = startColor;
         sliderIsRunning = false;
     }
 }

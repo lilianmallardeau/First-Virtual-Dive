@@ -31,6 +31,13 @@ public class GestureEventsManager : MonoBehaviour
         Fist,
         Menu
     }
+
+    public enum Hand
+    {
+        LeftHand,
+        RightHand,
+        Default
+    }
     
     // The current and previous gestures
     public Gesture CurrentGesture { get; private set; }
@@ -48,6 +55,13 @@ public class GestureEventsManager : MonoBehaviour
 
     // Which hand trigger the menu
     public static string hand;
+    
+    // Which hand is doing the gesture
+    public static Hand mainHand;
+    
+    // Getter for the gameObject of the hand doing the gesture
+    private GameObject MainHandGameObject => mainHand == Hand.LeftHand ? _leftHand : _rightHand;
+    
 
     // Menu for each hand
     [Header("Menus")]
@@ -84,8 +98,10 @@ public class GestureEventsManager : MonoBehaviour
     [Header("Gestures events triggered (after delay)")]
     
     // Delay to wait before triggering gesture
-    [SerializeField][Tooltip("Delay to wait between gesture initialization and event trigger (in seconds)")] private float delay;
-
+    [SerializeField][Tooltip("Delay between gesture initialization and event trigger (in seconds)")] private float delay = 1.5f;
+    [SerializeField][Tooltip("Delay between first hand position recognition and animated gesture initialization (in seconds)")] private float delayAnimatedFirst = .5f;
+    [SerializeField][Tooltip("Delay between animated gesture initialization and event trigger (in seconds).\ndelayAnimatedFirst plus delayAnimatedSecond should add up to delay")] private float delayAnimatedSecond = 1f;
+    
     // Events for each gesture initialized
     [SerializeField] private UnityEvent NoneTriggered;
     [SerializeField] private UnityEvent GoForwardTriggered;
@@ -193,15 +209,32 @@ public class GestureEventsManager : MonoBehaviour
             CurrentGesture = Gesture.Cold;
         }
         
+        // Not ok
+        else if (_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu)
+        {
+            mainHand = Hand.LeftHand;
+            StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
+            CurrentGesture = Gesture.NotOk;
+        }
+        else if (_rightHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Menu)
+        {
+            mainHand = Hand.RightHand;
+            StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
+            CurrentGesture = Gesture.NotOk;
+        }
+        
         // TODO: tests for gestures NotOk, Cold, NoMoreOxygen
 
         else
-            CurrentGesture = Gesture.None;
+            CurrentGesture = CurrentValidatedGesture = Gesture.None;
         
         if (CurrentGesture != _previousGesture) {
             _previousGesture = CurrentGesture;
             _timer = Time.time;
-            InvokeGestureEvent(CurrentGesture);
+            if (!(CurrentGesture == Gesture.Cold || CurrentGesture == Gesture.NotOk || CurrentGesture == Gesture.NoMoreOxygen))
+            {
+                InvokeGestureEvent(CurrentGesture);
+            }
         }
     }
 
@@ -215,21 +248,49 @@ public class GestureEventsManager : MonoBehaviour
         switch (gesture)
         {
             case Gesture.NotOk:
+                float prevRotation = 0;
+                while (_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu || _rightHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Menu)
+                {
+                    if (!gestureStarted && timer >= delayAnimatedFirst)
+                    {
+                        InvokeGestureEvent(Gesture.NotOk);
+                        timer = 0;
+                        gestureStarted = true;
+                    }
+                    else if (timer >= delayAnimatedSecond)
+                    {
+                        InvokeTriggeredGestureEvent(Gesture.NotOk);
+                        break;
+                    }
+
+                    if (MainHandGameObject.transform.rotation.x - prevRotation < 10)
+                    {
+                        break;
+                    }
+
+                    timer += Time.deltaTime;
+                    yield return null;
+                }
                 break;
             
             case Gesture.NoMoreOxygen:
-                distance = Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f));
-                while (((_leftHandGesture == HandGesture.Flat && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.9f) || (_rightHandGesture == HandGesture.Flat && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .9f)) && distance < .5f)
+                do
                 {
-                    if (!gestureStarted && timer >= 1.5f)
+                    prevDistance = distance;
+                    distance = Mathf.Min(
+                        Vector3.Distance(_leftHand.transform.position,
+                            _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f),
+                        Vector3.Distance(_rightHand.transform.position,
+                            _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f));
+                    if (!gestureStarted && timer >= delayAnimatedFirst)
                     {
                         InvokeGestureEvent(Gesture.NoMoreOxygen);
                         timer = .0f;
                         gestureStarted = true;
                     }
-                    else if (timer >= 1.5f)
+                    else if (timer >= delayAnimatedSecond)
                     {
-                        InvokeTriggeredGestureEvent(Gesture.NoMoreOxygen);
+                        InvokeTriggeredGestureEvent(CurrentValidatedGesture = Gesture.NoMoreOxygen);
                         break;
                     }
 
@@ -237,24 +298,26 @@ public class GestureEventsManager : MonoBehaviour
                     {
                         break;
                     }
+
                     timer += Time.deltaTime;
                     yield return null;
-                }
+                } while (((_leftHandGesture == HandGesture.Flat && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.9f) || (_rightHandGesture == HandGesture.Flat && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .9f)) && distance < .5f);
                 break;
             
             case Gesture.Cold:
-                distance = Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position);
-                while (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && distance < .3f)
+                do
                 {
-                    if (!gestureStarted && timer >= 1.5f)
+                    prevDistance = distance;
+                    distance = Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position);
+                    if (!gestureStarted && timer >= delayAnimatedFirst)
                     {
                         InvokeGestureEvent(Gesture.Cold);
                         timer = .0f;
                         gestureStarted = true;
                     }
-                    else if (timer >= 1.5f)
+                    else if (timer >= delayAnimatedSecond)
                     {
-                        InvokeTriggeredGestureEvent(Gesture.Cold);
+                        InvokeTriggeredGestureEvent(CurrentValidatedGesture = Gesture.Cold);
                         break;
                     }
 
@@ -262,9 +325,10 @@ public class GestureEventsManager : MonoBehaviour
                     {
                         break;
                     }
+
                     timer += Time.deltaTime;
                     yield return null;
-                }
+                } while (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && distance < .3f);
                 break;
             
             default:
@@ -342,7 +406,10 @@ public class GestureEventsManager : MonoBehaviour
 
         if (Time.time - _timer >= delay && CurrentValidatedGesture != CurrentGesture)
         {
-            InvokeTriggeredGestureEvent(CurrentValidatedGesture = CurrentGesture);
+            if (!(CurrentGesture == Gesture.Cold || CurrentGesture == Gesture.NotOk || CurrentGesture == Gesture.NoMoreOxygen))
+            {
+                InvokeTriggeredGestureEvent(CurrentValidatedGesture = CurrentGesture);
+            }
         }
     }
 }
