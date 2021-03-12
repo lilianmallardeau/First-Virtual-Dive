@@ -389,6 +389,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217e87d8805ff48488b6f853452509ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &206787111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7260243314424117840, guid: 92c7f072e494ba3478cb92584ae003b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 922424622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &212268791 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7440572217686029681, guid: f6d1fc430882601499b9d022ac88ea25,
@@ -1775,6 +1781,11 @@ PrefabInstance:
       propertyPath: delay
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: _centerHeadCamera
+      value: 
+      objectReference: {fileID: 206787111}
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: delayAnimatedFirst
