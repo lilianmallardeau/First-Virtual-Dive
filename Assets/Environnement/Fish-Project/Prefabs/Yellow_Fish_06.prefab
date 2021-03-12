@@ -529,3 +529,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 10
   diametre: 20
+  navChoice: 2
