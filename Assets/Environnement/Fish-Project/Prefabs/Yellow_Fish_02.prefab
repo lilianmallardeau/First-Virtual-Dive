@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 8
   diametre: 8
+  navChoice: 2
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0

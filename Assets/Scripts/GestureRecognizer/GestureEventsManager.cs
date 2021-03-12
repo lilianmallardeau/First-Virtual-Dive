@@ -200,27 +200,44 @@ public class GestureEventsManager : MonoBehaviour
         }
         
         // Cold
-        else if (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .1f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
+        else if (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .2f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
         {
-            StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.Cold));
-            CurrentGesture = Gesture.Cold;
+            if (_previousGesture != Gesture.Cold)
+            {
+                StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.Cold));
+                CurrentGesture = Gesture.Cold;
+            }
+        }
+        
+        // No more oxygen
+        else if (((_leftHandGesture == HandGesture.Flat && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.9f) || (_rightHandGesture == HandGesture.Flat && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .9f)) && Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f)) < .5f)
+        {
+            if (_previousGesture != Gesture.NoMoreOxygen)
+            {
+                StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NoMoreOxygen));
+                CurrentGesture = Gesture.NoMoreOxygen;
+            }
         }
         
         // Not ok
         else if (_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu)
         {
-            mainHand = Hand.LeftHand;
-            StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
-            CurrentGesture = Gesture.NotOk;
+            if (_previousGesture != Gesture.NotOk)
+            {
+                mainHand = Hand.LeftHand;
+                StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
+                CurrentGesture = Gesture.NotOk;
+            }
         }
         else if (_rightHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Menu)
         {
-            mainHand = Hand.RightHand;
-            StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
-            CurrentGesture = Gesture.NotOk;
+            if (_previousGesture != Gesture.NotOk)
+            {
+                mainHand = Hand.RightHand;
+                StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
+                CurrentGesture = Gesture.NotOk;
+            }
         }
-        
-        // TODO: tests for gestures NotOk, Cold, NoMoreOxygen
 
         else
             CurrentGesture = CurrentValidatedGesture = Gesture.None;
@@ -293,7 +310,7 @@ public class GestureEventsManager : MonoBehaviour
                     }
                     if (sampler > .2f)
                     {
-                        if (Mathf.Abs(distance - prevDistance) < .01f)
+                        if (Mathf.Abs(distance - prevDistance) < .08f)
                         {
                             break;
                         }
@@ -326,7 +343,7 @@ public class GestureEventsManager : MonoBehaviour
 
                     if (sampler > .2f)
                     {
-                        if (Mathf.Abs(distance - prevDistance) < .01f)
+                        if (Mathf.Abs(distance - prevDistance) < .08f)
                         {
                             break;
                         }
