@@ -21,6 +21,8 @@ TagManager:
   - Entertainor
   - AlertUnderstood
   - OkMainScene
+  - EndSuivant
+  - Restart
   layers:
   - Default
   - TransparentFX

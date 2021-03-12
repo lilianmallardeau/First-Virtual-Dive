@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Ender : MonoBehaviour
 {
     [SerializeField] private Entertainor entertainor;
     [SerializeField] private GameObject menuEnd;
+    [SerializeField] private GameObject menuEnd2;
+    [SerializeField] private Text messageFin1;
     [SerializeField] private Text goodsN;
     [SerializeField] private Text okN;
     [SerializeField] private Text notokN;
@@ -17,15 +20,24 @@ public class Ender : MonoBehaviour
     [SerializeField] private Text totalN;
     [SerializeField] private Text noteN;
 
-    public float timer = 0;
+    private bool won = false;
 
-    public void Update()
+
+    public void Suivant()
     {
-        timer += Time.deltaTime;
-        if (timer >= 900f) {
-            timer = -1000000f;
-            StartCoroutine(endCoroutine());
-        }
+        // TODO : resoudre problème appuyer sur le bouton trop vite
+        menuEnd.SetActive(false);
+        menuEnd2.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void Stop()
+    {
+        Application.Quit();
     }
 
     public IEnumerator endCoroutine()
@@ -94,6 +106,7 @@ public class Ender : MonoBehaviour
         switch(totalMistakes) {
             case 0:
                 noteN.text = "A";
+                won = true;
                 break;
             case 1:
                 noteN.text = "B";
@@ -117,6 +130,8 @@ public class Ender : MonoBehaviour
                 noteN.text = "E";
                 break; 
         }
+        if (won) messageFin1.text = "Félicitations ! Vous venez de réussir votre baptême de plongée virtuelle !\n\nVous êtes désormais paré pour passer votre vrai baptême !\n\nMerci d'avoir participé à First Virtual Dive !";
+        else messageFin1.gameObject.SetActive(true);
         yield return null;
     }
 }

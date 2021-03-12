@@ -15,6 +15,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private XRNode _xrNode = XRNode.RightHand;
     [SerializeField] private GameObject bodyToMove;
     [SerializeField] private Image _fadingScreen;
+    [SerializeField] private Ender ender;
     public float mvtSpeed = 10f;
     [SerializeField] private float layerChangeTime = 4f;
     [SerializeField] private GestureEventsManager _gestureManager;
@@ -76,37 +77,40 @@ public class PlayerControl : MonoBehaviour
 
     public void ChangeLayerProcedure(bool up)
     {
-        if (!(up && layer == 0))
+        
+        if (!_changingLayer)
         {
-            if (!_changingLayer)
+            if (Entertainor.lookAtMe)
             {
-                if (Entertainor.lookAtMe)
-                {
-                    StartCoroutine(ChangeLayerProcedureCoroutine(up));
-                }
+                StartCoroutine(ChangeLayerProcedureCoroutine(up));
             }
         }
+        
     }
 
     private IEnumerator ChangeLayerProcedureCoroutine(bool up)
     {
-        _canMove = false;
-        _changingLayer = true;
-        layer += up ? -1 : 1;
-        //float distance = Mathf.Abs(bodyToMove.transform.position.y - (up ? -.4f - layer : .4f - layer) * layerHeight + startingHeight);
-
-        float timer = layerChangeTime;
-        while (timer > 0)
+        if (layer == 0 && up) StartCoroutine(ender.endCoroutine());
+        else
         {
-            bodyToMove.transform.Translate((up ? Vector3.up : Vector3.down) * (layerTransitionSpeed * Time.deltaTime));
-            timer -= Time.deltaTime;
-            _fadingScreen.color = new Color(0, 0, 0, 1 - timer / layerChangeTime);
-            yield return null;
-        }
+            _canMove = false;
+            _changingLayer = true;
+            layer += up ? -1 : 1;
+            //float distance = Mathf.Abs(bodyToMove.transform.position.y - (up ? -.4f - layer : .4f - layer) * layerHeight + startingHeight);
 
-        _fadingScreen.color = new Color(0, 0, 0, 0);
-        _canMove = true;
-        _changingLayer = false;
+            float timer = layerChangeTime;
+            while (timer > 0)
+            {
+                bodyToMove.transform.Translate((up ? Vector3.up : Vector3.down) * (layerTransitionSpeed * Time.deltaTime));
+                timer -= Time.deltaTime;
+                _fadingScreen.color = new Color(0, 0, 0, 1 - timer / layerChangeTime);
+                yield return null;
+            }
+            bodyToMove.transform.position = new Vector3(bodyToMove.transform.position.x, layer*layerHeight + startingHeight, bodyToMove.transform.position.z);
+            _fadingScreen.color = new Color(0, 0, 0, 0);
+            _canMove = true;
+            _changingLayer = false;
+        }
     }
 
     private IEnumerator MoveForwardCoroutine()

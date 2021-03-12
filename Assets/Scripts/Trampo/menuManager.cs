@@ -16,6 +16,8 @@ public class menuManager : MonoBehaviour
     [SerializeField] private Canvas popFin;
     [SerializeField] private Canvas popAlerte;
     [SerializeField] private Canvas popDebutMain;
+    [SerializeField] private GameObject menuEnd1;
+    [SerializeField] private GameObject menuEnd2;
 
     [Header("Sliders")]
     [SerializeField] private Slider thisGeneralVolume;
@@ -69,6 +71,7 @@ public class menuManager : MonoBehaviour
         }
         if (collider.gameObject.CompareTag("Quitter"))
         {
+            menuSound.Play();
             Application.Quit();
         }
         if (collider.gameObject.CompareTag("Rester"))
@@ -121,6 +124,17 @@ public class menuManager : MonoBehaviour
             menuSound.Play();
             SceneManager.LoadScene("Dive");
             TutoFinish.tutoFinish = false;
+        }
+        if (collider.gameObject.CompareTag("EndSuivant"))
+        {
+            menuSound.Play();
+            menuEnd1.gameObject.SetActive(false);
+            menuEnd2.gameObject.SetActive(true);
+        }
+        if (collider.gameObject.CompareTag("Restart"))
+        {
+            menuSound.Play();
+            SceneManager.LoadScene("Dive");
         }
     }
 }
