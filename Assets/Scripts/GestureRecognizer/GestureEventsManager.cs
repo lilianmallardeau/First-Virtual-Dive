@@ -308,7 +308,11 @@ public class GestureEventsManager : MonoBehaviour
                     {
                         if (Mathf.Abs(distance - prevDistance) < .08f)
                         {
-                            break;
+                            timer -= Time.deltaTime;
+                            if (timer < 0)
+                            {
+                                break;
+                            }
                         }
                         prevDistance = distance;
                         sampler = 0f;
@@ -341,7 +345,11 @@ public class GestureEventsManager : MonoBehaviour
                     {
                         if (Mathf.Abs(distance - prevDistance) < .08f)
                         {
-                            break;
+                            timer -= Time.deltaTime;
+                            if (timer < 0)
+                            {
+                                break;
+                            }
                         }
                         prevDistance = distance;
                         sampler = 0f;
