@@ -123,8 +123,13 @@ public class menuManager : MonoBehaviour
         {
             menuSound.Play();
             TutoFinish.tutoFinish = true;
-            CheckPanneau.allCheck = 8;
             SceneManager.LoadScene("Dive");
+        }
+        if (collider.gameObject.CompareTag("PassTuto1"))
+        {
+            menuSound.Play();
+            CheckPanneau.allCheck = 8;
+            collider.gameObject.tag = "PassTuto";
         }
         if (collider.gameObject.CompareTag("EndSuivant"))
         {
