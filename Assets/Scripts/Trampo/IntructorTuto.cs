@@ -82,7 +82,7 @@ public class IntructorTuto : MonoBehaviour
         do
         {
             yield return null;
-        } while (_gestureManager.CurrentGesture != GestureEventsManager.Gesture.Down);
+        } while (_gestureManager.CurrentValidatedGesture != GestureEventsManager.Gesture.Down);
 
         float timer = 4f;
         while (timer > 0)
