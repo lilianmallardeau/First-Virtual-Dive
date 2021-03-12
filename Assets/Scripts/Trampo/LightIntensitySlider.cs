@@ -38,10 +38,12 @@ public class LightIntensitySlider : MonoBehaviour
     IEnumerator LightSlider()
     {
         sliderIsRunning = true;
+        GestureEventsManager.Gesture previousGesture = _gestureManager.CurrentGesture;
         float timer = 2f;
         while (timer > 0)
         {
-            if (_gestureManager.CurrentGesture == GestureEventsManager.Gesture.None) break;
+            if (_gestureManager.CurrentGesture != previousGesture) break;
+            previousGesture = _gestureManager.CurrentGesture;
             timer -= Time.deltaTime;
             rightHands.GetComponent<Renderer>().material.color = new Color(startColor.r, startColor.g + 0.2f * (2 - timer), startColor.b);
             leftHands.GetComponent<Renderer>().material.color = new Color(startColor.r, startColor.g + 0.2f * (2 - timer), startColor.b);
