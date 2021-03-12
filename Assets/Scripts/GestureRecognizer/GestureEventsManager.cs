@@ -281,6 +281,8 @@ public class GestureEventsManager : MonoBehaviour
                     if (sampler > .2)
                     {
                         if (Mathf.Abs(MainHandGameObject.transform.rotation.x - prevRotation) < 10)
+                            timer -= Time.deltaTime;
+                        if (timer < 0)
                             break;
                         prevRotation = MainHandGameObject.transform.rotation.x;
                         sampler = 0;
