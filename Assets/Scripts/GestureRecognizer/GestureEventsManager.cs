@@ -308,11 +308,11 @@ public class GestureEventsManager : MonoBehaviour
                         InvokeTriggeredGestureEvent(CurrentValidatedGesture = Gesture.NoMoreOxygen);
                         break;
                     }
-                    if (sampler > .2f)
+                    if (sampler > .1f)
                     {
-                        if (Mathf.Abs(distance - prevDistance) < .08f)
+                        if (Mathf.Abs(distance - prevDistance) < 0.005f)
                         {
-                            timer -= Time.deltaTime;
+                            timer -= sampler;
                             if (timer < 0)
                             {
                                 break;
