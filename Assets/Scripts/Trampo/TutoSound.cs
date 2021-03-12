@@ -22,7 +22,7 @@ public class TutoSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CheckPanneau.allCheck == 5 && !naviguerSoundisRunning)
+        if (CheckPanneau.allCheck == 8 && !naviguerSoundisRunning)
         {
             StartCoroutine(NaviguerSound());
 

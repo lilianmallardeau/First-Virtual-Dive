@@ -36,7 +36,7 @@ public class CheckPanneau : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (allCheck == 5 && fadeAway) StartCoroutine(FadeImage());
+        if (allCheck == 8 && fadeAway) StartCoroutine(FadeImage());
     }
 
     public void checkOK()
