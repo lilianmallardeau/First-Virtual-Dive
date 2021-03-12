@@ -49,7 +49,7 @@ public class IntructorTuto : MonoBehaviour
             StartCoroutine(StartInstructions());
         }
 
-        if (CheckPanneau.allCheck == 5 && hey)
+        if (CheckPanneau.allCheck == 8 && hey)
         {
             StartCoroutine(PlayAudio());
         }

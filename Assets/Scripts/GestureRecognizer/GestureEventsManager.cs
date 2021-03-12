@@ -263,13 +263,12 @@ public class GestureEventsManager : MonoBehaviour
         switch (gesture)
         {
             case Gesture.NotOk:
-                float prevRotation = 0;
+                float prevDotProduct = 0;
                 while (_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu || _rightHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Menu)
                 {
                     if (!gestureStarted && timer >= delayAnimatedFirst)
                     {
                         InvokeGestureEvent(Gesture.NotOk);
-                        Debug.LogWarning("BH2");
                         timer = 0;
                         gestureStarted = true;
                     }
@@ -281,13 +280,12 @@ public class GestureEventsManager : MonoBehaviour
 
                     if (sampler > .1)
                     {
-                        Debug.LogWarning(MainHandGameObject.transform.eulerAngles);
-                        Debug.DrawLine(MainHandGameObject.transform.position,MainHandGameObject.transform.forward);
-                        if (Mathf.Abs(MainHandGameObject.transform.rotation.x - prevRotation) < 4)
+                        //if (Mathf.Abs(MainHandGameObject.transform.rotation.x - prevRotation) < 5) 
+                        if (Mathf.Abs(Vector3.Dot(MainHandGameObject.transform.up, Vector3.up) - prevDotProduct) < .01)
                             timer -= sampler;
                         if (timer < 0)
                             break;
-                        prevRotation = MainHandGameObject.transform.rotation.x;
+                        prevDotProduct = Vector3.Dot(MainHandGameObject.transform.up, Vector3.up);
                         sampler = 0;
                     }
                     
