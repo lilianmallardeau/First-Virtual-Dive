@@ -274,6 +274,7 @@ public class GestureEventsManager : MonoBehaviour
             case Gesture.NoMoreOxygen:
                 do
                 {
+                    Debug.LogWarning("yo");
                     distance = Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .3f));
                     
                     if (!gestureStarted && timer >= delayAnimatedFirst)
