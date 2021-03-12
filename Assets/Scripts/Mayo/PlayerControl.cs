@@ -67,7 +67,7 @@ public class PlayerControl : MonoBehaviour
         {
             mvtSpeed = 11f;
         }
-
+            
     }
 
     public void MoveForward()
@@ -106,7 +106,7 @@ public class PlayerControl : MonoBehaviour
                 _fadingScreen.color = new Color(0, 0, 0, 1 - timer / layerChangeTime);
                 yield return null;
             }
-            bodyToMove.transform.position = new Vector3(bodyToMove.transform.position.x, layer*layerHeight + startingHeight, bodyToMove.transform.position.z);
+            bodyToMove.transform.position = new Vector3(bodyToMove.transform.position.x, -layer*layerHeight + startingHeight, bodyToMove.transform.position.z);
             _fadingScreen.color = new Color(0, 0, 0, 0);
             _canMove = true;
             _changingLayer = false;

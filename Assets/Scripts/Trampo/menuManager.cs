@@ -122,8 +122,9 @@ public class menuManager : MonoBehaviour
         if (collider.gameObject.CompareTag("PassTuto"))
         {
             menuSound.Play();
+            TutoFinish.tutoFinish = true;
+            CheckPanneau.allCheck = 8;
             SceneManager.LoadScene("Dive");
-            TutoFinish.tutoFinish = false;
         }
         if (collider.gameObject.CompareTag("EndSuivant"))
         {
