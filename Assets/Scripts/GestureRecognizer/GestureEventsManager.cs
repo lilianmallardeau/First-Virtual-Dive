@@ -200,7 +200,7 @@ public class GestureEventsManager : MonoBehaviour
         }
         
         // Cold
-        else if (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .2f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
+        else if (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .25f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
         {
             if (_previousGesture != Gesture.Cold)
             {
@@ -278,9 +278,11 @@ public class GestureEventsManager : MonoBehaviour
                         break;
                     }
 
-                    if (sampler > .2)
+                    if (sampler > .1)
                     {
-                        if (Mathf.Abs(MainHandGameObject.transform.rotation.x - prevRotation) < 10)
+                        if (Mathf.Abs(MainHandGameObject.transform.rotation.x - prevRotation) < 5)
+                            timer -= sampler;
+                        if (timer < 0)
                             break;
                         prevRotation = MainHandGameObject.transform.rotation.x;
                         sampler = 0;
@@ -345,11 +347,11 @@ public class GestureEventsManager : MonoBehaviour
                         break;
                     }
 
-                    if (sampler > .2f)
+                    if (sampler > .1f)
                     {
-                        if (Mathf.Abs(distance - prevDistance) < .08f)
+                        if (Mathf.Abs(distance - prevDistance) < .005f)
                         {
-                            timer -= Time.deltaTime;
+                            timer -= sampler;
                             if (timer < 0)
                             {
                                 break;
