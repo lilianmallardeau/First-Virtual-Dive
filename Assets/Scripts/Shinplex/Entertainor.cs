@@ -7,6 +7,7 @@ public class Entertainor : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private LifeManager lifeManager;
+    [SerializeField] private Ender ender;
     
     [SerializeField] private float alertMinTimer = 15f;
     [SerializeField] private float alertMaxTimer = 25f;
@@ -155,6 +156,7 @@ public class Entertainor : MonoBehaviour
                 if (lifeManager.coldLevel >= 10) coldMistakes +=1;
                 else coldGood +=1;
             }
+            StartCoroutine(ender.endCoroutine());
         }
     }
 
@@ -218,6 +220,7 @@ public class Entertainor : MonoBehaviour
                 if (lifeManager.oxygenLevel >= 5) noAirMistakes +=1;
                 else noAirGood +=1;
             }
+            StartCoroutine(ender.endCoroutine());
         }
     }
     public void AnswerNotOK()
