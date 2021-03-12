@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     public float mvtSpeed = 10f;
     [SerializeField] private float layerChangeTime = 4f;
     [SerializeField] private GestureEventsManager _gestureManager;
-    // [SerializeField] private float layerTransitionSpeed = .5f;
+    [SerializeField] private float layerTransitionSpeed = .5f;
     [SerializeField] private float layerHeight = 5f;
     [SerializeField] private Entertainor entertainor;
     [SerializeField] private GameObject _leftHand;
@@ -93,12 +93,12 @@ public class PlayerControl : MonoBehaviour
         _canMove = false;
         _changingLayer = true;
         layer += up ? -1 : 1;
-        float distance = Mathf.Abs(bodyToMove.transform.position.y - (up ? -.4f - layer : .4f - layer) * layerHeight + startingHeight);
+        //float distance = Mathf.Abs(bodyToMove.transform.position.y - (up ? -.4f - layer : .4f - layer) * layerHeight + startingHeight);
 
         float timer = layerChangeTime;
         while (timer > 0)
         {
-            bodyToMove.transform.Translate((up ? Vector3.up : Vector3.down) * ((distance / layerChangeTime) * Time.deltaTime));
+            bodyToMove.transform.Translate((up ? Vector3.up : Vector3.down) * (layerTransitionSpeed * Time.deltaTime));
             timer -= Time.deltaTime;
             _fadingScreen.color = new Color(0, 0, 0, 1 - timer / layerChangeTime);
             yield return null;
