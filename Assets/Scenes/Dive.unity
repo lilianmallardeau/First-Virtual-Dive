@@ -2921,6 +2921,18 @@ MonoBehaviour:
     type: 3}
   size: 10
   spawnBounds: {x: 2, y: 2, z: 1}
+--- !u!114 &533858209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8722034130655218846, guid: 92c7f072e494ba3478cb92584ae003b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8722034131259921691}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c446884299a424b95fabbd32407f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &548140089
 GameObject:
   m_ObjectHideFlags: 0
@@ -11443,7 +11455,7 @@ GameObject:
   - component: {fileID: 885880441}
   - component: {fileID: 885880440}
   m_Layer: 5
-  m_Name: Titre (1)
+  m_Name: Message de fin 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11465,8 +11477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 46}
-  m_SizeDelta: {x: 217.69336, y: 40.817505}
+  m_AnchoredPosition: {x: 0, y: -16.3}
+  m_SizeDelta: {x: 278.7, y: 210.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885880440
 MonoBehaviour:
@@ -11489,10 +11501,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 35
+    m_FontSize: 16
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -11500,7 +11512,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GG DUDE
+  m_Text: "Vous n'\xEAtes peut-\xEAtre pas encore pr\xEAt pour un bapt\xEAme en conditions
+    r\xE9elles...\n\nNe vous laissez pas abattre !\n\nRecommencez autant de fois
+    qu'il le faudra pour \xEAtre bon !  :)"
 --- !u!222 &885880441
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18635,7 +18649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2015756870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19604,7 +19618,7 @@ PrefabInstance:
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: MenuTriggered.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
@@ -19640,7 +19654,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Menu.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 533858209}
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: ReserveTriggered.m_PersistentCalls.m_Calls.Array.size
@@ -19694,7 +19708,7 @@ PrefabInstance:
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: Menu.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: OpenMenu
       objectReference: {fileID: 0}
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
@@ -19989,7 +20003,7 @@ PrefabInstance:
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: Menu.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1461046080510887553, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
