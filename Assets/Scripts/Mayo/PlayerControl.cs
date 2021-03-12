@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     public float mvtSpeed = 10f;
     [SerializeField] private float layerChangeTime = 4f;
     [SerializeField] private GestureEventsManager _gestureManager;
-    [SerializeField] private float layerTransitionSpeed = .5f;
+    // [SerializeField] private float layerTransitionSpeed = .5f;
     [SerializeField] private float layerHeight = 5f;
     [SerializeField] private Entertainor entertainor;
     [SerializeField] private GameObject _leftHand;
@@ -92,27 +92,18 @@ public class PlayerControl : MonoBehaviour
     {
         _canMove = false;
         _changingLayer = true;
-
-        // Instructor asks if everything is ok
-        // entertainor.AskOK();
-        //
-        // yield return new WaitForSeconds(.01f);
-        // do
-        // {
-        //     yield return null;
-        // } while (_gestureManager.CurrentGesture != GestureEventsManager.Gesture.Ok || !Entertainor.lookAtMe);
+        layer += up ? -1 : 1;
+        float distance = Mathf.Abs(bodyToMove.transform.position.y - (up ? -.4f - layer : .4f - layer) * layerHeight + startingHeight);
 
         float timer = layerChangeTime;
         while (timer > 0)
         {
-            bodyToMove.transform.Translate((up ? Vector3.up : Vector3.down) * (layerTransitionSpeed * Time.deltaTime));
+            bodyToMove.transform.Translate((up ? Vector3.up : Vector3.down) * ((distance / layerChangeTime) * Time.deltaTime));
             timer -= Time.deltaTime;
-            // TODO fade screen to black
             _fadingScreen.color = new Color(0, 0, 0, 1 - timer / layerChangeTime);
             yield return null;
         }
 
-        layer += up ? -1 : 1;
         _fadingScreen.color = new Color(0, 0, 0, 0);
         _canMove = true;
         _changingLayer = false;
