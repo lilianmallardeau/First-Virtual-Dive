@@ -9,8 +9,8 @@ public class Entertainor : MonoBehaviour
     [SerializeField] private LifeManager lifeManager;
     [SerializeField] private Ender ender;
     
-    [SerializeField] private float alertMinTimer = 15f;
-    [SerializeField] private float alertMaxTimer = 25f;
+    [SerializeField] private float alertMinTimer = 50f;
+    [SerializeField] private float alertMaxTimer = 70f;
     [SerializeField] private float moveSpeedMax = 8f;
     [SerializeField] private float distRemote = 5f;
     [SerializeField] private float firstCircle = 8f;

@@ -39,15 +39,14 @@ public class LightIntensitySlider : MonoBehaviour
     {
         sliderIsRunning = true;
         GestureEventsManager.Gesture previousGesture = _gestureManager.CurrentGesture;
-        float timer = 2f;
+        float timer = 0.5f;
         while (timer > 0)
         {
             if (_gestureManager.CurrentGesture != previousGesture) break;
             previousGesture = _gestureManager.CurrentGesture;
             timer -= Time.deltaTime;
-            rightHands.GetComponent<Renderer>().material.color = new Color(startColor.r, startColor.g + 0.2f * (2 - timer), startColor.b);
-            leftHands.GetComponent<Renderer>().material.color = new Color(startColor.r, startColor.g + 0.2f * (2 - timer), startColor.b);
-            Debug.Log("green");
+            rightHands.GetComponent<Renderer>().material.color = new Color(startColor.r, startColor.g + 0.2f * (0.5f - timer), startColor.b);
+            leftHands.GetComponent<Renderer>().material.color = new Color(startColor.r, startColor.g + 0.2f * (0.5f - timer), startColor.b);
 
             yield return null;
         }

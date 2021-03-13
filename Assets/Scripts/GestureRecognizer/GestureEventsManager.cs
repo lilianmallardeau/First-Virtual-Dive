@@ -194,7 +194,7 @@ public class GestureEventsManager : MonoBehaviour
         }
         
         // Reserve
-        else if ((_leftHandGesture == HandGesture.Fist || _rightHandGesture == HandGesture.Fist) && (Vector3.Distance(_leftHand.transform.position, _leftHeadCamera.transform.position) < .3f || Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position) < .3f))
+        else if ((_leftHandGesture == HandGesture.Fist || _rightHandGesture == HandGesture.Fist) && (Vector3.Distance(_leftHand.transform.position, _leftHeadCamera.transform.position) < .3f || Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position) < .2f))
         {
             CurrentGesture = Gesture.Reserve;
         }
@@ -220,24 +220,24 @@ public class GestureEventsManager : MonoBehaviour
         }
         
         // Not ok
-        else if (_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu)
-        {
-            if (_previousGesture != Gesture.NotOk)
-            {
-                mainHand = Hand.LeftHand;
-                StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
-                CurrentGesture = Gesture.NotOk;
-            }
-        }
-        else if (_rightHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Menu)
-        {
-            if (_previousGesture != Gesture.NotOk)
-            {
-                mainHand = Hand.RightHand;
-                StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
-                CurrentGesture = Gesture.NotOk;
-            }
-        }
+        //else if (_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu)
+        //{
+        //    if (_previousGesture != Gesture.NotOk)
+        //    {
+        //        mainHand = Hand.LeftHand;
+        //        StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
+        //        CurrentGesture = Gesture.NotOk;
+        //    }
+        //}
+        //else if (_rightHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Menu)
+        //{
+        //    if (_previousGesture != Gesture.NotOk)
+        //    {
+        //        mainHand = Hand.RightHand;
+        //        StartCoroutine(ComputeAnimatedGestureCoroutine(Gesture.NotOk));
+        //        CurrentGesture = Gesture.NotOk;
+        //    }
+        //}
 
         else
             CurrentGesture = CurrentValidatedGesture = Gesture.None;
@@ -262,38 +262,38 @@ public class GestureEventsManager : MonoBehaviour
 
         switch (gesture)
         {
-            case Gesture.NotOk:
-                float prevDotProduct = 0;
-                while (_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu || _rightHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Menu)
-                {
-                    if (!gestureStarted && timer >= delayAnimatedFirst)
-                    {
-                        InvokeGestureEvent(Gesture.NotOk);
-                        timer = 0;
-                        gestureStarted = true;
-                    }
-                    else if (timer >= delayAnimatedSecond)
-                    {
-                        InvokeTriggeredGestureEvent(Gesture.NotOk);
-                        break;
-                    }
+            //case Gesture.NotOk:
+                //float prevDotProduct = 0;
+                //while (_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu || _rightHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Menu)
+                //{
+                //    if (!gestureStarted && timer >= delayAnimatedFirst)
+                //    {
+                //        InvokeGestureEvent(Gesture.NotOk);
+                //        timer = 0;
+                //        gestureStarted = true;
+                //    }
+                //    else if (timer >= delayAnimatedSecond)
+                //    {
+                //        InvokeTriggeredGestureEvent(Gesture.NotOk);
+                //        break;
+                //    }
 
-                    if (sampler > .1)
-                    {
-                        //if (Mathf.Abs(MainHandGameObject.transform.rotation.x - prevRotation) < 5) 
-                        if (Mathf.Abs(Vector3.Dot(MainHandGameObject.transform.up, Vector3.up) - prevDotProduct) < .01)
-                            timer -= sampler;
-                        if (timer < 0)
-                            break;
-                        prevDotProduct = Vector3.Dot(MainHandGameObject.transform.up, Vector3.up);
-                        sampler = 0;
-                    }
+                //    if (sampler > .1)
+                //    {
+                //        //if (Mathf.Abs(MainHandGameObject.transform.rotation.x - prevRotation) < 5) 
+                //        if (Mathf.Abs(Vector3.Dot(MainHandGameObject.transform.up, Vector3.up) - prevDotProduct) < .01)
+                //            timer -= sampler;
+                //        if (timer < 0)
+                //            break;
+                //        prevDotProduct = Vector3.Dot(MainHandGameObject.transform.up, Vector3.up);
+                //        sampler = 0;
+                //    }
                     
-                    timer += Time.deltaTime;
-                    sampler += Time.deltaTime;
-                    yield return null;
-                }
-                break;
+                //    timer += Time.deltaTime;
+                //    sampler += Time.deltaTime;
+                //    yield return null;
+                //}
+                //break;
             
             case Gesture.NoMoreOxygen:
                 do

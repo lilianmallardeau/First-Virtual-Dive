@@ -107,6 +107,12 @@ public class PlayerControl : MonoBehaviour
                 yield return null;
             }
             bodyToMove.transform.position = new Vector3(bodyToMove.transform.position.x, -layer*layerHeight + startingHeight, bodyToMove.transform.position.z);
+            timer = 4f;
+            while (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                _fadingScreen.color = new Color(0, 0, 0, timer / 4f);
+            }
             _fadingScreen.color = new Color(0, 0, 0, 0);
             _canMove = true;
             _changingLayer = false;
@@ -119,7 +125,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (_canMove)
             {
-                Vector3 direction = (_leftHand.transform.position + _rightHand.transform.position) / 2 - (bodyToMove.transform.position - Vector3.up*_headTorsoDistance);
+                Vector3 direction = (_leftHand.transform.position + _rightHand.transform.position) / 2 - (this.transform.position - Vector3.up*_headTorsoDistance);
                 float intensity = direction.magnitude * _speedUpMultiplier;
                 bodyToMove.transform.Translate(direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime));
                 float finalHeight = Mathf.Clamp(bodyToMove.transform.position.y, (-.5f - layer) * layerHeight + startingHeight, (.5f - layer) * layerHeight + startingHeight);
