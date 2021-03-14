@@ -86,7 +86,7 @@ public class Entertainor : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Vector3 objective = player.position + (transform.position - player.position).normalized * firstCircle;
+        Vector3 objective = player.position + new Vector3(3, 0, 0) + (transform.position - player.position).normalized * firstCircle;
 
         distanceFromObjective = (transform.position - objective).magnitude;
 

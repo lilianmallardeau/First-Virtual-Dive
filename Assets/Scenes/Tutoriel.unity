@@ -7239,6 +7239,26 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1947822860310184105, guid: f6d1fc430882601499b9d022ac88ea25,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947822860310184105, guid: f6d1fc430882601499b9d022ac88ea25,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947822860310184105, guid: f6d1fc430882601499b9d022ac88ea25,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947822860310184105, guid: f6d1fc430882601499b9d022ac88ea25,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2645290682925734810, guid: f6d1fc430882601499b9d022ac88ea25,
         type: 3}
       propertyPath: m_Name
@@ -7255,7 +7275,7 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\xC0 faire d\xE8s que quelque chose d\u2019important ne va pas.\r\n\r\nSelon
         le contexte, un \xE9quipier, le guide de palanqu\xE9e ou le moniteur de plong\xE9e
-        vous portera imm\xE9diatement assistance."
+        vous portera imm\xE9diatement assistance.\n\nCE GESTE N'EST PAS RECONNAISSABLE"
       objectReference: {fileID: 0}
     - target: {fileID: 6955652015665248159, guid: f6d1fc430882601499b9d022ac88ea25,
         type: 3}

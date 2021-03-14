@@ -19,6 +19,7 @@ public class menuManager : MonoBehaviour
     [SerializeField] private Canvas popDebutMain;
     [SerializeField] private GameObject menuEnd1;
     [SerializeField] private GameObject menuEnd2;
+    [SerializeField] private Image _fadingScreen;
 
     [Header("Sliders")]
     [SerializeField] private Slider thisGeneralVolume;
@@ -65,6 +66,28 @@ public class menuManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         passTuto1.tag = "PassTuto";
         passTuto2.tag = "PassTuto";
+    }
+
+    IEnumerator PassTutoCouroutine()
+    {
+        float timer = 4f;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            // TODO fade screen to black
+            _fadingScreen.color = new Color(0, 0, 0, 1 - timer / 4f);
+            yield return null;
+        }
+        SceneManager.LoadScene(1);
+        timer = 4f;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            _fadingScreen.color = new Color(0, 0, 0, timer / 4f);
+            yield return null;
+        }
+
+        _fadingScreen.color = new Color(0, 0, 0, 0);
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -141,8 +164,8 @@ public class menuManager : MonoBehaviour
         if (collider.gameObject.CompareTag("PassTuto"))
         {
             menuSound.Play();
+            StartCoroutine(PassTutoCouroutine());
             TutoFinish.tutoFinish = true;
-            SceneManager.LoadScene("Dive");
         }
         if (collider.gameObject.CompareTag("PassTuto1"))
         {

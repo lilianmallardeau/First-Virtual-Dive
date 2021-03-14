@@ -194,7 +194,7 @@ public class GestureEventsManager : MonoBehaviour
         }
         
         // Reserve
-        else if ((_leftHandGesture == HandGesture.Fist || _rightHandGesture == HandGesture.Fist) && (Vector3.Distance(_leftHand.transform.position, _leftHeadCamera.transform.position) < .3f || Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position) < .2f))
+        else if ((_leftHandGesture == HandGesture.Fist || _rightHandGesture == HandGesture.Fist) && (Vector3.Distance(_leftHand.transform.position, _leftHeadCamera.transform.position) < .3f || Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position) < .25f))
         {
             CurrentGesture = Gesture.Reserve;
         }

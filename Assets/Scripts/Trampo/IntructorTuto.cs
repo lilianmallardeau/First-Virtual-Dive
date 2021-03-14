@@ -99,10 +99,10 @@ public class IntructorTuto : MonoBehaviour
         {
             timer -= Time.deltaTime;
             _fadingScreen.color = new Color(0, 0, 0, timer / 4f);
+            yield return null;
         }
 
         _fadingScreen.color = new Color(0, 0, 0, 0);
-        PlayerControl._canMove = true;
 
     }
 }

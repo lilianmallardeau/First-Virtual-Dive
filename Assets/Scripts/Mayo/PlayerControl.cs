@@ -106,12 +106,13 @@ public class PlayerControl : MonoBehaviour
                 _fadingScreen.color = new Color(0, 0, 0, 1 - timer / layerChangeTime);
                 yield return null;
             }
-            bodyToMove.transform.position = new Vector3(bodyToMove.transform.position.x, -layer*layerHeight + startingHeight, bodyToMove.transform.position.z);
+            bodyToMove.transform.position = new Vector3(50f, -layer*layerHeight + startingHeight, -70f);
             timer = 4f;
             while (timer > 0)
             {
                 timer -= Time.deltaTime;
                 _fadingScreen.color = new Color(0, 0, 0, timer / 4f);
+                yield return null;
             }
             _fadingScreen.color = new Color(0, 0, 0, 0);
             _canMove = true;
