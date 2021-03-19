@@ -93,10 +93,16 @@ public class IntructorTuto : MonoBehaviour
             _fadingScreen.color = new Color(0, 0, 0, 1 - timer / 4f);
             yield return null;
         }
-
         SceneManager.LoadScene(1);
+        timer = 4f;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            _fadingScreen.color = new Color(0, 0, 0, timer / 4f);
+            yield return null;
+        }
+
         _fadingScreen.color = new Color(0, 0, 0, 0);
-        PlayerControl._canMove = true;
 
     }
 }

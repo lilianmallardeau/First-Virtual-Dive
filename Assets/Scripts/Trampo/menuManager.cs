@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class menuManager : MonoBehaviour
 {
-    
+
     [Header("Canvas")]
     [SerializeField] private Canvas settings;
     [SerializeField] private Canvas help;
@@ -18,6 +19,7 @@ public class menuManager : MonoBehaviour
     [SerializeField] private Canvas popDebutMain;
     [SerializeField] private GameObject menuEnd1;
     [SerializeField] private GameObject menuEnd2;
+    [SerializeField] private Image _fadingScreen;
 
     [Header("Sliders")]
     [SerializeField] private Slider thisGeneralVolume;
@@ -28,11 +30,15 @@ public class menuManager : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioSource menuSound;
 
+    [Header("Buttons")]
+    [SerializeField] private GameObject passTuto1;
+    [SerializeField] private GameObject passTuto2;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -46,6 +52,42 @@ public class menuManager : MonoBehaviour
         {
             menu = leftMenu;
         }
+        if (CheckPanneau.allCheck == 8)
+        {
+            passTuto1.tag = "PassTuto";
+            passTuto2.tag = "PassTuto";
+        }
+    }
+
+    IEnumerator PassTuto1()
+    {
+        menuSound.Play();
+        CheckPanneau.allCheck = 8;
+        yield return new WaitForSeconds(3f);
+        passTuto1.tag = "PassTuto";
+        passTuto2.tag = "PassTuto";
+    }
+
+    IEnumerator PassTutoCouroutine()
+    {
+        float timer = 4f;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            // TODO fade screen to black
+            _fadingScreen.color = new Color(0, 0, 0, 1 - timer / 4f);
+            yield return null;
+        }
+        SceneManager.LoadScene(1);
+        timer = 4f;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            _fadingScreen.color = new Color(0, 0, 0, timer / 4f);
+            yield return null;
+        }
+
+        _fadingScreen.color = new Color(0, 0, 0, 0);
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -122,9 +164,12 @@ public class menuManager : MonoBehaviour
         if (collider.gameObject.CompareTag("PassTuto"))
         {
             menuSound.Play();
+            StartCoroutine(PassTutoCouroutine());
             TutoFinish.tutoFinish = true;
-            CheckPanneau.allCheck = 8;
-            SceneManager.LoadScene("Dive");
+        }
+        if (collider.gameObject.CompareTag("PassTuto1"))
+        {
+            StartCoroutine(PassTuto1());
         }
         if (collider.gameObject.CompareTag("EndSuivant"))
         {
@@ -138,4 +183,6 @@ public class menuManager : MonoBehaviour
             SceneManager.LoadScene("Dive");
         }
     }
+
+
 }

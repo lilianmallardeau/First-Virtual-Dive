@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 5
-  diametre: 4
+  diametre: 6
   navChoice: 1
 --- !u!1 &100030
 GameObject:

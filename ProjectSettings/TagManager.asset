@@ -23,6 +23,7 @@ TagManager:
   - OkMainScene
   - EndSuivant
   - Restart
+  - PassTuto1
   layers:
   - Default
   - TransparentFX
