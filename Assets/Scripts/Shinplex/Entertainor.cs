@@ -27,6 +27,9 @@ public class Entertainor : MonoBehaviour
     
     public static bool lookAtMe = false;
     public float moveSpeed = 0f;
+
+    private Vector3 oldPos;
+    private bool idleUp;
     private float distanceFromObjective = 0f;
     private float alertTimer;
     private bool alerting = false;
@@ -97,10 +100,15 @@ public class Entertainor : MonoBehaviour
 
         if ( (transform.position - player.position).magnitude >= firstCircle ) {
             transform.position = Vector3.MoveTowards(transform.position, objective, moveSpeed * Time.deltaTime);
+            oldPos = transform.position;
         }
         
-        transform.LookAt(new Vector3(player.position.x, player.position.y + 3, player.position.z));
+        transform.Find("Body").LookAt(new Vector3(player.position.x, player.position.y, player.position.z));
+        //transform.LookAt(new Vector3(player.position.x, player.position.y, player.position.z));
         canvasPivot.transform.LookAt(player.position);
+
+
+
     }
 
     public void Ask()
