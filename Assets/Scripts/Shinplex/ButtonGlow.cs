@@ -10,7 +10,6 @@ public class ButtonGlow : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider) {
         if (collider.gameObject.CompareTag("YubiYubi")) {
-            Debug.LogWarning("AHAH");
             gameObject.GetComponent<Image>().sprite = glowImage;
         }
     }
