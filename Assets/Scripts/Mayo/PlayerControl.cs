@@ -71,13 +71,12 @@ public class PlayerControl : MonoBehaviour
             //mvtSpeed = 11f;
         }
 
-        lifeManager.currentLayer = layer;
+        if (lifeManager !=  null) lifeManager.currentLayer = layer;
             
     }
 
     void FixedUpdate()
     {
-        Debug.LogWarning(rigidbodyToMove.velocity);
         if (!isMoving) {
             rigidbodyToMove.velocity = Vector3.zero;
         }
