@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4824,6 +4824,11 @@ PrefabInstance:
       propertyPath: _rightHand
       value: 
       objectReference: {fileID: 922424627}
+    - target: {fileID: 8722034131360510570, guid: 92c7f072e494ba3478cb92584ae003b0,
+        type: 3}
+      propertyPath: rigidbodyToMove
+      value: 
+      objectReference: {fileID: 922424630}
     - target: {fileID: 8722034131996357569, guid: 92c7f072e494ba3478cb92584ae003b0,
         type: 3}
       propertyPath: gradient.ctime0
@@ -5016,6 +5021,12 @@ GameObject:
 --- !u!4 &922424629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8722034131687439397, guid: 92c7f072e494ba3478cb92584ae003b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 922424622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &922424630 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1606139061512076935, guid: 92c7f072e494ba3478cb92584ae003b0,
     type: 3}
   m_PrefabInstance: {fileID: 922424622}
   m_PrefabAsset: {fileID: 0}
@@ -6439,7 +6450,7 @@ GameObject:
   - component: {fileID: 1540161835}
   m_Layer: 5
   m_Name: PassTuto
-  m_TagString: PassTuto
+  m_TagString: PassTuto1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
