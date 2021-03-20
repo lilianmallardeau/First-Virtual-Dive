@@ -37,6 +37,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private ParticleSystem bubles;
     private bool expire = true;
 
+
+
     private void GetDevices()
     {
         InputDevices.GetDevicesAtXRNode(_xrNode, _devices);

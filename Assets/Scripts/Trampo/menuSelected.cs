@@ -7,6 +7,10 @@ public class menuSelected : MonoBehaviour
     [SerializeField] private Canvas rightMenu;
     [SerializeField] private Canvas leftMenu;
     // Start is called before the first frame update
+
+
+
+    
     void Start()
     {
         
