@@ -11,6 +11,8 @@ public class Entertainor : MonoBehaviour
     
     [SerializeField] private float alertMinTimer = 50f;
     [SerializeField] private float alertMaxTimer = 70f;
+    [SerializeField] private float popupTimer = 20f;
+    
     [SerializeField] private float moveSpeedMax = 8f;
     [SerializeField] private float distRemote = 5f;
     [SerializeField] private float firstCircle = 8f;
@@ -21,15 +23,20 @@ public class Entertainor : MonoBehaviour
     [SerializeField] private Sprite coldPic;
     [SerializeField] private Sprite oxygenPic;
     [SerializeField] private Sprite interrogPic;
+    [SerializeField] private GameObject forgotPopup;
     [SerializeField] private AudioSource entertainorAudioSource;
     [SerializeField] private AudioClip heySound;
     [SerializeField] private AudioClip alrightSound;
     
     public static bool lookAtMe = false;
     public float moveSpeed = 0f;
+
+    private Vector3 oldPos;
+    private bool idleUp;
     private float distanceFromObjective = 0f;
     private float alertTimer;
     private bool alerting = false;
+    private bool poppedUp = false;
     private enum Question {
         Ok,
         Cold,
@@ -49,6 +56,7 @@ public class Entertainor : MonoBehaviour
     [HideInInspector] public int reserveMistakes = 0;
     [HideInInspector] public int noAirGood = 0;
     [HideInInspector] public int noAirMistakes = 0;
+    [HideInInspector] public int forgotToAnswer = 0;
 
     public void Start()
     {
@@ -58,35 +66,55 @@ public class Entertainor : MonoBehaviour
     public void Update()
     {
         alertTimer -= Time.deltaTime;
-        if (alertTimer <= 0 && !alerting) {
-            alerting = true;
-            int choice = Random.Range(0,2);
-            switch (choice)
-            {
-                case 0:
-                    currentPic.sprite = okPic;
-                    question = Question.Ok;
-                    break;
-                case 1:
-                    currentPic.sprite = coldPic;
-                    question = Question.Cold;
-                    break;
-                case 2:
-                    currentPic.sprite = oxygenPic;
-                    question = Question.Oxygen;
-                    break;
-                default:
-                    break;
+        if (alertTimer <= 0) {
+            if (!alerting) {
+                alerting = true;
+                int choice = Random.Range(0,2);
+                switch (choice)
+                {
+                    case 0:
+                        currentPic.sprite = okPic;
+                        question = Question.Ok;
+                        break;
+                    case 1:
+                        currentPic.sprite = coldPic;
+                        question = Question.Cold;
+                        break;
+                    case 2:
+                        currentPic.sprite = oxygenPic;
+                        question = Question.Oxygen;
+                        break;
+                    default:
+                        break;
+                }
+                canvasPivot.SetActive(true);
+                entertainorAudioSource.PlayOneShot(heySound,0.5f);
+                alertTimer = popupTimer;
             }
-            canvasPivot.SetActive(true);
-            entertainorAudioSource.PlayOneShot(heySound,0.5f);
+            else {
+                if (lookAtMe) {
+                    alertTimer+=4f;
+                }
+                else {
+                    if (!poppedUp) {
+                        poppedUp = true;
+                        alertTimer = popupTimer;
+                        forgotPopup.gameObject.SetActive(true);
+                    }
+                    else {
+                        forgotToAnswer+=1;
+                        canvasPivot.SetActive(false);
+                        alerting = false;
+                        alertTimer = Random.Range(alertMinTimer,alertMaxTimer);
+                    }
+                }
+            }
         }
-
     }
 
     public void FixedUpdate()
     {
-        Vector3 objective = player.position + new Vector3(3, 0, 0) + (transform.position - player.position).normalized * firstCircle;
+        Vector3 objective = player.position + new Vector3(1, 0, 0) + (transform.position - player.position).normalized * firstCircle;
 
         distanceFromObjective = (transform.position - objective).magnitude;
 
@@ -97,10 +125,15 @@ public class Entertainor : MonoBehaviour
 
         if ( (transform.position - player.position).magnitude >= firstCircle ) {
             transform.position = Vector3.MoveTowards(transform.position, objective, moveSpeed * Time.deltaTime);
+            oldPos = transform.position;
         }
         
-        transform.LookAt(new Vector3(player.position.x, player.position.y + 3, player.position.z));
+        transform.Find("Body").LookAt(new Vector3(player.position.x, player.position.y, player.position.z));
+        //transform.LookAt(new Vector3(player.position.x, player.position.y, player.position.z));
         canvasPivot.transform.LookAt(player.position);
+
+
+
     }
 
     public void Ask()

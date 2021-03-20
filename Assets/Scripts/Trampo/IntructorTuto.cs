@@ -40,7 +40,8 @@ public class IntructorTuto : MonoBehaviour
         Vector3 objective = new Vector3(player.position.x, player.position.y, player.position.z);
         distanceFromObjective = (transform.position - objective).magnitude;
 
-        transform.LookAt(new Vector3(player.position.x, player.position.y, player.position.z));
+        transform.Find("Body").LookAt(new Vector3(player.position.x, player.position.y, player.position.z));
+        //transform.LookAt(new Vector3(player.position.x, player.position.y, player.position.z));
         canvasPivot.transform.LookAt(player.position);
 
         if (distanceFromObjective < 8f && startInstru)
