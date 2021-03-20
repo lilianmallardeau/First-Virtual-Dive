@@ -24,6 +24,10 @@ TagManager:
   - EndSuivant
   - Restart
   - PassTuto1
+  - ForgotAnswer
+  - CancelRemonter
+  - EndDive
+  - YubiYubi
   layers:
   - Default
   - TransparentFX

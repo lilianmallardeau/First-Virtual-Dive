@@ -14,8 +14,9 @@ public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private XRNode _xrNode = XRNode.RightHand;
     [SerializeField] private GameObject bodyToMove;
+    [SerializeField] private Rigidbody rigidbodyToMove;
     [SerializeField] private Image _fadingScreen;
-    [SerializeField] private Ender ender;
+    [SerializeField] private LifeManager lifeManager;
     public float mvtSpeed = 10f;
     [SerializeField] private float layerChangeTime = 4f;
     [SerializeField] private GestureEventsManager _gestureManager;
@@ -24,12 +25,14 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Entertainor entertainor;
     [SerializeField] private GameObject _leftHand;
     [SerializeField] private GameObject _rightHand;
+    [SerializeField] private GameObject popupRemonter;
     [SerializeField] private float _headTorsoDistance = .1f;
     [SerializeField] private float _speedUpMultiplier = 2;
 
     private List<InputDevice> _devices = new List<InputDevice>();
     private InputDevice _device;
     public static bool _canMove = true;
+    private bool isMoving = false;
     private bool _changingLayer = false;
     private int layer = 0;
     private float startingHeight;
@@ -56,7 +59,7 @@ public class PlayerControl : MonoBehaviour
             //GetDevices();
         }
         // Décommenter quand on build
-        if (CheckPanneau.allCheck != 8) _canMove = false;
+        //if (CheckPanneau.allCheck != 8) _canMove = false;
         else _canMove = true;
 
         if (expire == true)
@@ -65,9 +68,19 @@ public class PlayerControl : MonoBehaviour
         }
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            mvtSpeed = 11f;
+            //mvtSpeed = 11f;
         }
+
+        lifeManager.currentLayer = layer;
             
+    }
+
+    void FixedUpdate()
+    {
+        Debug.LogWarning(rigidbodyToMove.velocity);
+        if (!isMoving) {
+            rigidbodyToMove.velocity = Vector3.zero;
+        }
     }
 
     public void MoveForward()
@@ -90,7 +103,9 @@ public class PlayerControl : MonoBehaviour
 
     private IEnumerator ChangeLayerProcedureCoroutine(bool up)
     {
-        if (layer == 0 && up) StartCoroutine(ender.endCoroutine());
+        if (layer == 0 && up) {
+            popupRemonter.SetActive(true);
+        }
         else
         {
             _canMove = false;
@@ -125,16 +140,19 @@ public class PlayerControl : MonoBehaviour
         while (_gestureManager.CurrentGesture == GestureEventsManager.Gesture.GoForward)
         {
             if (_canMove)
-            {
+            {   
+                isMoving = true;
                 Vector3 direction = (_leftHand.transform.position + _rightHand.transform.position) / 2 - (this.transform.position - Vector3.up*_headTorsoDistance);
                 float intensity = direction.magnitude * _speedUpMultiplier;
-                bodyToMove.transform.Translate(direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime));
+                rigidbodyToMove.velocity = direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime);
+                //bodyToMove.transform.Translate(direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime));
                 float finalHeight = Mathf.Clamp(bodyToMove.transform.position.y, (-.5f - layer) * layerHeight + startingHeight, (.5f - layer) * layerHeight + startingHeight);
                 bodyToMove.transform.position = new Vector3(bodyToMove.transform.position.x, finalHeight, bodyToMove.transform.position.z);
             }
 
             yield return null;
         }
+        isMoving = false;
     }
 
      private IEnumerator RespirationCouroutine()

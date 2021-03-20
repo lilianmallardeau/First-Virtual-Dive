@@ -13,6 +13,7 @@ public class LifeManager : MonoBehaviour
     [SerializeField] private HealthBar oxygenBar2;
     [SerializeField] private HealthBar coldBar2;
 
+    public int currentLayer = 0;
     public float oxygenLevel = 100f;
     public float coldLevel = 100f;
     public bool oxygenMid = false;
@@ -56,14 +57,13 @@ public class LifeManager : MonoBehaviour
     private IEnumerator Live()
     {
         float time1 = 0;
-        float time2 = 0;
         float time3 = 0;
-        float modifier1 = Random.Range(0.8f,1.8f);
-        float modifier2 = Random.Range(0.8f,1.8f);
-        float modifier3 = Random.Range(0.8f,1.8f);
+        float modifier1 = Random.Range(1.2f,1.8f);
+        float modifier2 = 1f;
+        float modifier3 = Random.Range(1.2f,1.8f);
         float startValue = 100f;
 
-        while (time1 < 1800 && time2 < 1800 && time3 < 1800)
+        while (time1 < 1800 && time3 < 1800)
         {
             if (time1 < 1800)
             {
@@ -74,9 +74,21 @@ public class LifeManager : MonoBehaviour
                 coldLevel = Mathf.Lerp(startValue, 0f, time3 / 1800);
             }
             
-            time1 += Time.deltaTime * modifier1;
-            time2 += Time.deltaTime * modifier2;
-            time3 += Time.deltaTime * modifier3;
+            switch (currentLayer) {
+                case 0:
+                    modifier2 = 1f;
+                    break;
+                case 1:
+                    modifier2 = 1.5f;
+                    break;
+                case 2:
+                    modifier2 = 2f;
+                    break;
+                default:
+                    break;
+            }
+            time1 += Time.deltaTime * modifier1 * modifier2;
+            time3 += Time.deltaTime * modifier3 * modifier2;
 
             oxygenBar.HealthChange(oxygenLevel);
             coldBar.HealthChange(coldLevel);

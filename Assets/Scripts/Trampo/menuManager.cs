@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class menuManager : MonoBehaviour
 {
 
+    [SerializeField] private Ender ender;
+
     [Header("Canvas")]
     [SerializeField] private Canvas settings;
     [SerializeField] private Canvas help;
@@ -15,8 +17,10 @@ public class menuManager : MonoBehaviour
     [SerializeField] private Canvas leftMenu;
     [SerializeField] private Canvas popDebut;
     [SerializeField] private Canvas popFin;
-    [SerializeField] private Canvas popAlerte;
+    [SerializeField] private GameObject popAlerte;
+    [SerializeField] private GameObject popRemonter;
     [SerializeField] private Canvas popDebutMain;
+    [SerializeField] private GameObject popForgotAnswer;
     [SerializeField] private GameObject menuEnd1;
     [SerializeField] private GameObject menuEnd2;
     [SerializeField] private Image _fadingScreen;
@@ -90,7 +94,7 @@ public class menuManager : MonoBehaviour
         _fadingScreen.color = new Color(0, 0, 0, 0);
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerExit(Collider collider)
     {
         if (collider.gameObject.CompareTag("settingsButton"))
         {
@@ -182,6 +186,24 @@ public class menuManager : MonoBehaviour
             menuSound.Play();
             SceneManager.LoadScene("Dive");
         }
+        if (collider.gameObject.CompareTag("ForgotAnswer"))
+        {
+            menuSound.Play();
+            popForgotAnswer.gameObject.SetActive(false);
+        }
+        if (collider.gameObject.CompareTag("CancelRemonter"))
+        {
+            menuSound.Play();
+            popRemonter.gameObject.SetActive(false);
+        }
+        if (collider.gameObject.CompareTag("EndDive"))
+        {
+            menuSound.Play();
+            popRemonter.gameObject.SetActive(false);
+            StartCoroutine(ender.endCoroutine());
+        }
+
+
     }
 
 
