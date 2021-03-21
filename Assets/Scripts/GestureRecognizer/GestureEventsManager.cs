@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using OVRTouchSample;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class GestureEventsManager : MonoBehaviour
 {
+    public Text currGestTxt;
+    public Text checkDistance;
     public enum Gesture
     {
         None,
@@ -194,7 +197,7 @@ public class GestureEventsManager : MonoBehaviour
         }
         
         // Reserve
-        else if ((_leftHandGesture == HandGesture.Fist || _rightHandGesture == HandGesture.Fist) && (Vector3.Distance(_leftHand.transform.position, _leftHeadCamera.transform.position) < .035f || Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position) < .035f))
+        else if ((_leftHandGesture == HandGesture.Fist && Vector3.Distance(_leftHand.transform.position, _leftHeadCamera.transform.position) < .25f) || (_rightHandGesture == HandGesture.Fist) && Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position) < .25f)
         {
             CurrentGesture = Gesture.Reserve;
         }
@@ -436,6 +439,12 @@ public class GestureEventsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currGestTxt.text = CurrentGesture.ToString();
+        checkDistance.text = Vector3.Distance(_rightHand.transform.position, _rightHeadCamera.transform.position).ToString();
+        if (CurrentGesture == Gesture.NoMoreOxygen)
+        {
+            Debug.LogWarning("cc");
+        }
         ComputeFinalGesture();
         //GameObject.Find("text").GetComponent<TextMesh>().text = Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right).ToString();
 

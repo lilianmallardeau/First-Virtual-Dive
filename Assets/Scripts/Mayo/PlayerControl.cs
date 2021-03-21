@@ -91,7 +91,6 @@ public class PlayerControl : MonoBehaviour
 
     public void ChangeLayerProcedure(bool up)
     {
-        
         if (!_changingLayer)
         {
             if (Entertainor.lookAtMe)
