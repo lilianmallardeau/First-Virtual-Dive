@@ -13,8 +13,7 @@ public class LightIntensitySlider : MonoBehaviour
     private Color startColor;
 
 
-    private bool sliderIsRunning = false;
-    private bool none = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +36,7 @@ public class LightIntensitySlider : MonoBehaviour
 
     IEnumerator LightSlider()
     {
-        sliderIsRunning = true;
+
         GestureEventsManager.Gesture previousGesture = _gestureManager.CurrentGesture;
         float timer = 0.5f;
         while (timer > 0)
@@ -52,6 +51,6 @@ public class LightIntensitySlider : MonoBehaviour
         }
         rightHands.GetComponent<Renderer>().material.color = startColor;
         leftHands.GetComponent<Renderer>().material.color = startColor;
-        sliderIsRunning = false;
+
     }
 }
