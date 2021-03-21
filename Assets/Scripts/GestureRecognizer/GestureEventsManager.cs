@@ -5,6 +5,7 @@ using System.Linq;
 using OVRTouchSample;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 
 public static class Extensions
@@ -17,6 +18,7 @@ public static class Extensions
 
 public class GestureEventsManager : MonoBehaviour
 {
+    public Text debug;
     public enum Gesture
     {
         None,
@@ -227,7 +229,7 @@ public class GestureEventsManager : MonoBehaviour
         // No more oxygen
         // left hand.up = creux de la main
         // right hand.up = dos de la main
-        else if (((_leftHandGesture == HandGesture.Flat && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.8f) || (_rightHandGesture == HandGesture.Flat && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .8f))/* && Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .2f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .2f)) < .5f*/)
+        else if (((_leftHandGesture == HandGesture.Flat && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.8f) || (_rightHandGesture == HandGesture.Flat && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .8f)) && Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .2f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .2f)) < .5f)
         {
             if (_previousGesture != Gesture.NoMoreOxygen)
             {
@@ -315,12 +317,21 @@ public class GestureEventsManager : MonoBehaviour
             case Gesture.NoMoreOxygen:
                 do
                 {
-                    distance = Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .1f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .1f));
-                    
+                    //distance = Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .1f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .1f));
+                    Vector3 handTorsoDistanceRight = _rightHand.transform.position -
+                                                     (_centerHeadCamera.transform.position -
+                                                      _centerHeadCamera.transform.up * .15f);
+                    Vector3 handTorsoDistanceLeft = _leftHand.transform.position -
+                                                    (_centerHeadCamera.transform.position -
+                                                     _centerHeadCamera.transform.up * .15f);
+                    //distance = Mathf.Min((new Vector2(handTorsoDistanceRight.x, handTorsoDistanceRight.z)).magnitude, (new Vector2(handTorsoDistanceLeft.x, handTorsoDistanceLeft.z)).magnitude);
+                    distance = Mathf.Max(Vector3.Dot(handTorsoDistanceRight, _centerHeadCamera.transform.forward),
+                        Vector3.Dot(handTorsoDistanceLeft, _centerHeadCamera.transform.forward));
+
                     if (!gestureStarted && timer >= delayAnimatedFirst)
                     {
                         InvokeGestureEvent(Gesture.NoMoreOxygen);
-                        timer = .0f;
+                        timer -= delayAnimatedFirst;
                         gestureStarted = true;
                     }
                     else if (timer >= delayAnimatedSecond)
@@ -328,24 +339,32 @@ public class GestureEventsManager : MonoBehaviour
                         InvokeTriggeredGestureEvent(CurrentValidatedGesture = Gesture.NoMoreOxygen);
                         break;
                     }
-                    if (sampler > .1f)
+
+                    if (sampler > .05f)
                     {
-                        if ((!(Mathf.Abs(distance - prevDistance) >= 0.0025f) || ((_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu) && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.9f) || ((_rightHandGesture == HandGesture.Flat ||_rightHandGesture == HandGesture.Menu) && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .9f)))
+                        if (!((Mathf.Abs(distance - prevDistance) >= 0.005f) ||
+                              ((_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu) &&
+                               Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.9f) ||
+                              ((_rightHandGesture == HandGesture.Flat || _rightHandGesture == HandGesture.Menu) &&
+                               Vector3.Dot(_rightHand.transform.up, Vector3.up) > .9f)))
                         {
                             timer -= sampler;
                             if (timer < 0)
                             {
+                                Debug.LogWarning("timer < 0");
                                 break;
                             }
                         }
+
                         prevDistance = distance;
-                        sampler = 0f;
+                        sampler -= 0.05f;
                     }
 
                     timer += Time.deltaTime;
                     sampler += Time.deltaTime;
                     yield return null;
-                } while (distance < .5f);
+                } while (distance < .5f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) >= .5f);
+                Debug.LogWarning("distance at break : " + distance);
                 break;
             
             case Gesture.Cold:
@@ -411,7 +430,10 @@ public class GestureEventsManager : MonoBehaviour
         else if (gesture == Gesture.Reserve)
             Reserve.Invoke();
         else if (gesture == Gesture.NoMoreOxygen)
+        {
+            Debug.LogWarning("cc");
             NoMoreOxygen.Invoke();
+        }
         else if (gesture == Gesture.Menu)
             Menu.Invoke();
     }
@@ -437,10 +459,7 @@ public class GestureEventsManager : MonoBehaviour
         else if (gesture == Gesture.Reserve)
             ReserveTriggered.Invoke();
         else if (gesture == Gesture.NoMoreOxygen)
-        {
             NoMoreOxygenTriggered.Invoke();
-            Debug.LogWarning("cc");
-        }
         else if (gesture == Gesture.Menu)
             MenuTriggered.Invoke();
     }
@@ -454,6 +473,9 @@ public class GestureEventsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 handTorsoDistanceRight = _rightHand.transform.position - (_centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .15f);
+        Vector3 handTorsoDistanceLeft = _leftHand.transform.position - (_centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .15f);
+//        debug.text = Mathf.Max(Vector3.Dot(handTorsoDistanceRight, _centerHeadCamera.transform.forward), Vector3.Dot(handTorsoDistanceLeft, _centerHeadCamera.transform.forward)).ToString();
         ComputeFinalGesture();
         //GameObject.Find("text").GetComponent<TextMesh>().text = Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right).ToString();
 

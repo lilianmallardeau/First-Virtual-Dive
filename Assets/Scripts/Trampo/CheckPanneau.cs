@@ -217,6 +217,7 @@ public class CheckPanneau : MonoBehaviour
             yield return null;
         }
         panneau.gameObject.GetComponent<CanvasGroup>().alpha = 0;
+        panneau.gameObject.SetActive(false);
 
 
     }

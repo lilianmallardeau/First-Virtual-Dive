@@ -67,6 +67,7 @@ public class menuManager : MonoBehaviour
     {
         menuSound.Play();
         CheckPanneau.allCheck = 8;
+        menu.gameObject.SetActive(false);
         yield return new WaitForSeconds(2f);
         passTuto1.tag = "PassTuto";
         passTuto2.tag = "PassTuto";
@@ -184,6 +185,7 @@ public class menuManager : MonoBehaviour
         if (collider.gameObject.CompareTag("Restart"))
         {
             menuSound.Play();
+            TutoFinish.tutoFinish = false;
             SceneManager.LoadScene("Dive");
         }
         if (collider.gameObject.CompareTag("ForgotAnswer"))
