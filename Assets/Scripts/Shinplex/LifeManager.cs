@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LifeManager : MonoBehaviour
 {
-    [SerializeField] private Canvas popAlerte;
+    [SerializeField] private GameObject popAlerte;
     [SerializeField] private Text alertText;
     
     [SerializeField] private HealthBar oxygenBar;
