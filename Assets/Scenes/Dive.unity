@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -21815,18 +21815,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46ac13d61fe2df445849abb6fc1de197, type: 3}
---- !u!114 &1081623170 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8722034130191964057, guid: 92c7f072e494ba3478cb92584ae003b0,
-    type: 3}
-  m_PrefabInstance: {fileID: 8722034131259921691}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1088230310
 GameObject:
   m_ObjectHideFlags: 0
@@ -32134,8 +32122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df95b9845c96df647be257ab899b3142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popAlerte: {fileID: 1663553918}
-  alertText: {fileID: 1081623170}
+  popAlerte: {fileID: 454873536}
+  alertText: {fileID: 1565494071}
   oxygenBar: {fileID: 2038005266}
   coldBar: {fileID: 753739482}
   oxygenBar2: {fileID: 1863208235}
@@ -32509,12 +32497,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637723306}
   m_CullTransparentMesh: 0
---- !u!223 &1663553918 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 8722034130775393381, guid: 92c7f072e494ba3478cb92584ae003b0,
-    type: 3}
-  m_PrefabInstance: {fileID: 8722034131259921691}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1676331488
 PrefabInstance:
   m_ObjectHideFlags: 0
