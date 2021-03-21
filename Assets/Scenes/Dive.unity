@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -28432,6 +28432,7 @@ GameObject:
   - component: {fileID: 1190286517}
   - component: {fileID: 1190286516}
   - component: {fileID: 1190286515}
+  - component: {fileID: 1190286520}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -37548,6 +37549,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190286520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190286514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2aa69f9e4066be41844055c6c31207b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  mainCamera: {fileID: 0}
+  wallSizeFactor: 8
+  seaCenter: {x: 50, y: 0, z: -50}
+  seaRadius: 167.5
 --- !u!1 &1199372330
 GameObject:
   m_ObjectHideFlags: 0
@@ -37853,7 +37871,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66140
+  m_Name: pb_Mesh70496
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40902,7 +40920,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66744
+  m_Name: pb_Mesh71100
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
