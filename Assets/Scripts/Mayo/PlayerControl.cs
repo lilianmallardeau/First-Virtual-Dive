@@ -147,8 +147,10 @@ public class PlayerControl : MonoBehaviour
                 float intensity = direction.magnitude * _speedUpMultiplier;
                 rigidbodyToMove.velocity = direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime);
                 //bodyToMove.transform.Translate(direction.normalized * (intensity * mvtSpeed * Time.fixedDeltaTime));
-                float finalHeight = Mathf.Clamp(bodyToMove.transform.position.y, (-.5f - layer) * layerHeight + startingHeight, (.5f - layer) * layerHeight + startingHeight);
-                bodyToMove.transform.position = new Vector3(bodyToMove.transform.position.x, finalHeight, bodyToMove.transform.position.z);
+
+                // A REMMETTRE EN CAS DE BARRIERRES QUI DECONNENT
+                //float finalHeight = Mathf.Clamp(bodyToMove.transform.position.y, (-.5f - layer) * layerHeight + startingHeight, (.5f - layer) * layerHeight + startingHeight);
+                //bodyToMove.transform.position = new Vector3(bodyToMove.transform.position.x, finalHeight, bodyToMove.transform.position.z);
             }
 
             yield return null;
