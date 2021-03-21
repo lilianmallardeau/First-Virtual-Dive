@@ -46,7 +46,6 @@ public class PlayerControl : MonoBehaviour
     {
         InputDevices.GetDevicesAtXRNode(_xrNode, _devices);
         _device = _devices.FirstOrDefault();
-        Debug.LogError($"Controlled device is {_device}");
     }
     
     void Start()
