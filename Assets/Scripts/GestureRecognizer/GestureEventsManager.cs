@@ -300,7 +300,7 @@ public class GestureEventsManager : MonoBehaviour
             case Gesture.NoMoreOxygen:
                 do
                 {
-                    distance = Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position/* - _centerHeadCamera.transform.up * .1f*/), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .1f));
+                    distance = Mathf.Min(Vector3.Distance(_leftHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .1f), Vector3.Distance(_rightHand.transform.position, _centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .1f));
                     
                     if (!gestureStarted && timer >= delayAnimatedFirst)
                     {
@@ -315,7 +315,6 @@ public class GestureEventsManager : MonoBehaviour
                     }
                     if (sampler > .1f)
                     {
-                        Debug.LogWarning(timer);
                         if ((!(Mathf.Abs(distance - prevDistance) >= 0.0025f) || ((_leftHandGesture == HandGesture.Flat || _leftHandGesture == HandGesture.Menu) && Vector3.Dot(_leftHand.transform.up, Vector3.up) < -.9f) || ((_rightHandGesture == HandGesture.Flat ||_rightHandGesture == HandGesture.Menu) && Vector3.Dot(_rightHand.transform.up, Vector3.up) > .9f)))
                         {
                             timer -= sampler;
