@@ -197,12 +197,12 @@ public class GestureEventsManager : MonoBehaviour
             CurrentGesture = Gesture.HalfPressure;
         
         // Menu
-        else if ((_rightHandGesture == HandGesture.Menu || _rightHandGesture == HandGesture.Flat) && Vector3.Dot(Vector3.up, _rightHand.transform.up) < 0 && Math.Abs(Vector3.Dot(Vector3.up, _rightHand.transform.up)) > .8)
+        else if (_rightHandGesture == HandGesture.Menu && Vector3.Dot(Vector3.up, _rightHand.transform.up) < 0 && Math.Abs(Vector3.Dot(Vector3.up, _rightHand.transform.up)) > .8)
         {
             CurrentGesture = Gesture.Menu;
             hand = "right";
         }
-        else if ((_leftHandGesture == HandGesture.Menu || _leftHandGesture == HandGesture.Flat) && Vector3.Dot(Vector3.up, _leftHand.transform.up) > 0 && Math.Abs(Vector3.Dot(Vector3.up, _leftHand.transform.up)) > .8)
+        else if (_leftHandGesture == HandGesture.Menu && Vector3.Dot(Vector3.up, _leftHand.transform.up) > 0 && Math.Abs(Vector3.Dot(Vector3.up, _leftHand.transform.up)) > .8)
         {
             CurrentGesture = Gesture.Menu;
             hand = "left";
