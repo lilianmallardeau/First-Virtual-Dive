@@ -28,7 +28,7 @@ public class LifeManager : MonoBehaviour
 
     public void Update()
     {
-        if (oxygenLevel <= 35 && !oxygenMid)
+        if (oxygenLevel <= 50 && !oxygenMid)
         {
             oxygenMid = true;
             alertText.text = "Votre niveau d'Oxygène est à mi-pression.\n N'oubliez pas de prévenir votre accompagnateur.";
@@ -46,7 +46,7 @@ public class LifeManager : MonoBehaviour
             alertText.text = "Votre niveau d'Oxygène est très bas !\n Prévenez votre accompagnateur au plus vite !";
             popAlerte.gameObject.SetActive(true);
         }
-        if (coldLevel <= 5 && !isVeryCold)
+        if (coldLevel <= 10 && !isVeryCold)
         {
             isVeryCold = true;
             alertText.text = "Vous avez froid !\n Prévenez votre accompagnateur au plus vite !";
