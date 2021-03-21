@@ -185,6 +185,7 @@ public class menuManager : MonoBehaviour
         if (collider.gameObject.CompareTag("Restart"))
         {
             menuSound.Play();
+            TutoFinish.tutoFinish = false;
             SceneManager.LoadScene("Dive");
         }
         if (collider.gameObject.CompareTag("ForgotAnswer"))
