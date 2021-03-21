@@ -48757,7 +48757,7 @@ MonoBehaviour:
   menuEnd: {fileID: 1161392238}
   menuEnd2: {fileID: 2015756869}
   menuEnd3: {fileID: 1987449298}
-  minimalLength: 20
+  minimalLength: 300
   messageFin1: {fileID: 885880440}
   lengthN: {fileID: 692946942}
   lengthN2: {fileID: 501235158}
