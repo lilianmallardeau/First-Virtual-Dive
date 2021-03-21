@@ -60,8 +60,8 @@ public class PlayerControl : MonoBehaviour
         {
             //GetDevices();
         }
-        // Décommenter quand on build
-        //if (CheckPanneau.allCheck != 8) _canMove = false;
+        // Décommenter quand on fait la scène tuto
+        if (CheckPanneau.allCheck != 8) _canMove = false;
         else _canMove = true;
 
         if (expire == true)
