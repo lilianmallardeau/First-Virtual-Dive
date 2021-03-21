@@ -1,9 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using OVRTouchSample;
 using UnityEngine;
 using UnityEngine.Events;
+
+
+public static class Extensions
+{
+    public static bool In<T>(this T value, params T[] input)
+    {
+        return input.Any(n => object.Equals(n, value));
+    }
+}
 
 public class GestureEventsManager : MonoBehaviour
 {
@@ -28,7 +38,8 @@ public class GestureEventsManager : MonoBehaviour
         Ok,
         Flat,
         Fist,
-        Menu
+        Menu,
+        HandOnArm
     }
 
     public enum Hand
@@ -138,6 +149,10 @@ public class GestureEventsManager : MonoBehaviour
             case "Menu":
                 handGesture = HandGesture.Menu;
                 break;
+            case "handonarm":
+            case "HandOnArm":
+                handGesture = HandGesture.HandOnArm;
+                break;
         }
 
         if (hand == OVRHand.Hand.HandLeft)
@@ -200,7 +215,7 @@ public class GestureEventsManager : MonoBehaviour
         }
         
         // Cold
-        else if (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .25f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
+        else if (((_leftHandGesture.In(HandGesture.HandOnArm, HandGesture.Menu) && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture.In(HandGesture.HandOnArm, HandGesture.Menu))) && Mathf.Abs(Vector3.Dot(_rightHand.transform.right, -_leftHand.transform.right)) < .25f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) < .3f)
         {
             if (_previousGesture != Gesture.Cold)
             {
@@ -352,7 +367,7 @@ public class GestureEventsManager : MonoBehaviour
 
                     if (sampler > .1f)
                     {
-                        if (Mathf.Abs(distance - prevDistance) < .005f)
+                        if (Mathf.Abs(distance - prevDistance) < .005f || !((_leftHandGesture.In(HandGesture.HandOnArm, HandGesture.Menu) && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture.In(HandGesture.HandOnArm, HandGesture.Menu))))
                         {
                             timer -= sampler;
                             if (timer < 0)
@@ -367,7 +382,7 @@ public class GestureEventsManager : MonoBehaviour
                     timer += Time.deltaTime;
                     sampler += Time.deltaTime;
                     yield return null;
-                } while (((_leftHandGesture == HandGesture.Menu && _rightHandGesture == HandGesture.Fist) || (_leftHandGesture == HandGesture.Fist && _rightHandGesture == HandGesture.Menu)) && distance < .3f);
+                } while (distance < .3f);
                 break;
             
             default:
