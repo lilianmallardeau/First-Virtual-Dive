@@ -403,9 +403,6 @@ public class GestureEventsManager : MonoBehaviour
                     yield return null;
                 } while (distance < .3f);
                 break;
-            
-            default:
-                break;
         }
     }
 
@@ -475,9 +472,7 @@ public class GestureEventsManager : MonoBehaviour
     {
         Vector3 handTorsoDistanceRight = _rightHand.transform.position - (_centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .15f);
         Vector3 handTorsoDistanceLeft = _leftHand.transform.position - (_centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .15f);
-//        debug.text = Mathf.Max(Vector3.Dot(handTorsoDistanceRight, _centerHeadCamera.transform.forward), Vector3.Dot(handTorsoDistanceLeft, _centerHeadCamera.transform.forward)).ToString();
         ComputeFinalGesture();
-        //GameObject.Find("text").GetComponent<TextMesh>().text = Vector3.Dot(_rightHand.transform.right, _leftHand.transform.right).ToString();
 
         if (Time.time - _timer >= delay && CurrentValidatedGesture != CurrentGesture)
         {
