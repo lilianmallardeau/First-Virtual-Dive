@@ -30421,6 +30421,11 @@ PrefabInstance:
       objectReference: {fileID: 3969371913088364706}
     - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
         type: 3}
+      propertyPath: _centerHeadCamera
+      value: 
+      objectReference: {fileID: 7260243314424117840}
+    - target: {fileID: 6158070828768264351, guid: 3e51f2831453d714fab8c25e8774316e,
+        type: 3}
       propertyPath: Up.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8722034131360510570}
