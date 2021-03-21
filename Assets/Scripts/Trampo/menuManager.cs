@@ -67,7 +67,7 @@ public class menuManager : MonoBehaviour
     {
         menuSound.Play();
         CheckPanneau.allCheck = 8;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         passTuto1.tag = "PassTuto";
         passTuto2.tag = "PassTuto";
     }
