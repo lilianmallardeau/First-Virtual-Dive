@@ -5,7 +5,6 @@ using System.Linq;
 using OVRTouchSample;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 
 public static class Extensions
@@ -18,7 +17,6 @@ public static class Extensions
 
 public class GestureEventsManager : MonoBehaviour
 {
-    public Text debug;
     public enum Gesture
     {
         None,
@@ -351,7 +349,6 @@ public class GestureEventsManager : MonoBehaviour
                             timer -= sampler;
                             if (timer < 0)
                             {
-                                Debug.LogWarning("timer < 0");
                                 break;
                             }
                         }
@@ -364,7 +361,6 @@ public class GestureEventsManager : MonoBehaviour
                     sampler += Time.deltaTime;
                     yield return null;
                 } while (distance < .5f && Vector3.Distance(_leftHand.transform.position, _rightHand.transform.position) >= .5f);
-                Debug.LogWarning("distance at break : " + distance);
                 break;
             
             case Gesture.Cold:
@@ -427,10 +423,7 @@ public class GestureEventsManager : MonoBehaviour
         else if (gesture == Gesture.Reserve)
             Reserve.Invoke();
         else if (gesture == Gesture.NoMoreOxygen)
-        {
-            Debug.LogWarning("cc");
             NoMoreOxygen.Invoke();
-        }
         else if (gesture == Gesture.Menu)
             Menu.Invoke();
     }
@@ -470,8 +463,6 @@ public class GestureEventsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 handTorsoDistanceRight = _rightHand.transform.position - (_centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .15f);
-        Vector3 handTorsoDistanceLeft = _leftHand.transform.position - (_centerHeadCamera.transform.position - _centerHeadCamera.transform.up * .15f);
         ComputeFinalGesture();
 
         if (Time.time - _timer >= delay && CurrentValidatedGesture != CurrentGesture)
