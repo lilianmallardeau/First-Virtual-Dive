@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -868,7 +868,7 @@ PrefabInstance:
     - target: {fileID: 3652390542707912315, guid: f6d1fc430882601499b9d022ac88ea25,
         type: 3}
       propertyPath: m_Text
-      value: "Lorsque vous regarder votre menu, une jauge d'oxyg\xE8ne repr\xE9sente
+      value: "Lorsque vous regardez votre menu, une jauge d'oxyg\xE8ne repr\xE9sente
         votre manom\xE8tre.\n\nFaites ce geste quand le niveau d'oxyg\xE8ne est \xE0
         50%."
       objectReference: {fileID: 0}
@@ -5337,8 +5337,8 @@ PrefabInstance:
     - target: {fileID: 3652390542707912315, guid: f6d1fc430882601499b9d022ac88ea25,
         type: 3}
       propertyPath: m_Text
-      value: "Lorse que vous explorez, vous pouvez descendre d'un palier.\n\nIl suffit
-        de faire ce signe \xE0 votre co\xE9quipier ou moniteur pour lui in diquer
+      value: "Lorsque que vous explorez, vous pouvez descendre d'un palier.\n\nIl
+        suffit de faire ce signe \xE0 votre co\xE9quipier ou moniteur pour lui indiquer
         votre d\xE9sir de descendre. "
       objectReference: {fileID: 0}
     - target: {fileID: 6955652015665248159, guid: f6d1fc430882601499b9d022ac88ea25,
@@ -6381,9 +6381,9 @@ PrefabInstance:
     - target: {fileID: 3652390542707912315, guid: f6d1fc430882601499b9d022ac88ea25,
         type: 3}
       propertyPath: m_Text
-      value: "Le menu vous permetra de modifier des param\xE8tres, de consulter la
-        listes des signes ou de quitter. Il indique \xE9galement votre niveau de
-        froid et votre niveau d'oxyg\xE8ne.\n\nPour l'afficher, il suffit de placer
+      value: "Le menu vous permettra de modifier des param\xE8tres, de consulter
+        la listes des signes ou de quitter. Il indique \xE9galement votre niveau
+        de froid et votre niveau d'oxyg\xE8ne.\n\nPour l'afficher, il suffit de placer
         votre main devant vous avec la paume vers le haut."
       objectReference: {fileID: 0}
     - target: {fileID: 6955652015665248159, guid: f6d1fc430882601499b9d022ac88ea25,
@@ -6550,7 +6550,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "Ce signe est \xE0 la fois une question \xAB Est-ce que \xE7a va ? \xBB
-        et une r\xE9ponse \xAB Ok, Tout va bien \xBB.\r\n\r\nLorsque votre moniteur
+        et une r\xE9ponse \xAB Ok, tout va bien \xBB.\r\n\r\nLorsque votre moniteur
         ou votre guide de palanqu\xE9e vous fait ce signe, vous devez r\xE9pondre
         soit \xAB Ok, tout va bien \xBB, soit \xAB \xC7a ne va pas \xBB en d\xE9signant
         \xE9ventuellement ce qui ne va pas."
@@ -21695,8 +21695,8 @@ PrefabInstance:
     - target: {fileID: 3652390542707912315, guid: f6d1fc430882601499b9d022ac88ea25,
         type: 3}
       propertyPath: m_Text
-      value: "Lorse que vous explorez, vous pouvez remonter d'un palier.\n\nIl suffit
-        de faire ce signe \xE0 votre co\xE9quipier ou moniteur pour lui in diquer
+      value: "Lorsque que vous explorez, vous pouvez remonter d'un palier.\n\nIl
+        suffit de faire ce signe \xE0 votre co\xE9quipier ou moniteur pour lui \nindiquer
         votre d\xE9sir de monter. "
       objectReference: {fileID: 0}
     - target: {fileID: 6955652015665248159, guid: f6d1fc430882601499b9d022ac88ea25,
